@@ -32,6 +32,7 @@ public class Panel extends JPanel implements KeyListener,
 	private Timer t;
 	
 	public Panel(){
+        panelState = 1; //start at game
         pixelsPerSecond = 100; //very important for computer speed vs. graphic speed
         font = new Font ("Arial", Font.BOLD, 18);
         menu1 = new MainMenu();
@@ -66,7 +67,7 @@ public class Panel extends JPanel implements KeyListener,
         Graphics2D g = (Graphics2D)g1;
         g.setFont(font);
         super.paintComponent(g);
-		setBackground(Color.BLACK);
+		setBackground(Color.WHITE);
         if (Window.isStretched()) g.drawImage(buffered, 0,0,Window.getWidth(),Window.getHeight(),this);
         else{ //for exact proportion
             double ratio =  ((double)Window.getOriginalWidth()/(double)Window.getOriginalHeight());

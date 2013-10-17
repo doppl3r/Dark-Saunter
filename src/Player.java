@@ -17,24 +17,24 @@ public class Player {
     private boolean right;
 
     public Player(){
-        //sprite = new SpriteSheet(Window.tt.mage1,4,4,0.1);
-        sprite.resize(32,64);
+        sprite = new SpriteSheet(Window.tt.toon,8,4,0.2);
+        sprite.resize(64,64);
         sprite.center();
+        sprite.animate(16); //start looking down
 
         x = Window.getWidth()/2;
         y = Window.getHeight()/2;
-        xSpeed = ySpeed = 4;
+        xSpeed = ySpeed = 0.5;
     }
     public void draw(Graphics2D g){
         sprite.draw(g);
     }
     public void update(double mod){
         //animations
-        if (up) sprite.animate(12,16);
-        else if (down) sprite.animate(8,12);
-        else if (left) sprite.animate(4,8);
-        else if (right) sprite.animate(0,4);
-        if (!up && !down && !left && !right) sprite.animate(8);
+        if (up) sprite.animate(0,8,mod);
+        else if (right) sprite.animate(8,16,mod);
+        else if (down) sprite.animate(16,24,mod);
+        else if (left) sprite.animate(24,32,mod);
         //direction
         if (up) y-=ySpeed*mod;
         if (down) y+=ySpeed*mod;
@@ -48,10 +48,22 @@ public class Player {
         //update the x value to the sprite
         sprite.update(x,y);
     }
-    public void moveUp(boolean up){ this.up=up; }
-    public void moveRight(boolean right){ this.right=right; }
-    public void moveDown(boolean down){ this.down=down; }
-    public void moveLeft(boolean left){ this.left=left; }
+    public void moveUp(boolean up){
+        if (!up) sprite.animate(0);
+        this.up=up;
+    }
+    public void moveRight(boolean right){
+        if (!right) sprite.animate(8);
+        this.right=right;
+    }
+    public void moveDown(boolean down){
+        if (!down) sprite.animate(16);
+        this.down=down;
+    }
+    public void moveLeft(boolean left){
+        if (!left) sprite.animate(24);
+        this.left=left;
+    }
     public void addPoint(){ score++; }
     public int getScore(){ return score; }
     public int getWidth(){ return sprite.getSpriteWidth(); }

@@ -70,6 +70,21 @@ public class SpriteSheet {
 		spriteRect.left = (((int)currentFrame)%hFrames)*spriteWidth;
 		spriteRect.right = spriteRect.left + spriteWidth;
 	}
+    public void animate(int start, int end, double mod){
+        end++;
+        //animates between a certain frame
+        if (currentFrame < start) currentFrame = start;
+        if (currentFrame+(rate*mod) < end-1) currentFrame+=(rate*mod);
+        else{
+            finished = true;
+            currentFrame = start;
+        }
+        //adjust sprite location
+        spriteRect.top = (((int)currentFrame)/hFrames)*spriteHeight;
+        spriteRect.bottom = spriteRect.top + spriteHeight;
+        spriteRect.left = (((int)currentFrame)%hFrames)*spriteWidth;
+        spriteRect.right = spriteRect.left + spriteWidth;
+    }
 	public void build(double x, double y, int xSize, int ySize){
 		update(x,y,xSize,ySize);
 		this.x=(int)x;
