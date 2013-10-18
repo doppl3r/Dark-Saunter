@@ -36,7 +36,7 @@ public class Window {
         height = originalHeight = 480;
         //stretched = true;
 		panel = new Panel();
-		title = "Zombie Mage - Doppler Indie Games";
+		title = "Dark Saunter - Doppler Indie Games";
 		version = "v0.1";
 		//build window
 		jf.setIconImage(tt.icon_hd);

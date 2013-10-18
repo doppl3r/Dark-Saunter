@@ -24,7 +24,7 @@ public class Player {
 
         x = Window.getWidth()/2;
         y = Window.getHeight()/2;
-        xSpeed = ySpeed = 0.5;
+        xSpeed = ySpeed = 1.0; //0.5 works
     }
     public void draw(Graphics2D g){
         sprite.draw(g);
