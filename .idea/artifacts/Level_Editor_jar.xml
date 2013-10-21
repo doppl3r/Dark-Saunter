@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Level Editor:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Level_Editor_jar</output-path>
+    <root id="archive" name="Dark Saunter.jar">
+      <element id="module-output" name="Dark Saunter" />
+    </root>
+  </artifact>
+</component>

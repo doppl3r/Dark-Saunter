@@ -1,16 +1,11 @@
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+package LevelEditor;
 
-public class Panel extends JPanel implements KeyListener,
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.awt.image.BufferedImage;
+
+public class LevelPanel extends JPanel implements KeyListener,
         MouseListener, MouseMotionListener, Runnable {
 	private static final long serialVersionUID = 1L;
     private boolean paused; //pause option
@@ -26,18 +21,16 @@ public class Panel extends JPanel implements KeyListener,
     private int fps = 0;
     private Font font;
     BufferedImage buffered;
-    public MainMenu menu1;
-    public Game game;
-    public GUI gui;
+    public Editor editor;
+    public LevelGUI gui;
 	private Timer t;
-	
-	public Panel(){
+
+	public LevelPanel(){
         panelState = 1; //start at editor
         pixelsPerSecond = 100; //very important for computer speed vs. graphic speed
         font = new Font ("Arial", Font.BOLD, 18);
-        menu1 = new MainMenu();
-        game = new Game();
-        gui = new GUI();
+        editor = new Editor();
+        gui = new LevelGUI();
 
         //start music
         //AudioHandler.THEME.clip.loop(-1);
@@ -67,17 +60,17 @@ public class Panel extends JPanel implements KeyListener,
         Graphics2D g = (Graphics2D)g1;
         g.setFont(font);
         super.paintComponent(g);
-		setBackground(Color.WHITE);
-        if (Window.isStretched()) g.drawImage(buffered, 0,0,Window.getWidth(),Window.getHeight(),this);
+		setBackground(new Color(43,43,43));
+        if (LevelWindow.isStretched()) g.drawImage(buffered, 0,0, LevelWindow.getWidth(), LevelWindow.getHeight(),this);
         else{ //for exact proportion
-            double ratio =  ((double)Window.getOriginalWidth()/(double)Window.getOriginalHeight());
+            double ratio =  ((double) LevelWindow.getOriginalWidth()/(double) LevelWindow.getOriginalHeight());
             g.drawImage(buffered,
-                /*x1*/ (Window.getWidth()/2)-((int)(Window.getHeight()*ratio)/2),
+                /*x1*/ (LevelWindow.getWidth()/2)-((int)(LevelWindow.getHeight()*ratio)/2),
                 /*y1*/ 0,
-                /*x2*/ (int)(Window.getHeight()*ratio),
-                /*y2*/ Window.getHeight(), this);
+                /*x2*/ (int)(LevelWindow.getHeight()*ratio),
+                /*y2*/ LevelWindow.getHeight(), this);
         }
-        Window.updateSize(); //Window.jf
+        LevelWindow.updateSize(); //Window.jf
         doubleBuffer();
 	}
     public void draw(Graphics2D g){
@@ -85,15 +78,14 @@ public class Panel extends JPanel implements KeyListener,
         //draw components
         if (!paused){
             switch(panelState){
-                case(0): menu1.draw(g); break;
-                case(1): game.draw(g); break;
+                case(1): editor.draw(g); break;
             }
         }
         gui.draw(g);
         updateFPS(); //updatesfps after drawn completely
     }
     public void doubleBuffer(){
-        buffered = new BufferedImage(Window.getOriginalWidth(),Window.getOriginalHeight(),
+        buffered = new BufferedImage(LevelWindow.getOriginalWidth(), LevelWindow.getOriginalHeight(),
             BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = buffered.createGraphics();
         draw(g);
@@ -102,8 +94,7 @@ public class Panel extends JPanel implements KeyListener,
 		//update the components
         if (!paused){
             switch(panelState){
-                case(0): menu1.update(mod); break;
-                case(1): game.update(mod); break;
+                case(1): editor.update(mod); break;
             }
         }
         gui.update();
@@ -114,24 +105,22 @@ public class Panel extends JPanel implements KeyListener,
         switch(panelState){
             case(0): break;
             case(1): //editor keybindings
-                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { game.keyUpPressed(); }
-                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { game.keyRightPressed(); }
-                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownPressed(); }
-                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftPressed(); }
-                if (key == KeyEvent.VK_ESCAPE){ Window.toggleFullScreen(); }
-                if (key == KeyEvent.VK_F12){ Window.toggleStretched(); }
+                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpPressed(); }
+                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
+                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
+                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
            break;
         }
 	}
 	public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         switch(panelState){
-            case(0): if (key != 0) menu1.loadGame(); break;
+            case(0): if (key != 0) {}
             case(1): //editor keybindings
-                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { game.keyUpReleased(); }
-                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { game.keyRightReleased(); }
-                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { game.keyDownReleased(); }
-                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { game.keyLeftReleased(); }
+                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpReleased(); }
+                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightReleased(); }
+                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownReleased(); }
+                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftReleased(); }
             break;
         }
     }
@@ -142,19 +131,27 @@ public class Panel extends JPanel implements KeyListener,
     public void mousePressed(MouseEvent e) { //down
         int x = e.getX();
         int y = e.getY();
+        editor.down(x,y);
+        gui.down(x,y);
     }
     public void mouseDragged(MouseEvent e) { //move
         int x = e.getX();
         int y = e.getY();
+        editor.move(x,y);
+        gui.move(x,y);
     }
     public void mouseReleased(MouseEvent e) { //up
         int x = e.getX();
         int y = e.getY();
+        editor.up(x,y);
+        gui.up(x,y);
     }
     public void mouseMoved(MouseEvent e) {
         //update cursor
         int x = e.getX();
         int y = e.getY();
+        editor.hover(x,y);
+        gui.hover(x,y);
     }
     //update FPS
     public void updateFPS() {
@@ -180,5 +177,4 @@ public class Panel extends JPanel implements KeyListener,
             mod = delta*pixelsPerSecond;
         } else then = now;
     }
-    public void setPanelState(int i){ panelState = i; }
 }

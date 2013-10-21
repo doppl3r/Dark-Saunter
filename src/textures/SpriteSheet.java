@@ -11,8 +11,8 @@ public class SpriteSheet {
 	private boolean centered;
 	private int imgWidth;
 	private int imgHeight;
-	private int spriteWidth;
-	private int spriteHeight;
+	private int spriteWidth;  //never change after initializing!
+	private int spriteHeight; //never change after initializing!
 	private int hFrames;
 	private int vFrames;
 	private int frames;
@@ -22,18 +22,19 @@ public class SpriteSheet {
 	private Rect spriteRect, destRect;
 
 	public SpriteSheet(Image image, int hFrames, int vFrames, double rate){
-		this.hFrames=hFrames;
-		this.vFrames=vFrames;
-		this.image=image;
-		this.rate=rate;
-		spriteWidth =imgWidth =image.getWidth(null) /this.hFrames;
+		this.hFrames=hFrames; //horizontal frames (ex: 4)
+		this.vFrames=vFrames; //vertical frames (ex: 4)
+		this.image=image; //commonly a bitmap, it must be stored into this class in order to be drawn
+		this.rate=rate; //0.0 = not animating, 1.0 = animating at fastest possible rate
+
+		spriteWidth =imgWidth = image.getWidth(null)/this.hFrames; //commonly results in 32x32 or 16x16
 		spriteHeight=imgHeight=image.getHeight(null)/this.vFrames;
 		
-		frames = (int)(hFrames*vFrames);
-		spriteRect = new Rect(0,0,imgWidth,imgHeight);
-		destRect = new Rect();
+		frames = (int)(hFrames*vFrames); //4x4 = 16 possible frames
+		spriteRect = new Rect(0,0,imgWidth,imgHeight); //this determines what frame of the sprite to show
+		destRect = new Rect(); //this is where that particular frame will be drawn
 	}
-	public boolean animate(){
+	public boolean animate(){ //forced animation
 		finished = false;
 		if (currentFrame+rate < frames) currentFrame+=rate;
 		else{
@@ -47,7 +48,7 @@ public class SpriteSheet {
 		spriteRect.right = spriteRect.left + spriteWidth;
 		return finished;
     }
-	public void animate(int frame){
+	public void animate(int frame){ //draws a particular frame from the animation
         currentFrame=frame;
 		//adjust sprite location
 		spriteRect.top = ((frame)/hFrames)*spriteHeight;
@@ -55,7 +56,7 @@ public class SpriteSheet {
 		spriteRect.left = ((frame)%hFrames)*spriteWidth;
 		spriteRect.right = spriteRect.left + spriteWidth;
 	}
-	public void animate(int start, int end){
+	public void animate(int start, int end){ //draws frames in a given order (ex: animate(4,8) == 4,5,6,7;
 		end++;
 		//animates between a certain frame
 		if (currentFrame < start) currentFrame = start;
@@ -70,7 +71,7 @@ public class SpriteSheet {
 		spriteRect.left = (((int)currentFrame)%hFrames)*spriteWidth;
 		spriteRect.right = spriteRect.left + spriteWidth;
 	}
-    public void animate(int start, int end, double mod){
+    public void animate(int start, int end, double mod){ //animates in a given order with a mod variable
         end++;
         //animates between a certain frame
         if (currentFrame < start) currentFrame = start;
@@ -85,19 +86,19 @@ public class SpriteSheet {
         spriteRect.left = (((int)currentFrame)%hFrames)*spriteWidth;
         spriteRect.right = spriteRect.left + spriteWidth;
     }
-	public void build(double x, double y, int xSize, int ySize){
+	public void build(double x, double y, int xSize, int ySize){ //initiates the frame
 		update(x,y,xSize,ySize);
 		this.x=(int)x;
 		this.y=(int)y;
 	}
-	public void draw(Graphics2D g){
+	public void draw(Graphics2D g){ //draws your sprite at the exact frame and possition
 		g.drawImage(getImage(), 
 				getDestRectLeft(), getDestRectTop(),
 				getDestRectRight(), getDestRectBottom(), 
 				getSpriteLeft(), getSpriteTop(), 
 				getSpriteRight(), getSpriteBottom(), null);
 	}
-	public void update(double x, double y){
+	public void update(double x, double y){ //this is strictly used to move your sprite on the screen, not animate
 		//texture placement
 		if (centered){
 			destRect.top = (int)(y-(imgHeight/2));
