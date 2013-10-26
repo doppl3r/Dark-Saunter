@@ -28,12 +28,9 @@ public class LevelPanel extends JPanel implements KeyListener,
 	public LevelPanel(){
         panelState = 1; //start at editor
         pixelsPerSecond = 100; //very important for computer speed vs. graphic speed
-        font = new Font ("Arial", Font.BOLD, 18);
+        font = new Font ("Arial", Font.BOLD, 12);
         editor = new Editor();
         gui = new LevelGUI();
-
-        //start music
-        //AudioHandler.THEME.clip.loop(-1);
 
 		//set listeners and thread
 		addKeyListener(this);
@@ -58,38 +55,20 @@ public class LevelPanel extends JPanel implements KeyListener,
 	public void paintComponent(Graphics g1){ //alt for paint
         //convert to Graphics2D
         Graphics2D g = (Graphics2D)g1;
-        g.setFont(font);
         super.paintComponent(g);
+        g.setFont(font);
 		setBackground(new Color(43,43,43));
-        if (LevelWindow.isStretched()) g.drawImage(buffered, 0,0, LevelWindow.getWidth(), LevelWindow.getHeight(),this);
-        else{ //for exact proportion
-            double ratio =  ((double) LevelWindow.getOriginalWidth()/(double) LevelWindow.getOriginalHeight());
-            g.drawImage(buffered,
-                /*x1*/ (LevelWindow.getWidth()/2)-((int)(LevelWindow.getHeight()*ratio)/2),
-                /*y1*/ 0,
-                /*x2*/ (int)(LevelWindow.getHeight()*ratio),
-                /*y2*/ LevelWindow.getHeight(), this);
-        }
-        LevelWindow.updateSize(); //Window.jf
-        doubleBuffer();
-	}
-    public void draw(Graphics2D g){
-        g.drawString("fps: "+fps,4,16);
         //draw components
         if (!paused){
             switch(panelState){
+                case(0): break;
                 case(1): editor.draw(g); break;
             }
         }
         gui.draw(g);
+        g.drawString("fps: "+fps,4,12);
         updateFPS(); //updatesfps after drawn completely
-    }
-    public void doubleBuffer(){
-        buffered = new BufferedImage(LevelWindow.getOriginalWidth(), LevelWindow.getOriginalHeight(),
-            BufferedImage.TYPE_INT_ARGB);
-        Graphics2D g = buffered.createGraphics();
-        draw(g);
-    }
+	}
 	public void update(double mod){
 		//update the components
         if (!paused){
@@ -109,7 +88,8 @@ public class LevelPanel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
-           break;
+                if (key == KeyEvent.VK_ESCAPE) System.out.println("hey");
+            break;
         }
 	}
 	public void keyReleased(KeyEvent e) {

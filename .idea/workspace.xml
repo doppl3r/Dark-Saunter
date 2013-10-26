@@ -9,10 +9,10 @@
     <list default="true" id="184447ed-c406-4342-a209-56c57034a8fb" name="Default" comment="" />
     <ignored path="Aminal Patterns.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382321643833" ignored="false" />
+    <file path="/fragment.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382747329727" ignored="false" />
     <file path="/Textures.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381936331737" ignored="false" />
-    <file path="/Game.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382393165624" ignored="false" />
-    <file path="/Panel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382393197282" ignored="false" />
+    <file path="/Game.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381966853854" ignored="false" />
+    <file path="/Panel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381966053651" ignored="false" />
     <file path="/GUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1380574047962" ignored="false" />
     <file path="/pixel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1377988916758" ignored="false" />
     <file path="/Unit.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1377989476617" ignored="false" />
@@ -27,7 +27,7 @@
     <file path="/ShipEditor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379207472687" ignored="false" />
     <file path="/AudioHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379120638802" ignored="false" />
     <file path="/Background.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1380575290196" ignored="false" />
-    <file path="/SpriteSheet.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382384632494" ignored="false" />
+    <file path="/SpriteSheet.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381965515249" ignored="false" />
     <file path="/Particles.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378151406472" ignored="false" />
     <file path="/WaveHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379211846361" ignored="false" />
     <file path="/Button.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379023662290" ignored="false" />
@@ -43,14 +43,15 @@
     <file path="/MainMenu.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381722938697" ignored="false" />
     <file path="/Blood.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381723041390" ignored="false" />
     <file path="/.name" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381720142816" ignored="false" />
-    <file path="$PROJECT_DIR$/.idea/workspace.xml" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381731913586" ignored="false" />
     <file path="/Dummy.txt" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381786883606" ignored="false" />
     <file path="$PROJECT_DIR$/../Virga/gen/pack/virga/main/BuildConfig.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381786889019" ignored="false" />
-    <file path="/LevelMain.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382316227348" ignored="false" />
-    <file path="/LevelPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382320922700" ignored="false" />
-    <file path="/LevelWindow.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382320767977" ignored="false" />
-    <file path="/Editor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382322079251" ignored="false" />
-    <file path="/Tile.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382321402715" ignored="false" />
+    <file path="/LevelWindow.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382756093980" ignored="false" />
+    <file path="/LevelPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382754021007" ignored="false" />
+    <file path="/MenuItem.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382755697185" ignored="false" />
+    <file path="/Border.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382755617090" ignored="false" />
+    <file path="/LevelGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757912378" ignored="false" />
+    <file path="/MenuBar.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757840655" ignored="false" />
+    <file path="/MenuTab.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382758017846" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,10 +113,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Panel.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Panel.java">
+      <file leaf-file-name="LevelWindow.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="32" selection-start="2075" selection-end="2075" vertical-scroll-proportion="0.30639732">
+            <state line="46" column="18" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -123,19 +124,57 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Game.java">
+      <file leaf-file-name="LevelPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="35" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+            <state line="3" column="0" selection-start="44" selection-end="62" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SpriteSheet.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/textures/SpriteSheet.java">
+      <file leaf-file-name="LevelGUI.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="50" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0">
+            <state line="31" column="29" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuBar.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Menu/MenuBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="30" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuTab.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Menu/MenuTab.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="32" column="123" selection-start="677" selection-end="677" vertical-scroll-proportion="0.80712163">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MenuItem.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Menu/MenuItem.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Border.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Menu/Border.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,29 +190,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+        <option value="$PROJECT_DIR$/src/Enemy1.java" />
+        <option value="$PROJECT_DIR$/src/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/textures/Textures.java" />
+        <option value="$PROJECT_DIR$/src/textures/SpriteSheet.java" />
+        <option value="$PROJECT_DIR$/src/Game.java" />
         <option value="$PROJECT_DIR$/src/Player.java" />
         <option value="$PROJECT_DIR$/src/Window.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/Window.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/LevelMain.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/GUI.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/LevelWindow.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/LevelPanel.java" />
-        <option value="$PROJECT_DIR$/src/textures/Tile.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/Tile.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/Editor.java" />
-        <option value="$PROJECT_DIR$/src/textures/SpriteSheet.java" />
-        <option value="$PROJECT_DIR$/src/LevelEditor/LevelGUI.java" />
-        <option value="$PROJECT_DIR$/src/Mapping/Tile.java" />
-        <option value="$PROJECT_DIR$/src/Game.java" />
+        <option value="$PROJECT_DIR$/src/LevelEditor/UIManagerDefaults.java" />
         <option value="$PROJECT_DIR$/src/Panel.java" />
+        <option value="$PROJECT_DIR$/src/LevelEditor/LevelPanel.java" />
+        <option value="$PROJECT_DIR$/src/Menu/Border.java" />
+        <option value="$PROJECT_DIR$/src/Menu/MenuItem.java" />
+        <option value="$PROJECT_DIR$/src/LevelEditor/LevelWindow.java" />
+        <option value="$PROJECT_DIR$/src/Menu/MenuBar.java" />
+        <option value="$PROJECT_DIR$/src/LevelEditor/LevelGUI.java" />
+        <option value="$PROJECT_DIR$/src/Menu/MenuTab.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -201,7 +241,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -216,7 +255,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -226,7 +265,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -240,7 +279,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -248,7 +287,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Mapping" />
+              <option name="myItemId" value="Menu" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,7 +297,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -272,12 +311,14 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="OverrideImplement.combined" value="true" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.lastSelected" value="appearance" />
@@ -296,14 +337,13 @@
     <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="LevelEditor" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\doppler\IdeaProjects\Dark-Saunter\src\LevelEditor" />
       <recent name="C:\Users\deben_000\IdeaProjects\Dark Saunter\content\graphics" />
       <recent name="C:\Users\deben_000\IdeaProjects\Zombie Mage\content\graphics" />
       <recent name="C:\Users\deben_000\IdeaProjects\Bit Bit Bit\content\sounds" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\deben_000\IdeaProjects\Dark Saunter\content\graphics" />
@@ -312,11 +352,8 @@
       <recent name="C:\Users\deben_000\IdeaProjects\Zombie Mage\content\sounds" />
       <recent name="C:\Users\deben_000\IdeaProjects\Zombie Mage\src\audio" />
     </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="Application.Level Editor">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m" />
@@ -421,7 +458,7 @@
       <option name="CLEAR_LOGCAT" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="Game" type="Application" factoryName="Application">
+    <configuration default="false" name="Application" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <option name="VM_PARAMETERS" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -459,7 +496,13 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="Dark Saunter" />
       <envs />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="" />
+        <option name="TRANSPORT" value="0" />
+        <option name="LOCAL" value="true" />
+      </RunnerSettings>
       <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Debug" />
       <ConfigurationWrapper RunnerId="Run" />
       <method>
         <option name="BuildArtifacts" enabled="true">
@@ -467,9 +510,26 @@
         </option>
       </method>
     </configuration>
-    <list size="2">
-      <item index="0" class="java.lang.String" itemvalue="Application.Game" />
+    <configuration default="false" name="UIManager" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="UIManagerDefaults" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" value="" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="Dark Saunter" />
+      <envs />
+      <RunnerSettings RunnerId="Run" />
+      <ConfigurationWrapper RunnerId="Run" />
+      <method />
+    </configuration>
+    <list size="3">
+      <item index="0" class="java.lang.String" itemvalue="Application.Application" />
       <item index="1" class="java.lang.String" itemvalue="Application.Level Editor" />
+      <item index="2" class="java.lang.String" itemvalue="Application.UIManager" />
     </list>
     <configuration name="&lt;template&gt;" type="WebApp" default="true" selected="false">
       <Host>localhost</Host>
@@ -508,27 +568,27 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5167038" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3993174" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28231293" sideWeight="0.5033408" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3982456" sideWeight="0.49948823" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22048998" sideWeight="0.5058698" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31848553" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31746033" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2494432" sideWeight="0.7176871" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28231293" sideWeight="0.49665925" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.106189966" sideWeight="0.77951" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22048998" sideWeight="0.4941302" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5167038" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -598,115 +658,126 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Mapping/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="36" selection-start="229" selection-end="229" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/GUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="32" selection-start="291" selection-end="291" vertical-scroll-proportion="0.5013405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/content/graphics/toon.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="72" selection-start="347" selection-end="347" vertical-scroll-proportion="0.041666668">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/textures/Textures.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="61" selection-start="267" selection-end="267" vertical-scroll-proportion="0.375">
+        <state line="14" column="61" selection-start="267" selection-end="267" vertical-scroll-proportion="0.1826923">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="42" selection-start="624" selection-end="624" vertical-scroll-proportion="0.3924964">
+        <state line="26" column="42" selection-start="624" selection-end="624" vertical-scroll-proportion="0.05105105">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Window.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="39" selection-start="393" selection-end="393" vertical-scroll-proportion="0.0">
+        <state line="50" column="8" selection-start="1449" selection-end="1449" vertical-scroll-proportion="-0.09392265">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelMain.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/javax/swing/JMenuItem.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="43" selection-start="87" selection-end="87" vertical-scroll-proportion="0.087030716">
+        <state line="89" column="13" selection-start="2604" selection-end="2604" vertical-scroll-proportion="0.3314917">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelPanel.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/awt/event/ActionListener.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="155" column="16" selection-start="5269" selection-end="5269" vertical-scroll-proportion="0.0">
+        <state line="49" column="16" selection-start="975" selection-end="975" vertical-scroll-proportion="1.2209945">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Mapping/Tile.java">
+    <entry file="file://$PROJECT_DIR$/src/LevelEditor/UIManagerDefaults.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="41" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="16" column="65" selection-start="490" selection-end="490" vertical-scroll-proportion="0.40356082">
+          <folding>
+            <element signature="e#0#21316#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#3691#3699#0" expanded="true" />
+            <element signature="e#11087#11095#0" expanded="true" />
+            <element signature="e#21178#21306#0" expanded="true" />
+            <element signature="e#21295#21296#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LevelEditor/Editor.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/net/URLClassLoader.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="144" selection-start="788" selection-end="788" vertical-scroll-proportion="0.5253054">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="13" selection-start="1939" selection-end="1939" vertical-scroll-proportion="1.2610922">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="46" selection-start="263" selection-end="263" vertical-scroll-proportion="0.36408567">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/textures/SpriteSheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="50" selection-start="2095" selection-end="2095" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="35" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+        <state line="365" column="0" selection-start="13550" selection-end="13550" vertical-scroll-proportion="0.3323442">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Panel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="32" selection-start="2075" selection-end="2075" vertical-scroll-proportion="0.30639732">
+        <state line="35" column="49" selection-start="1204" selection-end="1204" vertical-scroll-proportion="0.6305638">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="13" selection-start="57" selection-end="57" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/MenuItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="59" selection-end="59" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/Border.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="38" selection-start="458" selection-end="458" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="18" selection-start="1492" selection-end="1492" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="44" selection-end="62" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LevelEditor/LevelGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="29" selection-start="780" selection-end="780" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/MenuBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="30" selection-start="1732" selection-end="1732" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Menu/MenuTab.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="123" selection-start="677" selection-end="677" vertical-scroll-proportion="0.80712163">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +787,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>Level Editor:jar</last-edited>
+          <last-edited>Dark Saunter:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
@@ -769,7 +840,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
-                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>

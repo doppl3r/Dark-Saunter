@@ -26,7 +26,6 @@ public class Panel extends JPanel implements KeyListener,
     private int fps = 0;
     private Font font;
     BufferedImage buffered;
-    public MainMenu menu1;
     public Game game;
     public GUI gui;
 	private Timer t;
@@ -35,7 +34,6 @@ public class Panel extends JPanel implements KeyListener,
         panelState = 1; //start at editor
         pixelsPerSecond = 100; //very important for computer speed vs. graphic speed
         font = new Font ("Arial", Font.BOLD, 18);
-        menu1 = new MainMenu();
         game = new Game();
         gui = new GUI();
 
@@ -85,7 +83,7 @@ public class Panel extends JPanel implements KeyListener,
         //draw components
         if (!paused){
             switch(panelState){
-                case(0): menu1.draw(g); break;
+                case(0): break;
                 case(1): game.draw(g); break;
             }
         }
@@ -102,7 +100,7 @@ public class Panel extends JPanel implements KeyListener,
 		//update the components
         if (!paused){
             switch(panelState){
-                case(0): menu1.update(mod); break;
+                case(0): break;
                 case(1): game.update(mod); break;
             }
         }
@@ -126,7 +124,7 @@ public class Panel extends JPanel implements KeyListener,
 	public void keyReleased(KeyEvent e) {
         int key = e.getKeyCode();
         switch(panelState){
-            case(0): if (key != 0) menu1.loadGame(); break;
+            case(0): break;
             case(1): //editor keybindings
                 if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { game.keyUpReleased(); }
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { game.keyRightReleased(); }
