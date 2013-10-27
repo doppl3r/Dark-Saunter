@@ -1,4 +1,4 @@
-package Mapping;
+package mapping;
 
 public class Tile {
     private int id;
