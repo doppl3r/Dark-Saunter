@@ -34,7 +34,7 @@ public class EditorWindow {
 		//build window
         panel.setPreferredSize(new Dimension(width,height));
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        jf.setIconImage(tt.icon_hd);
+        jf.setIconImage(tt.icon);
         jf.setTitle(title+" ["+version+"]");
         jf.getContentPane().add(panel);
         jf.setResizable(true);

@@ -39,7 +39,7 @@ public class Window {
 		title = "Dark Saunter - Doppler Indie Games";
 		version = "v0.1";
 		//build window
-		jf.setIconImage(tt.icon_hd);
+		jf.setIconImage(tt.icon);
 		jf.setTitle(title+" ["+version+"]");
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jf.getContentPane().add(panel);

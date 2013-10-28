@@ -3,7 +3,7 @@ import java.awt.Image;
 import javax.swing.ImageIcon;
 
 public class Textures {
-    public Image icon_hd;
+    public Image icon;
     public Image blood;
     public Image terrain;
     public Image toon;
@@ -36,7 +36,7 @@ public class Textures {
         terrain = new ImageIcon(this.getClass().getResource("/graphics/terrain.png")).getImage();
         toon = new ImageIcon(this.getClass().getResource("/graphics/toon.png")).getImage();
         //gui
-        icon_hd = new ImageIcon(this.getClass().getResource("/gui/icon_hd.png")).getImage();
+        icon = new ImageIcon(this.getClass().getResource("/gui/icon.png")).getImage();
         openArray = new ImageIcon(this.getClass().getResource("/gui/openArray.png")).getImage();
         saveArray = new ImageIcon(this.getClass().getResource("/gui/saveArray.png")).getImage();
         addRow = new ImageIcon(this.getClass().getResource("/gui/addRow.png")).getImage();
