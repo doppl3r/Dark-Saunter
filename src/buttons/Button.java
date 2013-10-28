@@ -18,8 +18,8 @@ public class Button {
 	private double ySize;
 	private double padding;
 
-	public Button(Image newImage, int x, int y, boolean center){
-		SpriteSheet newSprite = new SpriteSheet(newImage, 1, 2, 0.0);
+	public Button(Image newImage, int x, int y, int hFrames, int vFrames, boolean center){
+		SpriteSheet newSprite = new SpriteSheet(newImage, hFrames, vFrames, 0.0);
 		this.x=x;
 		this.y=y;
 		this.center=center;
@@ -75,6 +75,10 @@ public class Button {
 		}
 		else return false; 
 	}
+    public boolean hover(int x1, int y1){
+        if (!hide) move(x1, y1);
+        return false;
+    }
 	public void setPadding(int padding){ this.padding=padding; }
 	public void hide(){ hide = true; }
 	public void reveal(){ hide = false; }

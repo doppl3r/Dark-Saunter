@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="Dark Saunter:jar">
-    <output-path>$PROJECT_DIR$/out/artifacts/Dark_Saunter_jar</output-path>
-    <root id="archive" name="Dark Saunter.jar">
-      <element id="module-output" name="Dark Saunter" />
-    </root>
-  </artifact>
-</component>
