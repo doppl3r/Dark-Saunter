@@ -9,7 +9,7 @@
     <list default="true" id="184447ed-c406-4342-a209-56c57034a8fb" name="Default" comment="" />
     <ignored path="Aminal Patterns.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/fragment.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382918317421" ignored="false" />
+    <file path="/fragment.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382926133415" ignored="false" />
     <file path="/Textures.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382922412742" ignored="false" />
     <file path="/Game.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381966853854" ignored="false" />
     <file path="/Panel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381966053651" ignored="false" />
@@ -139,7 +139,7 @@
       <file leaf-file-name="EditorGUI.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/editor/EditorGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="53" selection-start="4562" selection-end="4562" vertical-scroll-proportion="0.24778761">
+            <state line="141" column="44" selection-start="4580" selection-end="4580" vertical-scroll-proportion="1.1755162">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -762,7 +762,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="53" selection-start="4562" selection-end="4562" vertical-scroll-proportion="0.24778761">
+        <state line="141" column="44" selection-start="4580" selection-end="4580" vertical-scroll-proportion="1.1755162">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -775,7 +775,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>Dark Saunter</last-edited>
+          <last-edited>Editor</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
