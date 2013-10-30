@@ -1,21 +1,19 @@
 package editor;
 
 import java.awt.*;
-import java.util.LinkedList;
-import mapping.Tile;
+import mapping.TileBuffer;
 
 public class Editor {
-    private LinkedList<Tile> map;
-
+    private TileBuffer tileBuffer;
 
     public Editor(){
-        map = new LinkedList<Tile>();
+        tileBuffer = new TileBuffer(EditorWindow.tt.defaultTexture);
     }
     public void draw(Graphics2D g){
-        //blood.draw(g);
+        tileBuffer.draw(g);
     }
     public void update(double mod){
-        //blood.update(mod);
+        tileBuffer.update(mod);
     }
     //key pressed
     public void keyUpPressed(){  }
@@ -31,15 +29,19 @@ public class Editor {
 
     //mouse actions
     public void down(int x, int y){
-
+        tileBuffer.down(x, y);
     }
     public void move(int x, int y){
-
+        tileBuffer.move(x, y);
     }
     public void up(int x, int y){
-
+        tileBuffer.up(x, y);
     }
     public void hover(int x, int y){
-
+        tileBuffer.hover(x, y);
     }
+    public void addRow(){ tileBuffer.addRow(); }
+    public void removeRow(){ tileBuffer.removeRow(); }
+    public void addCol(){ tileBuffer.addCol(); }
+    public void removeCol(){ tileBuffer.removeCol(); }
 }

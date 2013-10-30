@@ -2,13 +2,10 @@ package mapping;
 
 public class Tile {
     private int id;
-    private int x;
-    private int y;
 
-    public Tile(){
-
+    public Tile(int id){
+        this.id=id;
     }
-    public int getX(){ return x;   }
-    public int getY(){ return y;   }
     public int getID(){ return id; }
+    public String getIDtoString(){ return id < 10 ? "0"+id : ""+id; } //0 to 99 digits
 }

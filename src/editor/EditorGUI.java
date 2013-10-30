@@ -130,12 +130,12 @@ public class EditorGUI {
         //textureBox.move(x1,y1);
     }
     public void up(int x1, int y1){
-        if (openArray.up(x1,y1)){  }
+        if (openArray.up(x1,y1)){ EditorWindow.browser.openMap(); }
         else if (saveArray.up(x1,y1)){  }
-        else if (addRow.up(x1,y1)){  }
-        else if (removeRow.up(x1,y1)){  }
-        else if (addColumn.up(x1,y1)){  }
-        else if (removeColumn.up(x1,y1)){  }
+        else if (addRow.up(x1,y1)){ EditorWindow.panel.editor.addRow(); }
+        else if (removeRow.up(x1,y1)){ EditorWindow.panel.editor.removeRow(); }
+        else if (addColumn.up(x1,y1)){ EditorWindow.panel.editor.addCol(); }
+        else if (removeColumn.up(x1,y1)){ EditorWindow.panel.editor.removeCol(); }
         else if (newArray.up(x1,y1)){  }
         else if (deleteArray.up(x1,y1)){  }
         else if (exit.up(x1,y1)){ EditorWindow.exit(); }
@@ -181,26 +181,26 @@ public class EditorGUI {
         int width = EditorWindow.getPanelWidth();
         int height = EditorWindow.getPanelHeight();
         //nav1 - update according to left
-        openArray.update(4,4);
-        saveArray.update(32,4);
-        addRow.update(60,4);
-        removeRow.update(88,4);
-        addColumn.update(116,4);
-        removeColumn.update(144,4);
-        newArray.update(172,4);
-        deleteArray.update(200,4);
-        exit.update(228,4);
+        openArray.update(4,4); openArray.setHint("Open Map");
+        saveArray.update(32,4); saveArray.setHint("Save Map");
+        addRow.update(60,4); addRow.setHint("Add Row");
+        removeRow.update(88,4); removeRow.setHint("Remove Row");
+        addColumn.update(116,4); addColumn.setHint("Add Column");
+        removeColumn.update(144,4); removeColumn.setHint("Remove Column");
+        newArray.update(172,4); newArray.setHint("New Map");
+        deleteArray.update(200,4); deleteArray.setHint("Delete Map");
+        exit.update(228,4); exit.setHint("Exit");
         //nav2 - update according to right
-        zoomIn.update(width-84,4);
-        zoomOut.update(width-56,4);
-        zoomFit.update(width-28,4);
+        zoomIn.update(width-84,4); zoomIn.setHint("Zoom In");
+        zoomOut.update(width-56,4); zoomOut.setHint("Zoom Out");
+        zoomFit.update(width-28,4); zoomFit.setHint("Zoom Fit");
         //nav3 - update according to left and bottom
-        fillTool.update(4,height-28);
-        eraseTool.update(32,height-28);
-        drawTool.update(60,height-28);
+        fillTool.update(4,height-28); fillTool.setHint("Fill Tool");
+        eraseTool.update(32,height-28); eraseTool.setHint("Erase Tool");
+        drawTool.update(60,height-28); drawTool.setHint("Draw Tool");
         //nav4 - update according to right and bottom
-        importTexture.update(width-168,height-56);
-        settings.update(width-168,height-28);
+        importTexture.update(width-168,height-56); importTexture.setHint("Import Texture");
+        settings.update(width-168,height-28); settings.setHint("Settings");
         textureBox.update(width-140,height-140);
     }
 }

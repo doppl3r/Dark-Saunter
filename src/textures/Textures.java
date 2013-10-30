@@ -26,6 +26,8 @@ public class Textures {
     public Image importTexture;
     public Image settings;
     public Image textureBox;
+    //extra
+    public Image defaultTexture;
 
     public Textures(){
 		addResources();
@@ -55,5 +57,7 @@ public class Textures {
         importTexture = new ImageIcon(this.getClass().getResource("/gui/importTexture.png")).getImage();
         settings = new ImageIcon(this.getClass().getResource("/gui/settings.png")).getImage();
         textureBox = new ImageIcon(this.getClass().getResource("/gui/textureBox.png")).getImage();
+        //extra
+        defaultTexture = new ImageIcon(this.getClass().getResource("/graphics/defaultTexture.png")).getImage();
 	}
 }

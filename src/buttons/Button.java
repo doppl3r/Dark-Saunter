@@ -1,9 +1,5 @@
 package buttons;
-import java.awt.Graphics2D;
-import java.awt.Image;
-
-import audio.AudioHandler;
-
+import java.awt.*;
 
 import textures.SpriteSheet;
 
@@ -11,7 +7,10 @@ public class Button {
 	private boolean pressed;
 	private boolean hide;
 	private boolean center;
+    private boolean showHint;
+    private String hint;
 	private SpriteSheet sprite;
+    private Font font;
 	private double x;
 	private double y;
 	private double xSize;
@@ -23,6 +22,7 @@ public class Button {
 		this.x=x;
 		this.y=y;
 		this.center=center;
+        font = new Font("Arial", Font.PLAIN, 10);
 		sprite = new SpriteSheet(newSprite.getImage(), 
 				newSprite.getHFrames(), newSprite.getVFrames(), newSprite.getRate());
 		xSize = sprite.getImageWidth();
@@ -30,9 +30,15 @@ public class Button {
 		if (center) sprite.center();
 		sprite.update(x, y);
 		padding=0;
+        hint = "Button";
 	}
 	public void draw(Graphics2D g){
 		if (!hide) sprite.draw(g);
+        if (showHint){
+            g.setFont(font);
+            g.setColor(Color.WHITE);
+            g.drawString(hint, 4,40);
+        }
 	}
 	public void resize(int newWidth, int newHeight){
 		xSize=newWidth;
@@ -65,7 +71,7 @@ public class Button {
 	}
 	public boolean move(int x1, int y1){
 		if (!hide) down(x1, y1);
-		return false;
+		return pressed;
 	}
 	public boolean up(int x1, int y1){ 
 		if (pressed && !hide){
@@ -76,8 +82,16 @@ public class Button {
 		else return false; 
 	}
     public boolean hover(int x1, int y1){
-        if (!hide) move(x1, y1);
-        return false;
+        if (!hide){
+            if (move(x1, y1)){
+                showHint = true;
+            }
+            else showHint = false;
+        }
+        return pressed;
+    }
+    public void setHint(String hint){
+        this.hint=hint;
     }
 	public void setPadding(int padding){ this.padding=padding; }
 	public void hide(){ hide = true; }

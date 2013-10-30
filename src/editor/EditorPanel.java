@@ -1,9 +1,7 @@
 package editor;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
 
 public class EditorPanel extends JPanel implements KeyListener,
         MouseListener, MouseMotionListener, Runnable {
@@ -20,7 +18,6 @@ public class EditorPanel extends JPanel implements KeyListener,
     private int frameSampleTime = 0;
     private int fps = 0;
     private Font font;
-    BufferedImage buffered;
     public Editor editor;
     public EditorGUI gui;
 	private Timer t;
@@ -77,6 +74,7 @@ public class EditorPanel extends JPanel implements KeyListener,
             }
         }
         gui.update();
+        //EditorWindow.fixJFrame();
 	}
 	//key bindings
 	public void keyPressed(KeyEvent e) {
@@ -88,7 +86,6 @@ public class EditorPanel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
-                if (key == KeyEvent.VK_ESCAPE) System.out.println("hey");
             break;
         }
 	}

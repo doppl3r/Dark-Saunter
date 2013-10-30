@@ -3,8 +3,6 @@ import textures.Textures;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- */
 public class EditorWindow {
 	static JFrame jf;
 	static Textures tt;
@@ -15,6 +13,7 @@ public class EditorWindow {
     static int originalHeight;
 	static String title;
 	static String version;
+    static FileBrowser browser;
 
     public EditorWindow(){
 		//change ui for jFileChooser + other UI settings
@@ -30,6 +29,7 @@ public class EditorWindow {
         width = originalWidth = 640;
         height = originalHeight = 480;
 		title = "Level Editor - Doppler Indie Games";
+        browser = new FileBrowser(System.getProperty("user.dir"));
 		version = "v0.1";
 		//build window
         panel.setPreferredSize(new Dimension(width,height));
@@ -47,5 +47,17 @@ public class EditorWindow {
     public static int getWindowHeight(){ return jf.getHeight(); }
     public static int getPanelWidth(){ return panel != null ? panel.getWidth() : 0; }
     public static int getPanelHeight(){ return panel != null ? panel.getHeight() : 0; }
+    public static int getOriginalWidth(){ return originalWidth; }
+    public static int getOriginalHeight(){ return originalHeight; }
+    public static void fixJFrame(){
+        /*if (panel != null){
+            if (panel.getWidth() < originalWidth) {
+                panel.setPreferredSize(new Dimension(originalWidth,panel.getHeight()));
+            }
+            if (panel.getHeight() < originalHeight){
+                panel.setPreferredSize(new Dimension(panel.getWidth(),originalHeight));
+            }
+        }*/
+    }
     public static void exit(){ System.exit(0); }
 }
