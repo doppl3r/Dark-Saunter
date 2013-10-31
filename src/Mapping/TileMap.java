@@ -8,13 +8,7 @@ public class TileMap {
 
     public TileMap(int cols, int rows){
         savedCols = cols; //used to recover empty rows
-        map = new LinkedList<LinkedList<Tile>>();
-        for (int row = 0; row < rows; row++){
-            map.add(new LinkedList<Tile>()); //adds an empty row
-            for (int col = 0; col < cols; col++){
-                map.get(row).add(new Tile(0)); //adds a column (to each row)
-            }
-        }
+        map = makeNewMap(cols, rows);
     }
     public void addRow(){
         map.add(new LinkedList<Tile>()); //adds an empty row
@@ -47,6 +41,38 @@ public class TileMap {
             for (int row = 0; row < getRows(); row++){
                 map.get(row).remove(cols-1);
             }
+        }
+    }
+    public void resetMap(){
+        deleteMap();
+        map = makeNewMap(10,8);
+    }
+    public void clearMap(){
+        for (int row = 0; row < getRows(); row++){
+            for (int col = 0; col < getCols(); col++){
+                map.get(row).get(col).setID(0);
+            }
+        }
+    }
+    public void deleteMap(){
+        if (map != null){
+            while (map.size() > 0) map.remove(0);
+        }
+    }
+    public LinkedList<LinkedList<Tile>> makeNewMap(int cols, int rows){
+        LinkedList<LinkedList<Tile>> newMap = new LinkedList<LinkedList<Tile>>();
+        for (int row = 0; row < rows; row++){
+            newMap.add(new LinkedList<Tile>()); //adds an empty row
+            for (int col = 0; col < cols; col++){
+                newMap.get(row).add(new Tile(0)); //adds a column (to each row)
+            }
+        }
+        return newMap;
+    }
+    public void setTileID(int row, int col, int id){
+        if (row >= 0 && row < getRows() &&
+            col >= 0 && col < getCols()){
+            map.get(row).get(col).setID(id);
         }
     }
     public void mapToString(){

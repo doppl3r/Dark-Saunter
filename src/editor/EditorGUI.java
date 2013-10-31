@@ -19,7 +19,12 @@ public class EditorGUI {
     private Button zoomIn;
     private Button zoomOut;
     private Button zoomFit;
+    private Button navUp;
+    private Button navRight;
+    private Button navDown;
+    private Button navLeft;
     //nav3
+    private Button dragTool;
     private Button fillTool;
     private Button eraseTool;
     private Button drawTool;
@@ -43,7 +48,12 @@ public class EditorGUI {
         zoomIn = new Button(EditorWindow.tt.zoomIn,0,0,1,2,false);
         zoomOut = new Button(EditorWindow.tt.zoomOut,0,0,1,2,false);
         zoomFit = new Button(EditorWindow.tt.zoomFit,0,0,1,2,false);
+        navUp = new Button(EditorWindow.tt.navUp,0,0,1,2,false);
+        navRight = new Button(EditorWindow.tt.navRight,0,0,1,2,false);
+        navDown = new Button(EditorWindow.tt.navDown,0,0,1,2,false);
+        navLeft = new Button(EditorWindow.tt.navLeft,0,0,1,2,false);
         //nav3
+        dragTool = new Button(EditorWindow.tt.dragTool,0,0,1,2,false);
         fillTool = new Button(EditorWindow.tt.fillTool,0,0,1,2,false);
         eraseTool = new Button(EditorWindow.tt.eraseTool,0,0,1,2,false);
         drawTool = new Button(EditorWindow.tt.drawTool,0,0,1,2,false);
@@ -68,7 +78,12 @@ public class EditorGUI {
         zoomIn.draw(g);
         zoomOut.draw(g);
         zoomFit.draw(g);
+        navUp.draw(g);
+        navRight.draw(g);
+        navDown.draw(g);
+        navLeft.draw(g);
         //nav3
+        dragTool.draw(g);
         fillTool.draw(g);
         eraseTool.draw(g);
         drawTool.draw(g);
@@ -95,7 +110,12 @@ public class EditorGUI {
         zoomIn.down(x1,y1);
         zoomOut.down(x1,y1);
         zoomFit.down(x1,y1);
+        navUp.down(x1,y1);
+        navRight.down(x1,y1);
+        navDown.down(x1,y1);
+        navLeft.down(x1,y1);
         //nav3
+        dragTool.down(x1,y1);
         fillTool.down(x1,y1);
         eraseTool.down(x1,y1);
         drawTool.down(x1,y1);
@@ -119,7 +139,12 @@ public class EditorGUI {
         zoomIn.move(x1,y1);
         zoomOut.move(x1,y1);
         zoomFit.move(x1,y1);
+        navUp.move(x1,y1);
+        navRight.move(x1,y1);
+        navDown.move(x1,y1);
+        navLeft.move(x1,y1);
         //nav3
+        dragTool.move(x1,y1);
         fillTool.move(x1,y1);
         eraseTool.move(x1,y1);
         drawTool.move(x1,y1);
@@ -131,22 +156,27 @@ public class EditorGUI {
     }
     public void up(int x1, int y1){
         if (openArray.up(x1,y1)){ EditorWindow.browser.openMap(); }
-        else if (saveArray.up(x1,y1)){  }
+        else if (saveArray.up(x1,y1)){ EditorWindow.browser.saveMap(); }
         else if (addRow.up(x1,y1)){ EditorWindow.panel.editor.addRow(); }
         else if (removeRow.up(x1,y1)){ EditorWindow.panel.editor.removeRow(); }
         else if (addColumn.up(x1,y1)){ EditorWindow.panel.editor.addCol(); }
         else if (removeColumn.up(x1,y1)){ EditorWindow.panel.editor.removeCol(); }
-        else if (newArray.up(x1,y1)){  }
-        else if (deleteArray.up(x1,y1)){  }
-        else if (exit.up(x1,y1)){ EditorWindow.exit(); }
+        else if (newArray.up(x1,y1)){ EditorWindow.browser.newMap(); }
+        else if (deleteArray.up(x1,y1)){ EditorWindow.browser.deleteMap(); }
+        else if (exit.up(x1,y1)){ EditorWindow.browser.exit(); }
         //nav2
-        else if (zoomIn.up(x1,y1)){  }
-        else if (zoomOut.up(x1,y1)){  }
-        else if (zoomFit.up(x1,y1)){  }
+        else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(); }
+        else if (zoomOut.up(x1,y1)){ EditorWindow.panel.editor.zoomOut(); }
+        else if (zoomFit.up(x1,y1)){ EditorWindow.panel.editor.resetCoordinates(false); }
+        else if (navUp.up(x1,y1)){ EditorWindow.panel.editor.moveDown(); }
+        else if (navRight.up(x1,y1)){ EditorWindow.panel.editor.moveLeft(); }
+        else if (navDown.up(x1,y1)){ EditorWindow.panel.editor.moveUp(); }
+        else if (navLeft.up(x1,y1)){ EditorWindow.panel.editor.moveRight(); }
         //nav3
-        else if (fillTool.up(x1,y1)){  }
-        else if (eraseTool.up(x1,y1)){  }
-        else if (drawTool.up(x1,y1)){  }
+        else if (dragTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(0); }
+        else if (fillTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(1); }
+        else if (eraseTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(2); }
+        else if (drawTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(3); }
         //nav4
         else if (importTexture.up(x1,y1)){  }
         else if (settings.up(x1,y1)){  }
@@ -167,7 +197,12 @@ public class EditorGUI {
         zoomIn.hover(x1,y1);
         zoomOut.hover(x1,y1);
         zoomFit.hover(x1,y1);
+        navUp.hover(x1,y1);
+        navRight.hover(x1,y1);
+        navDown.hover(x1,y1);
+        navLeft.hover(x1,y1);
         //nav3
+        dragTool.hover(x1,y1);
         fillTool.hover(x1,y1);
         eraseTool.hover(x1,y1);
         drawTool.hover(x1,y1);
@@ -183,21 +218,26 @@ public class EditorGUI {
         //nav1 - update according to left
         openArray.update(4,4); openArray.setHint("Open Map");
         saveArray.update(32,4); saveArray.setHint("Save Map");
-        addRow.update(60,4); addRow.setHint("Add Row");
-        removeRow.update(88,4); removeRow.setHint("Remove Row");
-        addColumn.update(116,4); addColumn.setHint("Add Column");
-        removeColumn.update(144,4); removeColumn.setHint("Remove Column");
-        newArray.update(172,4); newArray.setHint("New Map");
-        deleteArray.update(200,4); deleteArray.setHint("Delete Map");
-        exit.update(228,4); exit.setHint("Exit");
+        addRow.update(72,4); addRow.setHint("Add Row");
+        removeRow.update(100,4); removeRow.setHint("Remove Row");
+        addColumn.update(140,4); addColumn.setHint("Add Column");
+        removeColumn.update(168,4); removeColumn.setHint("Remove Column");
+        newArray.update(208,4); newArray.setHint("New Map");
+        deleteArray.update(236,4); deleteArray.setHint("Clear Map");
+        exit.update(264,4); exit.setHint("Exit [Esc]");
         //nav2 - update according to right
-        zoomIn.update(width-84,4); zoomIn.setHint("Zoom In");
-        zoomOut.update(width-56,4); zoomOut.setHint("Zoom Out");
-        zoomFit.update(width-28,4); zoomFit.setHint("Zoom Fit");
+        zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [+]");
+        zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [-]");
+        zoomFit.update(width-56,32); zoomFit.setHint("Zoom Fit [z]");
+        navUp.update(width-56,4); navUp.setHint("Move Up [Up Arrow]");
+        navRight.update(width-28,32); navRight.setHint("Move Right [Right Arrow]");
+        navDown.update(width-56,60); navDown.setHint("Move Down [Down Arrow]");
+        navLeft.update(width-84,32); navLeft.setHint("Move Left [Left Arrow]");
         //nav3 - update according to left and bottom
-        fillTool.update(4,height-28); fillTool.setHint("Fill Tool");
-        eraseTool.update(32,height-28); eraseTool.setHint("Erase Tool");
-        drawTool.update(60,height-28); drawTool.setHint("Draw Tool");
+        dragTool.update(4,height-28); dragTool.setHint("Drag Tool");
+        fillTool.update(32,height-28); fillTool.setHint("Fill Tool");
+        eraseTool.update(60,height-28); eraseTool.setHint("Erase Tool");
+        drawTool.update(88,height-28); drawTool.setHint("Draw Tool");
         //nav4 - update according to right and bottom
         importTexture.update(width-168,height-56); importTexture.setHint("Import Texture");
         settings.update(width-168,height-28); settings.setHint("Settings");

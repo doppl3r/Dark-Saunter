@@ -53,7 +53,6 @@ public class EditorPanel extends JPanel implements KeyListener,
         //convert to Graphics2D
         Graphics2D g = (Graphics2D)g1;
         super.paintComponent(g);
-        g.setFont(font);
 		setBackground(new Color(43,43,43));
         //draw components
         if (!paused){
@@ -63,6 +62,8 @@ public class EditorPanel extends JPanel implements KeyListener,
             }
         }
         gui.draw(g);
+        //g.setColor(Color.WHITE);
+        //g.setFont(font);
         //g.drawString("fps: "+fps,4,12);
         updateFPS(); //updatesfps after drawn completely
 	}
@@ -108,19 +109,22 @@ public class EditorPanel extends JPanel implements KeyListener,
     public void mousePressed(MouseEvent e) { //down
         int x = e.getX();
         int y = e.getY();
-        editor.down(x,y);
+        int buttonID = e.getButton();
+        editor.down(x,y,buttonID);
         gui.down(x,y);
     }
     public void mouseDragged(MouseEvent e) { //move
         int x = e.getX();
         int y = e.getY();
-        editor.move(x,y);
+        int buttonID = e.getButton();
+        editor.move(x,y,buttonID);
         gui.move(x,y);
     }
     public void mouseReleased(MouseEvent e) { //up
         int x = e.getX();
         int y = e.getY();
-        editor.up(x,y);
+        int buttonID = e.getButton();
+        editor.up(x,y,buttonID);
         gui.up(x,y);
     }
     public void mouseMoved(MouseEvent e) {

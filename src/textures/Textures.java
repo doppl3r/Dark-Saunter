@@ -20,12 +20,18 @@ public class Textures {
     public Image zoomIn;
     public Image zoomOut;
     public Image zoomFit;
+    public Image dragTool;
     public Image fillTool;
     public Image eraseTool;
     public Image drawTool;
     public Image importTexture;
     public Image settings;
     public Image textureBox;
+    public Image navUp;
+    public Image navRight;
+    public Image navDown;
+    public Image navLeft;
+
     //extra
     public Image defaultTexture;
 
@@ -51,12 +57,17 @@ public class Textures {
         zoomIn = new ImageIcon(this.getClass().getResource("/gui/zoomIn.png")).getImage();
         zoomOut = new ImageIcon(this.getClass().getResource("/gui/zoomOut.png")).getImage();
         zoomFit = new ImageIcon(this.getClass().getResource("/gui/zoomFit.png")).getImage();
+        dragTool = new ImageIcon(this.getClass().getResource("/gui/dragTool.png")).getImage();
         fillTool = new ImageIcon(this.getClass().getResource("/gui/fillTool.png")).getImage();
         eraseTool = new ImageIcon(this.getClass().getResource("/gui/eraseTool.png")).getImage();
         drawTool = new ImageIcon(this.getClass().getResource("/gui/drawTool.png")).getImage();
         importTexture = new ImageIcon(this.getClass().getResource("/gui/importTexture.png")).getImage();
         settings = new ImageIcon(this.getClass().getResource("/gui/settings.png")).getImage();
         textureBox = new ImageIcon(this.getClass().getResource("/gui/textureBox.png")).getImage();
+        navUp = new ImageIcon(this.getClass().getResource("/gui/navUp.png")).getImage();
+        navRight = new ImageIcon(this.getClass().getResource("/gui/navRight.png")).getImage();
+        navDown = new ImageIcon(this.getClass().getResource("/gui/navDown.png")).getImage();
+        navLeft = new ImageIcon(this.getClass().getResource("/gui/navLeft.png")).getImage();
         //extra
         defaultTexture = new ImageIcon(this.getClass().getResource("/graphics/defaultTexture.png")).getImage();
 	}

@@ -7,8 +7,6 @@ public class EditorWindow {
 	static JFrame jf;
 	static Textures tt;
 	static EditorPanel panel;
-	static int width;
-	static int height;
     static int originalWidth;
     static int originalHeight;
 	static String title;
@@ -25,14 +23,14 @@ public class EditorWindow {
 		//construct frame and panel
 		tt = new Textures();
 		jf = new JFrame();
+        originalWidth = 640;
+        originalHeight = 480;
         panel = new EditorPanel();
-        width = originalWidth = 640;
-        height = originalHeight = 480;
 		title = "Level Editor - Doppler Indie Games";
         browser = new FileBrowser(System.getProperty("user.dir"));
 		version = "v0.1";
 		//build window
-        panel.setPreferredSize(new Dimension(width,height));
+        panel.setPreferredSize(new Dimension(originalWidth,originalHeight));
         jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jf.setIconImage(tt.icon);
         jf.setTitle(title+" ["+version+"]");
