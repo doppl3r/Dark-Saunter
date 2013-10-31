@@ -27,7 +27,7 @@
     <file path="/ShipEditor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379207472687" ignored="false" />
     <file path="/AudioHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379120638802" ignored="false" />
     <file path="/Background.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1380575290196" ignored="false" />
-    <file path="/SpriteSheet.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1381965515249" ignored="false" />
+    <file path="/SpriteSheet.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383261748009" ignored="false" />
     <file path="/Particles.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1378151406472" ignored="false" />
     <file path="/WaveHandler.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1379211846361" ignored="false" />
     <file path="/Button.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383167185005" ignored="false" />
@@ -52,16 +52,17 @@
     <file path="/LevelGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757912378" ignored="false" />
     <file path="/MenuBar.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757840655" ignored="false" />
     <file path="/MenuTab.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382758017846" ignored="false" />
-    <file path="/Editor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383257287220" ignored="false" />
-    <file path="/EditorGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383255822094" ignored="false" />
+    <file path="/Editor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383260920939" ignored="false" />
+    <file path="/EditorGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383258893043" ignored="false" />
     <file path="/EditorWindow.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383257222614" ignored="false" />
     <file path="/EditorPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383257674303" ignored="false" />
     <file path="/TileMap.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383197004622" ignored="false" />
     <file path="/Tile.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383182381428" ignored="false" />
-    <file path="/TileBuffer.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383204909286" ignored="false" />
+    <file path="/TileBuffer.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383262325131" ignored="false" />
     <file path="/FileManager.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383165906871" ignored="false" />
     <file path="$USER_HOME$/Google Drive/Other/Backups/Programs/Flack/src/LevelMakerThread.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383167990192" ignored="false" />
     <file path="/FileHelper.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383170138732" ignored="false" />
+    <file path="/TextureBox.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383262628400" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,81 +123,57 @@
     <favorites_list name="Aminal Patterns" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.47072878">
-      <split-first>
-        <leaf>
-          <file leaf-file-name="Editor.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="66" column="36" selection-start="1934" selection-end="1934" vertical-scroll-proportion="13.6">
-                  <folding>
-                    <element signature="imports" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TileBuffer.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="59" column="69" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="TileMap.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="86" column="0" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="EditorGUI.java" pinned="false" current="true" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/editor/EditorGUI.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="226" column="69" selection-start="8832" selection-end="8832" vertical-scroll-proportion="0.18072289">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Tile.java" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/mapping/Tile.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="12" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="EditorPanel.java" pinned="false" current="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="97" column="81" selection-start="3604" selection-end="3604" vertical-scroll-proportion="0.70223755">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="gallery.js" pinned="false" current="false" current-in-tab="false">
-            <entry file="file://E:/Google Drive/Projects/Programming/Web Development/Gallery/root/js/gallery.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state line="6" column="82" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf>
+      <file leaf-file-name="Editor.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="48" selection-start="3188" selection-end="3188" vertical-scroll-proportion="-65.28">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileBuffer.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="20" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="86" column="0" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TextureBox.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/editor/TextureBox.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="10" selection-start="293" selection-end="293" vertical-scroll-proportion="0.029259896">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditorPanel.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="11" selection-start="979" selection-end="979" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -206,8 +183,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/Menu/MenuTab.java" />
-        <option value="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" />
         <option value="$PROJECT_DIR$/src/LevelEditor/LevelGUI.java" />
         <option value="$PROJECT_DIR$/src/Window.java" />
         <option value="$PROJECT_DIR$/src/FileManager.java" />
@@ -217,11 +192,13 @@
         <option value="$PROJECT_DIR$/src/textures/Textures.java" />
         <option value="$PROJECT_DIR$/src/mapping/Tile.java" />
         <option value="$PROJECT_DIR$/src/mapping/TileMap.java" />
-        <option value="$PROJECT_DIR$/src/mapping/TileBuffer.java" />
         <option value="$PROJECT_DIR$/src/editor/EditorWindow.java" />
-        <option value="$PROJECT_DIR$/src/editor/Editor.java" />
-        <option value="$PROJECT_DIR$/src/editor/EditorPanel.java" />
         <option value="$PROJECT_DIR$/src/editor/EditorGUI.java" />
+        <option value="$PROJECT_DIR$/src/editor/Editor.java" />
+        <option value="$PROJECT_DIR$/src/textures/SpriteSheet.java" />
+        <option value="$PROJECT_DIR$/src/mapping/TileBuffer.java" />
+        <option value="$PROJECT_DIR$/src/editor/EditorPanel.java" />
+        <option value="$PROJECT_DIR$/src/editor/TextureBox.java" />
       </list>
     </option>
   </component>
@@ -287,6 +264,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dark Saunter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="textures" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -642,30 +637,9 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="37" selection-start="4222" selection-end="4222" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Window.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="84" column="34" selection-start="2777" selection-end="2777" vertical-scroll-proportion="3.1875">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/textures/SpriteSheet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="13" selection-start="91" selection-end="91" vertical-scroll-proportion="0.10526316">
           <folding />
         </state>
       </provider>
@@ -693,30 +667,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="86" column="0" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="56" column="68" selection-start="1814" selection-end="1814" vertical-scroll-proportion="0.9414802">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="69" selection-start="2105" selection-end="2105" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -732,31 +685,77 @@
     </entry>
     <entry file="file://E:/Google Drive/Projects/Programming/Web Development/Gallery/root/js/gallery.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="82" selection-start="227" selection-end="227" vertical-scroll-proportion="0.0">
+        <state line="6" column="82" selection-start="227" selection-end="227" vertical-scroll-proportion="-5.027539">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/Google Drive/Projects/Programming/Web Development/LevelEditor/root/scripts/editor.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="118" column="54" selection-start="2939" selection-end="2939" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/textures/SpriteSheet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="54" selection-start="711" selection-end="711" vertical-scroll-proportion="0.58450705">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="36" selection-start="1934" selection-end="1934" vertical-scroll-proportion="13.6">
+        <state line="99" column="48" selection-start="3188" selection-end="3188" vertical-scroll-proportion="-65.28">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="20" selection-start="199" selection-end="199" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="97" column="81" selection-start="3604" selection-end="3604" vertical-scroll-proportion="0.70223755">
+        <state line="30" column="11" selection-start="979" selection-end="979" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/Tile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="43" selection-start="292" selection-end="292" vertical-scroll-proportion="0.35111877">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="226" column="69" selection-start="8832" selection-end="8832" vertical-scroll-proportion="0.18072289">
+        <state line="125" column="8" selection-start="4672" selection-end="4672" vertical-scroll-proportion="1.1755594">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="2664" selection-end="2664" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/TextureBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="10" selection-start="293" selection-end="293" vertical-scroll-proportion="0.029259896">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

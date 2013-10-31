@@ -98,6 +98,12 @@ public class SpriteSheet {
 				getSpriteLeft(), getSpriteTop(), 
 				getSpriteRight(), getSpriteBottom(), null);
 	}
+    public void draw(Graphics2D g, int maxX, int maxY){ //optimize performance
+        if (getDestRectRight() >= 0   && getDestRectBottom() >= 0 &&
+            getDestRectLeft()  < maxX && getDestRectTop()    < maxY){
+            draw(g);
+        }
+    }
 	public void update(double x, double y){ //this is strictly used to move your sprite on the screen, not animate
 		//texture placement
 		if (centered){

@@ -97,6 +97,7 @@ public class Editor {
     public void removeCol(){ tileBuffer.removeCol(); }
     public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
     public void clearMap(){ tileBuffer.clearMap(); }
+    public void setTileID(int id){ tileID = id; }
     public void zoomIn(){
         if (blockSize < 128){
             blockSize += zoomAmount;
@@ -160,4 +161,6 @@ public class Editor {
     public void moveRight(){ mainX+=blockSize; }
     public void moveDown(){ mainY+=blockSize; }
     public void moveLeft(){ mainX-=blockSize; }
+    //getters
+    public TileBuffer getTileBuffer(){ return tileBuffer; }
 }

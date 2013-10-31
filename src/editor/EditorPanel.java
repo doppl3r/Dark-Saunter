@@ -26,8 +26,9 @@ public class EditorPanel extends JPanel implements KeyListener,
         panelState = 1; //start at editor
         pixelsPerSecond = 100; //very important for computer speed vs. graphic speed
         font = new Font ("Arial", Font.BOLD, 12);
-        editor = new Editor();
         gui = new EditorGUI();
+        editor = new Editor();
+
 
 		//set listeners and thread
 		addKeyListener(this);

@@ -1,4 +1,5 @@
 package mapping;
+import editor.EditorWindow;
 import textures.SpriteSheet;
 
 import java.awt.*;
@@ -16,14 +17,22 @@ public class TileBuffer {
         texture = new SpriteSheet(image, 4, 4, 0.0);
     }
     public void draw(Graphics2D g){
+        int windowX = EditorWindow.getPanelWidth();
+        int windowY = EditorWindow.getPanelHeight();
+        int tempX;
+        int tempY;
         for (int row = 0; row < map.getRows(); row++){
             for (int col = 0; col < map.getCols(); col++){
+                tempX = mainX+(col*blockSize);
+                tempY = mainY+(row*blockSize);
                 texture.animate(map.getTile(row,col).getID()-1);
-                texture.update(mainX+(col*blockSize),mainY+(row*blockSize),blockSize,blockSize);
-                texture.draw(g);
+                texture.update(tempX,tempY,blockSize,blockSize);
+                texture.draw(g,windowX,windowY);
                 //grid
-                g.setColor(Color.LIGHT_GRAY);
-                g.drawRect(mainX+(col*blockSize),mainY+(row*blockSize),blockSize,blockSize);
+                if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
+                    g.setColor(Color.LIGHT_GRAY);
+                    g.drawRect(tempX,tempY,blockSize,blockSize);
+                }
             }
         }
     }
@@ -58,4 +67,6 @@ public class TileBuffer {
     public TileMap getMap(){ return map; }
     public int getMapPixelWidth(){ return blockSize*map.getCols(); }
     public int getMapPixelHeight(){ return blockSize*map.getRows(); }
+    public SpriteSheet getTexture(){ return texture; }
+    public int getBlockSize(){ return blockSize; }
 }

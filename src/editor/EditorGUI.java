@@ -31,7 +31,7 @@ public class EditorGUI {
     //nav4
     private Button importTexture;
     private Button settings;
-    private SpriteSheet textureBox;
+    private TextureBox textureBox;
 
     public EditorGUI(){
         //nav1
@@ -60,7 +60,7 @@ public class EditorGUI {
         //nav4
         importTexture = new Button(EditorWindow.tt.importTexture,0,0,1,2,false);
         settings = new Button(EditorWindow.tt.settings,0,0,1,2,false);
-        textureBox = new SpriteSheet(EditorWindow.tt.textureBox,1,1,0);
+        textureBox = new TextureBox();
         //position each button
         positionGUI();
     }
@@ -123,7 +123,7 @@ public class EditorGUI {
         if (importTexture.down(x1,y1)) active = true;
         if (settings.down(x1,y1)) active = true;
 
-        //textureBox.down(x1,y1);
+        textureBox.down(x1,y1);
     }
     public void move(int x1, int y1){
         openArray.move(x1,y1);
