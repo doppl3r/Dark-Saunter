@@ -40,6 +40,7 @@ public class EditorWindow {
         jf.setLocationRelativeTo(null);
         jf.requestFocusInWindow();
         jf.setVisible(true);
+        setCursor(3);
 	}
     public static int getWindowWidth(){ return jf.getWidth(); }
     public static int getWindowHeight(){ return jf.getHeight(); }
@@ -58,4 +59,13 @@ public class EditorWindow {
         }*/
     }
     public static void exit(){ System.exit(0); }
+
+    public static void setCursor(int type){
+        switch(type){
+            case(0): jf.setCursor(Cursor.getPredefinedCursor(Cursor.MOVE_CURSOR)); break;
+            case(1): jf.setCursor(Cursor.getPredefinedCursor(Cursor.CROSSHAIR_CURSOR)); break;
+            case(2): jf.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR)); break;
+            case(3): jf.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR)); break;
+        }
+    }
 }

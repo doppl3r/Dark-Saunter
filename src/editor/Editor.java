@@ -11,6 +11,7 @@ public class Editor {
     private int mainY;
     private int tileID;
     private int currentTool;
+    private int savedTool;
     private int downX;
     private int downY;
     private int dragX;
@@ -24,8 +25,9 @@ public class Editor {
         zoomAmount = 16;
         tileID = 1;
         currentTool = 3;
+        savedTool = -1;
         tileBuffer.update(mainX, mainY, blockSize, 0, 0);
-        resetCoordinates(true);
+        zoomFit(true);
     }
     public void draw(Graphics2D g){
         tileBuffer.draw(g);
@@ -38,12 +40,14 @@ public class Editor {
     public void keyDownPressed(){ moveUp(); }
     public void keyLeftPressed(){ moveRight(); }
     public void keyRightPressed(){ moveLeft(); }
+    public void spaceBarPressed(){ forceDrag(true); }
 
     //key released
     public void keyUpReleased(){  }
     public void keyDownReleased(){  }
     public void keyLeftReleased(){  }
     public void keyRightReleased(){  }
+    public void spaceBarReleased(){ forceDrag(false); }
 
     //mouse actions
     public void down(int x, int y, int buttonID){
@@ -91,7 +95,7 @@ public class Editor {
     public void removeRow(){ tileBuffer.removeRow(); }
     public void addCol(){ tileBuffer.addCol(); }
     public void removeCol(){ tileBuffer.removeCol(); }
-    public void resetMap(){ tileBuffer.resetMap(); resetCoordinates(false); }
+    public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
     public void clearMap(){ tileBuffer.clearMap(); }
     public void zoomIn(){
         if (blockSize < 128){
@@ -105,9 +109,9 @@ public class Editor {
             blockSize -= zoomAmount;
             mainX += ((EditorWindow.getPanelWidth()/2)  - mainX)/((blockSize+zoomAmount)/zoomAmount);
             mainY += ((EditorWindow.getPanelHeight()/2) - mainY)/((blockSize+zoomAmount)/zoomAmount);
-        } else resetCoordinates(false);
+        } else zoomFit(false);
     }
-    public void resetCoordinates(boolean force){
+    public void zoomFit(boolean force){
         int width;
         int height;
         if (force){
@@ -121,7 +125,10 @@ public class Editor {
         mainX = (width/2) -(tileBuffer.getMapPixelWidth() /2);
         mainY = (height/2)-(tileBuffer.getMapPixelHeight()/2);
     }
-    public void setCurrentTool(int i){ currentTool = i; }
+    public void setCurrentTool(int i){
+        currentTool = i;
+        EditorWindow.setCursor(i);
+    }
     public boolean floodFill(int row, int col, int oldVal, int newVal){
         if (row >= 0 && row <= tileBuffer.getMap().getRows()-1 &&
             col >= 0 && col <= tileBuffer.getMap().getCols()-1){
@@ -135,6 +142,18 @@ public class Editor {
             if (row < tileBuffer.getMap().getRows()-1) floodFill(row+1, col, oldVal, newVal);
         }
         return true;
+    }
+    public void forceDrag(boolean force){
+        if (force){
+            if (savedTool == -1){
+                savedTool = currentTool;
+                setCurrentTool(0);
+            }
+        }
+        else{
+            setCurrentTool(savedTool);
+            savedTool = -1;
+        }
     }
     //navigation
     public void moveUp(){ mainY-=blockSize; }

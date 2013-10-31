@@ -83,10 +83,26 @@ public class EditorPanel extends JPanel implements KeyListener,
         switch(panelState){
             case(0): break;
             case(1): //editor keybindings
-                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpPressed(); }
-                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
-                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
-                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
+                if (key == KeyEvent.VK_ESCAPE) { EditorWindow.browser.exit(); }
+                else if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpPressed(); }
+                else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
+                else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
+                else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
+                else if (key == KeyEvent.VK_SPACE) { editor.spaceBarPressed(); } //Drag Tool
+                else if (key == KeyEvent.VK_E) { editor.zoomIn(); }
+                else if (key == KeyEvent.VK_Q) { editor.zoomOut(); }
+                else if (key == KeyEvent.VK_Z) { editor.zoomFit(false); }
+                else if (key == KeyEvent.VK_F) { editor.setCurrentTool(1); }  //Fill  Tool
+                else if (key == KeyEvent.VK_V) { editor.setCurrentTool(2); }  //Erase Tool
+                else if (key == KeyEvent.VK_B) { editor.setCurrentTool(3); }  //Draw Tool
+                else if (key == KeyEvent.VK_1) { EditorWindow.browser.openMap(); }
+                else if (key == KeyEvent.VK_2) { EditorWindow.browser.saveMap(); }
+                else if (key == KeyEvent.VK_3) { editor.addRow(); }
+                else if (key == KeyEvent.VK_4) { editor.removeRow(); }
+                else if (key == KeyEvent.VK_5) { editor.addCol();}
+                else if (key == KeyEvent.VK_6) { editor.removeCol(); }
+                else if (key == KeyEvent.VK_7) { EditorWindow.browser.newMap(); }
+                else if (key == KeyEvent.VK_8) { EditorWindow.browser.deleteMap(); }
             break;
         }
 	}
@@ -99,6 +115,7 @@ public class EditorPanel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightReleased(); }
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownReleased(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftReleased(); }
+                if (key == KeyEvent.VK_SPACE) { editor.spaceBarReleased(); }
             break;
         }
     }
@@ -110,29 +127,29 @@ public class EditorPanel extends JPanel implements KeyListener,
         int x = e.getX();
         int y = e.getY();
         int buttonID = e.getButton();
-        editor.down(x,y,buttonID);
         gui.down(x,y);
+        if (!gui.isActive()) editor.down(x,y,buttonID);
     }
     public void mouseDragged(MouseEvent e) { //move
         int x = e.getX();
         int y = e.getY();
         int buttonID = e.getButton();
-        editor.move(x,y,buttonID);
         gui.move(x,y);
+        if (!gui.isActive()) editor.move(x,y,buttonID);
     }
     public void mouseReleased(MouseEvent e) { //up
         int x = e.getX();
         int y = e.getY();
         int buttonID = e.getButton();
-        editor.up(x,y,buttonID);
         gui.up(x,y);
+        if (!gui.isActive()) editor.up(x,y,buttonID);
     }
     public void mouseMoved(MouseEvent e) {
         //update cursor
         int x = e.getX();
         int y = e.getY();
-        editor.hover(x,y);
         gui.hover(x,y);
+        if (!gui.isActive()) editor.hover(x,y);
     }
     //update FPS
     public void updateFPS() {

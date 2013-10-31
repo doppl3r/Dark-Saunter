@@ -4,7 +4,7 @@ import buttons.Button;
 import textures.SpriteSheet;
 
 public class EditorGUI {
-
+    private boolean active; //allows prioritiy if a button is hit
     //nav1
     private Button openArray;
     private Button saveArray;
@@ -97,31 +97,31 @@ public class EditorGUI {
         positionGUI(); //maybe update only once the screenwidth has changed
     }
     public void down(int x1, int y1){
-        openArray.down(x1,y1);
-        saveArray.down(x1,y1);
-        addRow.down(x1,y1);
-        removeRow.down(x1,y1);
-        addColumn.down(x1,y1);
-        removeColumn.down(x1,y1);
-        newArray.down(x1,y1);
-        deleteArray.down(x1,y1);
-        exit.down(x1,y1);
+        if (openArray.down(x1,y1)) active = true;
+        if (saveArray.down(x1,y1)) active = true;
+        if (addRow.down(x1,y1)) active = true;
+        if (removeRow.down(x1,y1)) active = true;
+        if (addColumn.down(x1,y1)) active = true;
+        if (removeColumn.down(x1,y1)) active = true;
+        if (newArray.down(x1,y1)) active = true;
+        if (deleteArray.down(x1,y1)) active = true;
+        if (exit.down(x1,y1)) active = true;
         //nav2
-        zoomIn.down(x1,y1);
-        zoomOut.down(x1,y1);
-        zoomFit.down(x1,y1);
-        navUp.down(x1,y1);
-        navRight.down(x1,y1);
-        navDown.down(x1,y1);
-        navLeft.down(x1,y1);
+        if (zoomIn.down(x1,y1)) active = true;
+        if (zoomOut.down(x1,y1)) active = true;
+        if (zoomFit.down(x1,y1)) active = true;
+        if (navUp.down(x1,y1)) active = true;
+        if (navRight.down(x1,y1)) active = true;
+        if (navDown.down(x1,y1)) active = true;
+        if (navLeft.down(x1,y1)) active = true;
         //nav3
-        dragTool.down(x1,y1);
-        fillTool.down(x1,y1);
-        eraseTool.down(x1,y1);
-        drawTool.down(x1,y1);
+        if (dragTool.down(x1,y1)) active = true;
+        if (fillTool.down(x1,y1)) active = true;
+        if (eraseTool.down(x1,y1)) active = true;
+        if (drawTool.down(x1,y1)) active = true;
         //nav4
-        importTexture.down(x1,y1);
-        settings.down(x1,y1);
+        if (importTexture.down(x1,y1)) active = true;
+        if (settings.down(x1,y1)) active = true;
 
         //textureBox.down(x1,y1);
     }
@@ -167,7 +167,7 @@ public class EditorGUI {
         //nav2
         else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(); }
         else if (zoomOut.up(x1,y1)){ EditorWindow.panel.editor.zoomOut(); }
-        else if (zoomFit.up(x1,y1)){ EditorWindow.panel.editor.resetCoordinates(false); }
+        else if (zoomFit.up(x1,y1)){ EditorWindow.panel.editor.zoomFit(false); }
         else if (navUp.up(x1,y1)){ EditorWindow.panel.editor.moveDown(); }
         else if (navRight.up(x1,y1)){ EditorWindow.panel.editor.moveLeft(); }
         else if (navDown.up(x1,y1)){ EditorWindow.panel.editor.moveUp(); }
@@ -182,6 +182,7 @@ public class EditorGUI {
         else if (settings.up(x1,y1)){  }
 
         //textureBox.up(x1,y1);
+        active = false;
     }
     public void hover(int x1, int y1){
         openArray.hover(x1,y1);
@@ -216,31 +217,32 @@ public class EditorGUI {
         int width = EditorWindow.getPanelWidth();
         int height = EditorWindow.getPanelHeight();
         //nav1 - update according to left
-        openArray.update(4,4); openArray.setHint("Open Map");
-        saveArray.update(32,4); saveArray.setHint("Save Map");
-        addRow.update(72,4); addRow.setHint("Add Row");
-        removeRow.update(100,4); removeRow.setHint("Remove Row");
-        addColumn.update(140,4); addColumn.setHint("Add Column");
-        removeColumn.update(168,4); removeColumn.setHint("Remove Column");
-        newArray.update(208,4); newArray.setHint("New Map");
-        deleteArray.update(236,4); deleteArray.setHint("Clear Map");
+        openArray.update(4,4); openArray.setHint("Open Map [1]");
+        saveArray.update(32,4); saveArray.setHint("Save Map [2]");
+        addRow.update(72,4); addRow.setHint("Add Row [3]");
+        removeRow.update(100,4); removeRow.setHint("Remove Row [4]");
+        addColumn.update(140,4); addColumn.setHint("Add Column [5]");
+        removeColumn.update(168,4); removeColumn.setHint("Remove Column [6]");
+        newArray.update(208,4); newArray.setHint("New Map [7]");
+        deleteArray.update(236,4); deleteArray.setHint("Clear Map [8]");
         exit.update(264,4); exit.setHint("Exit [Esc]");
         //nav2 - update according to right
-        zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [+]");
-        zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [-]");
+        zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [e]");
+        zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [q]");
         zoomFit.update(width-56,32); zoomFit.setHint("Zoom Fit [z]");
         navUp.update(width-56,4); navUp.setHint("Move Up [Up Arrow]");
         navRight.update(width-28,32); navRight.setHint("Move Right [Right Arrow]");
         navDown.update(width-56,60); navDown.setHint("Move Down [Down Arrow]");
         navLeft.update(width-84,32); navLeft.setHint("Move Left [Left Arrow]");
         //nav3 - update according to left and bottom
-        dragTool.update(4,height-28); dragTool.setHint("Drag Tool");
-        fillTool.update(32,height-28); fillTool.setHint("Fill Tool");
-        eraseTool.update(60,height-28); eraseTool.setHint("Erase Tool");
-        drawTool.update(88,height-28); drawTool.setHint("Draw Tool");
+        dragTool.update(4,height-28); dragTool.setHint("Drag Tool [Space Bar]");
+        fillTool.update(32,height-28); fillTool.setHint("Fill Tool [f]");
+        eraseTool.update(60,height-28); eraseTool.setHint("Erase Tool [v]");
+        drawTool.update(88,height-28); drawTool.setHint("Draw Tool [b]");
         //nav4 - update according to right and bottom
-        importTexture.update(width-168,height-56); importTexture.setHint("Import Texture");
+        importTexture.update(width - 168, height - 56); importTexture.setHint("Import Texture");
         settings.update(width-168,height-28); settings.setHint("Settings");
         textureBox.update(width-140,height-140);
     }
+    public boolean isActive(){ return active; }
 }
