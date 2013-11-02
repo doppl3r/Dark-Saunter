@@ -7,22 +7,25 @@ public class Editor {
     private TileBuffer tileBuffer;
     private int zoomAmount;
     private int blockSize;
-    private int mainX;
-    private int mainY;
     private int tileID;
     private int currentTool;
     private int savedTool;
-    private int downX;
-    private int downY;
-    private int dragX;
-    private int dragY;
+    private double mainX;
+    private double mainY;
+    private double mouseX;
+    private double mouseY;
+    private double downX;
+    private double downY;
+    private double dragX;
+    private double dragY;
     private boolean dragDraw;
     private boolean dragErase;
+    private boolean controlKey;
 
     public Editor(){
         tileBuffer = new TileBuffer(EditorWindow.tt.defaultTexture);
         blockSize = 32;
-        zoomAmount = 16;
+        zoomAmount = 4;
         tileID = 1;
         currentTool = 3;
         savedTool = -1;
@@ -58,7 +61,7 @@ public class Editor {
 
                 break;
             case(1): //fill tool
-                floodFill((y-mainY)/blockSize,(x-mainX)/blockSize,-1,tileID);
+                floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
                 break;
             case(2): //erase tool
                 dragErase = true;
@@ -75,10 +78,10 @@ public class Editor {
             dragY = downY-y;
         }
         if (dragDraw){
-            tileBuffer.setTileID((y-mainY)/blockSize, (x-mainX)/blockSize, tileID);
+            tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID);
         }
         else if (dragErase){
-            tileBuffer.setTileID((y-mainY)/blockSize, (x-mainX)/blockSize, 0);
+            tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0);
         }
     }
     public void up(int x, int y, int buttonID){
@@ -89,6 +92,8 @@ public class Editor {
         dragX = dragY = downX = downY = 0;
     }
     public void hover(int x, int y){
+        mouseX = x;
+        mouseY = y;
         tileBuffer.hover(x, y);
     }
     public void addRow(){ tileBuffer.addRow(); }
@@ -98,33 +103,70 @@ public class Editor {
     public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
     public void clearMap(){ tileBuffer.clearMap(); }
     public void setTileID(int id){ tileID = id; }
-    public void zoomIn(){
+    public void zoomIn(boolean center){
+        double x = EditorWindow.getPanelWidth()/2;
+        double y = EditorWindow.getPanelHeight()/2;
+        if ((mouseX-mainX)/tileBuffer.getMapPixelWidth() < 0 ||
+            (mouseX-mainX)/tileBuffer.getMapPixelWidth() > 1 ||
+            (mouseY-mainY)/tileBuffer.getMapPixelHeight() < 0 ||
+            (mouseY-mainY)/tileBuffer.getMapPixelHeight() > 1){
+            center = true;
+        }
+        if (!center){
+            x = mouseX;
+            y = mouseY;
+        }
         if (blockSize < 128){
             blockSize += zoomAmount;
-            mainX -= ((EditorWindow.getPanelWidth()/2)  - mainX)/((blockSize-zoomAmount)/zoomAmount);
-            mainY -= ((EditorWindow.getPanelHeight()/2) - mainY)/((blockSize-zoomAmount)/zoomAmount);
+            mainX -= (x - mainX)/(((blockSize-zoomAmount))/zoomAmount);
+            mainY -= (y - mainY)/(((blockSize-zoomAmount))/zoomAmount);
         }
     }
-    public void zoomOut(){
-        if (blockSize > 16){
+    public void zoomOut(boolean center){
+        double x = EditorWindow.getPanelWidth()/2;
+        double y = EditorWindow.getPanelHeight()/2;
+        if ((mouseX-mainX)/tileBuffer.getMapPixelWidth() < 0 ||
+            (mouseX-mainX)/tileBuffer.getMapPixelWidth() > 1 ||
+            (mouseY-mainY)/tileBuffer.getMapPixelHeight() < 0 ||
+            (mouseY-mainY)/tileBuffer.getMapPixelHeight() > 1){
+            center = true;
+        }
+        if (!center){
+            x = mouseX;
+            y = mouseY;
+        }
+        if (blockSize > 4){
             blockSize -= zoomAmount;
-            mainX += ((EditorWindow.getPanelWidth()/2)  - mainX)/((blockSize+zoomAmount)/zoomAmount);
-            mainY += ((EditorWindow.getPanelHeight()/2) - mainY)/((blockSize+zoomAmount)/zoomAmount);
+            mainX += (x - mainX)/(((blockSize+zoomAmount))/zoomAmount);
+            mainY += (y - mainY)/(((blockSize+zoomAmount))/zoomAmount);
         } else zoomFit(false);
     }
-    public void zoomFit(boolean force){
+    public void zoomFit(boolean force){ //only work if controlKey is not being held
         int width;
         int height;
-        if (force){
-            width  = EditorWindow.getOriginalWidth();
-            height = EditorWindow.getOriginalHeight();
+        if (!controlKey){
+            if (force){
+                width  = EditorWindow.getOriginalWidth();
+                height = EditorWindow.getOriginalHeight();
+            }
+            else {
+                width  = EditorWindow.getPanelWidth();
+                height = EditorWindow.getPanelHeight();
+            }
+            mainX = (width/2) -(tileBuffer.getMapPixelWidth() /2);
+            mainY = (height/2)-(tileBuffer.getMapPixelHeight()/2);
         }
-        else {
-            width  = EditorWindow.getPanelWidth();
-            height = EditorWindow.getPanelHeight();
+    }
+    public void setControlKey(boolean controlKey){ this.controlKey=controlKey; }
+    public void zKey(){
+        if (controlKey){
+            System.out.println("insert undo option");
+        } else zoomFit(false);
+    }
+    public void yKey(){
+        if (controlKey){
+            System.out.println("insert redo option");
         }
-        mainX = (width/2) -(tileBuffer.getMapPixelWidth() /2);
-        mainY = (height/2)-(tileBuffer.getMapPixelHeight()/2);
     }
     public void setCurrentTool(int i){
         currentTool = i;

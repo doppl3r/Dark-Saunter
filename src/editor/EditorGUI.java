@@ -165,8 +165,8 @@ public class EditorGUI {
         else if (deleteArray.up(x1,y1)){ EditorWindow.browser.deleteMap(); }
         else if (exit.up(x1,y1)){ EditorWindow.browser.exit(); }
         //nav2
-        else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(); }
-        else if (zoomOut.up(x1,y1)){ EditorWindow.panel.editor.zoomOut(); }
+        else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(true); }
+        else if (zoomOut.up(x1,y1)){ EditorWindow.panel.editor.zoomOut(true); }
         else if (zoomFit.up(x1,y1)){ EditorWindow.panel.editor.zoomFit(false); }
         else if (navUp.up(x1,y1)){ EditorWindow.panel.editor.moveDown(); }
         else if (navRight.up(x1,y1)){ EditorWindow.panel.editor.moveLeft(); }

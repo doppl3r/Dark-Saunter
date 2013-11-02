@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class EditorPanel extends JPanel implements KeyListener,
+public class EditorPanel extends JPanel implements KeyListener, MouseWheelListener,
         MouseListener, MouseMotionListener, Runnable {
 	private static final long serialVersionUID = 1L;
     private boolean paused; //pause option
@@ -34,6 +34,7 @@ public class EditorPanel extends JPanel implements KeyListener,
 		addKeyListener(this);
         addMouseListener(this);
         addMouseMotionListener(this);
+        addMouseWheelListener(this);
 		setFocusable(true);
 		run();
 	}
@@ -89,10 +90,12 @@ public class EditorPanel extends JPanel implements KeyListener,
                 else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
                 else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
                 else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
+                else if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(true); }
                 else if (key == KeyEvent.VK_SPACE) { editor.spaceBarPressed(); } //Drag Tool
-                else if (key == KeyEvent.VK_E) { editor.zoomIn(); }
-                else if (key == KeyEvent.VK_Q) { editor.zoomOut(); }
-                else if (key == KeyEvent.VK_Z) { editor.zoomFit(false); }
+                else if (key == KeyEvent.VK_E) { editor.zoomIn(true); }
+                else if (key == KeyEvent.VK_Q) { editor.zoomOut(true); }
+                else if (key == KeyEvent.VK_Z) { editor.zKey(); }
+                else if (key == KeyEvent.VK_Y) { editor.yKey(); }
                 else if (key == KeyEvent.VK_F) { editor.setCurrentTool(1); }  //Fill  Tool
                 else if (key == KeyEvent.VK_V) { editor.setCurrentTool(2); }  //Erase Tool
                 else if (key == KeyEvent.VK_B) { editor.setCurrentTool(3); }  //Draw Tool
@@ -116,6 +119,7 @@ public class EditorPanel extends JPanel implements KeyListener,
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightReleased(); }
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownReleased(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftReleased(); }
+                else if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(false); }
                 if (key == KeyEvent.VK_SPACE) { editor.spaceBarReleased(); }
             break;
         }
@@ -151,6 +155,12 @@ public class EditorPanel extends JPanel implements KeyListener,
         int y = e.getY();
         gui.hover(x,y);
         if (!gui.isActive()) editor.hover(x,y);
+    }
+    public void mouseWheelMoved(MouseWheelEvent e) {
+        String message;
+        int notches = e.getWheelRotation();
+        if (notches >= 0) editor.zoomOut(false);
+        else editor.zoomIn(false);
     }
     //update FPS
     public void updateFPS() {
