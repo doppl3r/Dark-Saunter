@@ -54,11 +54,11 @@ public class Editor {
 
     //mouse actions
     public void down(int x, int y, int buttonID){
+        tileBuffer.down(x,y,buttonID);
         switch(currentTool){
             case(0): //drag tool
                 downX = x;
                 downY = y;
-
                 break;
             case(1): //fill tool
                 floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
@@ -73,6 +73,7 @@ public class Editor {
         }
     }
     public void move(int x, int y, int buttonID){
+        tileBuffer.move(x,y,buttonID);
         if (currentTool == 0){
             dragX = downX-x;
             dragY = downY-y;
@@ -159,14 +160,11 @@ public class Editor {
     }
     public void setControlKey(boolean controlKey){ this.controlKey=controlKey; }
     public void zKey(){
-        if (controlKey){
-            System.out.println("insert undo option");
-        } else zoomFit(false);
+        if (controlKey) { tileBuffer.undo(); } //undo
+        else zoomFit(false);
     }
     public void yKey(){
-        if (controlKey){
-            System.out.println("insert redo option");
-        }
+        if (controlKey) { tileBuffer.redo(); } //redo
     }
     public void setCurrentTool(int i){
         currentTool = i;

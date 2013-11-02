@@ -19,10 +19,14 @@ public class TextureBox {
     public void update(int x, int y){
         textureBox.update(x,y);
     }
-    public void down(int x1, int y1){
-        setTileID(x1,y1);
+    public boolean down(int x1, int y1){
+        return (setTileID(x1,y1));
     }
-    public void setTileID(int x1, int y1){
+    public void up(int x1, int y1){
+
+    }
+    public boolean setTileID(int x1, int y1){
+        boolean active = false;
         int x2 = textureBox.getDestRectLeft()+4;
         int y2 = textureBox.getDestRectTop()+4;
         int cols = EditorWindow.panel.editor.getTileBuffer().getTexture().getVFrames();
@@ -31,7 +35,9 @@ public class TextureBox {
             y1 >= y2 && y2 < y2+128){
             tileID = (((x1-x2)/(128/cols))+((y1-y2)/(128/rows))*cols)+1; //128 is the textBox area
             EditorWindow.panel.editor.setTileID(tileID);
+            active = true;
         }
+        return active;
     }
     public void cloneTextureProperties(){
         texture = new SpriteSheet(

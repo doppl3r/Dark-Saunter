@@ -12,11 +12,13 @@ public class TileBuffer {
     private double mainX;
     private double mainY;
     private double blockSize;
+    private boolean grid;
 
     public TileBuffer(Image image){
         map = new TileMap(10,8);
         texture = new SpriteSheet(image, 4, 4, 0.0);
         font = new Font("Arial", Font.PLAIN, 10);
+        grid = true;
     }
     public void draw(Graphics2D g){
         int windowX = EditorWindow.getPanelWidth();
@@ -31,9 +33,11 @@ public class TileBuffer {
                 texture.update(tempX,tempY,(int)blockSize,(int)blockSize);
                 texture.draw(g,windowX,windowY);
                 //grid
-                if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
-                    g.setColor(Color.LIGHT_GRAY);
-                    g.drawRect((int)tempX,(int)tempY,(int)blockSize,(int)blockSize);
+                if (grid){
+                    if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
+                        g.setColor(Color.LIGHT_GRAY);
+                        g.drawRect((int)tempX,(int)tempY,(int)blockSize,(int)blockSize);
+                    }
                 }
             }
         }
@@ -49,8 +53,7 @@ public class TileBuffer {
     }
     //mouse actions
     public void down(int x, int y, int buttonID){
-        //if (left) map.setTileID((y-mainY)/blockSize,(x-mainX)/blockSize,tileID); //draw
-        //else map.setTileID((y-mainY)/blockSize,(x-mainX)/blockSize,0); //erase on right click
+        map.saveMap();
     }
     public void move(int x, int y, int buttonID){
 
@@ -61,13 +64,15 @@ public class TileBuffer {
     public void hover(int x, int y){
 
     }
-    public void addRow(){ map.addRow(); }
-    public void removeRow(){ map.removeLastRow(); }
-    public void addCol(){ map.addCol(); }
-    public void removeCol(){ map.removeLastCol(); }
-    public void resetMap(){ map.resetMap(); }
-    public void clearMap(){ map.clearMap(); }
+    public void addRow(){ map.saveMap(); map.addRow(); }
+    public void removeRow(){ map.saveMap(); map.removeLastRow(); }
+    public void addCol(){ map.saveMap(); map.addCol(); }
+    public void removeCol(){ map.saveMap(); map.removeLastCol(); }
+    public void resetMap(){ map.saveMap(); map.resetMap(); }
+    public void clearMap(){ map.saveMap(); map.clearMap(); }
     public void setTileID(int row, int col, int tileID){ map.setTileID(row,col,tileID); }
+    public void undo(){ map.undo(); }
+    public void redo(){ map.redo(); }
     //getters
     public TileMap getMap(){ return map; }
     public int getMapPixelWidth(){ return (int)blockSize*map.getCols(); }

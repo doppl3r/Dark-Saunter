@@ -122,8 +122,7 @@ public class EditorGUI {
         //nav4
         if (importTexture.down(x1,y1)) active = true;
         if (settings.down(x1,y1)) active = true;
-
-        textureBox.down(x1,y1);
+        if (textureBox.down(x1,y1)) active = true;
     }
     public void move(int x1, int y1){
         openArray.move(x1,y1);
