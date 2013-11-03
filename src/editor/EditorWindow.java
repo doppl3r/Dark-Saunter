@@ -41,6 +41,7 @@ public class EditorWindow {
         jf.requestFocusInWindow();
         jf.setVisible(true);
         setCursor(3);
+        exit();
 	}
     public static int getWindowWidth(){ return jf.getWidth(); }
     public static int getWindowHeight(){ return jf.getHeight(); }
@@ -48,17 +49,19 @@ public class EditorWindow {
     public static int getPanelHeight(){ return panel != null ? panel.getHeight() : 0; }
     public static int getOriginalWidth(){ return originalWidth; }
     public static int getOriginalHeight(){ return originalHeight; }
-    public static void fixJFrame(){
-        /*if (panel != null){
-            if (panel.getWidth() < originalWidth) {
-                panel.setPreferredSize(new Dimension(originalWidth,panel.getHeight()));
+    public static void exit(){
+        jf.addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+                if (JOptionPane.showConfirmDialog(jf,
+                        "Would you like to save first?", "",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                    browser.saveMap();
+                    System.exit(0);
+                }
             }
-            if (panel.getHeight() < originalHeight){
-                panel.setPreferredSize(new Dimension(panel.getWidth(),originalHeight));
-            }
-        }*/
+        });
     }
-    public static void exit(){ System.exit(0); }
 
     public static void setCursor(int type){
         switch(type){

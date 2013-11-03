@@ -48,6 +48,7 @@ public class FileBrowser {
         switch (actionDialog) {
             case JFileChooser.APPROVE_OPTION:
                 mapName = browser.getSelectedFile().toString();
+                if (exitAfterSave) System.exit(0);
             break;
             case JFileChooser.CANCEL_OPTION:
 
@@ -56,7 +57,6 @@ public class FileBrowser {
 
             break;
         }
-        if (exitAfterSave) EditorWindow.exit();
     }
     public void importTexture(){
         browser.setSelectedFile(new File(imageName));
@@ -81,7 +81,6 @@ public class FileBrowser {
 
                 break;
         }
-
     }
     public void newMap(){
         int actionDialog = JOptionPane.showConfirmDialog(null,"Create new map without saving?");
@@ -98,7 +97,7 @@ public class FileBrowser {
     public void exit(){
         int actionDialog = JOptionPane.showConfirmDialog(null,"Would you like to save first?");
         if (actionDialog == JOptionPane.NO_OPTION){ EditorWindow.exit(); }
-        else if (actionDialog == JOptionPane.YES_OPTION){ saveMap(); exitAfterSave = true; }
+        else if (actionDialog == JOptionPane.YES_OPTION){ exitAfterSave = true; saveMap();  }
         else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
     }
     public void changeTextureProperties() {
