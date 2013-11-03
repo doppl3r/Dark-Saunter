@@ -69,6 +69,9 @@ public class TileBuffer {
     public void removeRow(){ map.saveMap(); map.removeLastRow(); }
     public void addCol(){ map.saveMap(); map.addCol(); }
     public void removeCol(){ map.saveMap(); map.removeLastCol(); }
+    public void setRows(int rows){ map.setRows(rows); }
+    public void setCols(int cols){ map.setCols(cols); }
+    public void setRowsAndCols(int rows, int cols){ map.saveMap(); setRows(rows); setCols(cols); }
     public void resetMap(){ map.saveMap(); map.resetMap(); }
     public void clearMap(){ map.saveMap(); map.clearMap(); }
     public void setTileID(int row, int col, int tileID){ map.setTileID(row,col,tileID); }

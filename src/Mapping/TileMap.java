@@ -36,6 +36,16 @@ public class TileMap {
             }
         }
     }
+    public void setRows(int rows){
+        if (rows < 2) rows = 2;
+        if (rows > getRows()){ while (rows > getRows()){ addRow(); } }
+        else if (rows < getRows()){ while (rows < getRows()){ removeLastRow(); } }
+    }
+    public void setCols(int cols){
+        if (cols < 2) cols = 2;
+        if (cols > getCols()){ while (cols > getCols()){ addCol(); } }
+        else if (cols < getCols()){ while (cols < getCols()){ removeLastCol(); } }
+    }
     public void resetMap(){
         deleteMap();
         map.set(index, newMap(10, 8));

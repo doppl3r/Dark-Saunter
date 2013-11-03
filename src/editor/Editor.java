@@ -110,6 +110,9 @@ public class Editor {
     public void removeRow(){ tileBuffer.removeRow(); }
     public void addCol(){ tileBuffer.addCol(); }
     public void removeCol(){ tileBuffer.removeCol(); }
+    public void setRows(int rows){ tileBuffer.setRows(rows); }
+    public void setCols(int cols){ tileBuffer.setCols(cols); }
+    public void setRowsAndCols(int rows, int cols){ tileBuffer.setRowsAndCols(rows,cols); }
     public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
     public void clearMap(){ tileBuffer.clearMap(); }
     public void setTileID(int id){ tileID = id; }

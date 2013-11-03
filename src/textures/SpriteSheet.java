@@ -151,6 +151,8 @@ public class SpriteSheet {
 		destRect.right = 0;
 	}
     public void updateLayout(int vFrames, int hFrames){
+        if (vFrames < 1) vFrames = 1;
+        if (hFrames < 1) hFrames = 1;
         this.hFrames=hFrames;
         this.vFrames=vFrames;
         spriteWidth =imgWidth = image.getWidth(null)/this.hFrames;

@@ -104,19 +104,32 @@ public class FileBrowser {
         JTextField field1 = new JTextField(EditorWindow.panel.texture.getHFrames()+"");
         JTextField field2 = new JTextField(EditorWindow.panel.texture.getVFrames()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
-        panel.add(new JLabel("Rows: "));
-        panel.add(field2);
-        panel.add(new JLabel("Columns: "));
+        panel.add(new JLabel("Columns [Left to Right]: "));
         panel.add(field1);
+        panel.add(new JLabel("Rows [Top to Bottom]: "));
+        panel.add(field2);
         int result = JOptionPane.showConfirmDialog(null, panel, "Adjust Texture Dimension",
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
             EditorWindow.panel.texture.updateLayout(
-                Integer.parseInt(field2.getText()),Integer.parseInt(field1.getText()));
+                (int)Double.parseDouble(field2.getText()),(int)Double.parseDouble(field1.getText()));
             EditorWindow.panel.editor.setTileID(1);
             EditorWindow.panel.gui.textureBox.setTileID(1);
-        } else {
-            System.out.println("Cancelled");
-        }
+        } else { }
+    }
+    public void changeArrayProperties(){
+        JTextField field1 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getCols()+"");
+        JTextField field2 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getRows()+"");
+        JPanel panel = new JPanel(new GridLayout(0, 1));
+        panel.add(new JLabel("Columns [Left to Right]: "));
+        panel.add(field1);
+        panel.add(new JLabel("Rows [Top to Bottom]: "));
+        panel.add(field2);
+        int result = JOptionPane.showConfirmDialog(null, panel, "Adjust 2D Map Dimension",
+                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+        if (result == JOptionPane.OK_OPTION) {
+            EditorWindow.panel.editor.setRowsAndCols(
+                (int)Double.parseDouble(field2.getText()),(int)Double.parseDouble(field1.getText()));
+        } else { }
     }
 }
