@@ -19,8 +19,8 @@ public class TextureBox {
         int y2 = textureBox.getDestRectTop();
         int width = 128;
         int height = 128;
-        int rows = EditorWindow.panel.texture.getHFrames();
-        int cols = EditorWindow.panel.texture.getVFrames();
+        int rows = EditorWindow.panel.texture.getVFrames();
+        int cols = EditorWindow.panel.texture.getHFrames();
         textureBox.draw(g);
         g.drawImage(EditorWindow.panel.texture.getImage(),
                 x1, y1, x2+width+4, y2+height+4,
@@ -29,18 +29,27 @@ public class TextureBox {
                 EditorWindow.panel.texture.getOriginalImageWidth(),
                 EditorWindow.panel.texture.getOriginalImageHeight(),
                 null);
+        //draw grid
+        g.setColor(new Color(0,0,0,50));
+        for (int row = 0; row < rows; row++){
+            for (int col = 0; col < cols; col++){
+                g.drawRect(x1+(col)*(width/cols), y1+(row)*(height/rows),
+                    (width/cols),(height/rows));
+            }
+        }
+        //draw selector
         g.setColor(new Color(255,255,255,100));
         g.fillRect(
-            x1+((tileID-1)%cols)*(width/cols),
-            y1+((tileID-1)/cols)*(height/rows),
-            (width/cols)-1,
-            (height/rows)-1);
+            x1+((tileID-1)%cols)*(width/cols)+1,
+            y1+((tileID-1)/cols)*(height/rows)+1,
+            (width/cols)-2,
+            (height/rows)-2);
         g.setColor(Color.WHITE);
         g.drawRect(
-                x1+((tileID-1)%cols)*(width/cols),
-                y1+((tileID-1)/cols)*(height/rows),
-                (width/cols)-1,
-                (height/rows)-1);
+                x1+((tileID-1)%cols)*(width/cols)+1,
+                y1+((tileID-1)/cols)*(height/rows)+1,
+                (width/cols)-2,
+                (height/rows)-2);
     }
     public void update(int x, int y){
         textureBox.update(x,y);
@@ -58,8 +67,8 @@ public class TextureBox {
         boolean active = false;
         int x2 = textureBox.getDestRectLeft()+4;
         int y2 = textureBox.getDestRectTop()+4;
-        int cols = EditorWindow.panel.texture.getVFrames();
-        int rows = EditorWindow.panel.texture.getHFrames();
+        int rows = EditorWindow.panel.texture.getVFrames();
+        int cols = EditorWindow.panel.texture.getHFrames();
         if (x1 >= x2 && x1 < x2+128 &&
             y1 >= y2 && y2 < y2+128){
             if (force){

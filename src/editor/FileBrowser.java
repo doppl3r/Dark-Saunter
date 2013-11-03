@@ -66,19 +66,19 @@ public class FileBrowser {
         else if (actionDialog == JOptionPane.YES_OPTION){ saveMap(); exitAfterSave = true; }
         else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
     }
-    public void display() {
-        JTextField field1 = new JTextField("4");
-        JTextField field2 = new JTextField("4");
+    public void changeTextureProperties() {
+        JTextField field1 = new JTextField(EditorWindow.panel.texture.getVFrames()+"");
+        JTextField field2 = new JTextField(EditorWindow.panel.texture.getHFrames()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
         panel.add(new JLabel("Rows: "));
         panel.add(field1);
         panel.add(new JLabel("Columns: "));
         panel.add(field2);
         int result = JOptionPane.showConfirmDialog(null, panel, "Adjust Texture Dimension",
-                JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+            JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            System.out.println(" " + field1.getText()
-                    + " " + field2.getText());
+            EditorWindow.panel.texture.updateLayout(
+            Integer.parseInt(field2.getText()),Integer.parseInt(field1.getText()));
         } else {
             System.out.println("Cancelled");
         }

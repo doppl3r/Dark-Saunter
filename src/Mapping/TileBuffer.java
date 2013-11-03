@@ -51,9 +51,8 @@ public class TileBuffer {
     }
     //mouse actions
     public void down(int x, int y, int buttonID){;
-        System.out.println(x-mainX);
-        if (x-mainX > -blockSize && x-mainX < getMapPixelWidth() &&
-            y-mainY > -blockSize && x-mainX < getMapPixelHeight()){
+        if (x-mainX > 0 && x-mainX < getMapPixelWidth() &&
+            y-mainY > 0  && y-mainY < getMapPixelHeight()){
             map.saveMap();
         }
     }

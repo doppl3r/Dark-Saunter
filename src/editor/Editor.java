@@ -55,19 +55,21 @@ public class Editor {
 
     //mouse actions
     public void down(int x, int y, int buttonID){
-        tileBuffer.down(x,y,buttonID);
         switch(currentTool){
             case(0): //drag tool
                 downX = x;
                 downY = y;
                 break;
             case(1): //fill tool
+                tileBuffer.down(x,y,buttonID);
                 floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
                 break;
             case(2): //erase tool
+                tileBuffer.down(x,y,buttonID);
                 dragErase = true;
                 break;
             case(3): //draw tool
+                tileBuffer.down(x,y,buttonID);
                 if (buttonID == 1){ dragDraw = true; move(x,y,buttonID); }
                 else if (buttonID != 0){ dragErase = true; move(x,y,buttonID); }
                 break;
@@ -80,10 +82,16 @@ public class Editor {
             dragY = downY-y;
         }
         if (dragDraw){
-            tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID);
+            if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
+                    y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
+                tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID);
+            }
         }
         else if (dragErase){
-            tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0);
+            if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
+                    y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
+                tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0);
+            }
         }
     }
     public void up(int x, int y, int buttonID){

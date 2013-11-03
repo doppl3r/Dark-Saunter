@@ -1,7 +1,6 @@
 package editor;
 import java.awt.*;
 import buttons.Button;
-import textures.SpriteSheet;
 
 public class EditorGUI {
     private boolean active; //allows prioritiy if a button is hit
@@ -188,7 +187,7 @@ public class EditorGUI {
         else if (drawTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(3); }
         //nav4
         else if (importTexture.up(x1,y1)){  }
-        else if (settings.up(x1,y1)){  }
+        else if (settings.up(x1,y1)){ EditorWindow.browser.changeTextureProperties(); }
 
         textureBox.up(x1,y1);
         active = false;
@@ -254,7 +253,7 @@ public class EditorGUI {
         drawTool.update(88,height-28); drawTool.setHint("Draw Tool [b]");
         //nav4 - update according to right and bottom
         importTexture.update(width - 168, height - 56); importTexture.setHint("Import Texture");
-        settings.update(width-168,height-28); settings.setHint("Settings");
+        settings.update(width-168,height-28); settings.setHint("Texture Properties [F12]");
         textureBox.update(width-140,height-140);
     }
     public boolean isActive(){ return active; }

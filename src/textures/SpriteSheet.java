@@ -30,7 +30,7 @@ public class SpriteSheet {
 		spriteWidth =imgWidth = image.getWidth(null)/this.hFrames; //commonly results in 32x32 or 16x16
 		spriteHeight=imgHeight=image.getHeight(null)/this.vFrames;
 		
-		frames = (int)(hFrames*vFrames); //4x4 = 16 possible frames
+		frames = (hFrames*vFrames); //4x4 = 16 possible frames
 		spriteRect = new Rect(0,0,imgWidth,imgHeight); //this determines what frame of the sprite to show
 		destRect = new Rect(); //this is where that particular frame will be drawn
 	}
@@ -150,6 +150,15 @@ public class SpriteSheet {
 		destRect.left = 0;
 		destRect.right = 0;
 	}
+    public void updateLayout(int vFrames, int hFrames){
+        this.hFrames=hFrames;
+        this.vFrames=vFrames;
+        spriteWidth =imgWidth = image.getWidth(null)/this.hFrames;
+        spriteHeight=imgHeight=image.getHeight(null)/this.vFrames;
+        frames = (hFrames*vFrames);
+        spriteRect.right=spriteWidth;
+        spriteRect.bottom=spriteHeight;
+    }
 	public void setImage(Image image){ this.image = image; }
 	public Image getImage(){ return image; }
 	public Rect getDestRect(){ return destRect; }
