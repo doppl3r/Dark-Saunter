@@ -14,6 +14,8 @@ public class EditorGUI {
     private Button removeColumn;
     private Button newArray;
     private Button deleteArray;
+    private Button undo;
+    private Button redo;
     private Button exit;
     //nav2
     private Button zoomIn;
@@ -31,7 +33,7 @@ public class EditorGUI {
     //nav4
     private Button importTexture;
     private Button settings;
-    private TextureBox textureBox;
+    public TextureBox textureBox;
 
     public EditorGUI(){
         //nav1
@@ -43,6 +45,8 @@ public class EditorGUI {
         removeColumn = new Button(EditorWindow.tt.removeColumn,0,0,1,2,false);
         newArray = new Button(EditorWindow.tt.newArray,0,0,1,2,false);
         deleteArray = new Button(EditorWindow.tt.deleteArray,0,0,1,2,false);
+        undo = new Button(EditorWindow.tt.navLeft,0,0,1,2,false);
+        redo = new Button(EditorWindow.tt.navRight,0,0,1,2,false);
         exit = new Button(EditorWindow.tt.exit,0,0,1,2,false);
         //nav2
         zoomIn = new Button(EditorWindow.tt.zoomIn,0,0,1,2,false);
@@ -73,6 +77,8 @@ public class EditorGUI {
         removeColumn.draw(g);
         newArray.draw(g);
         deleteArray.draw(g);
+        undo.draw(g);
+        redo.draw(g);
         exit.draw(g);
         //nav2
         zoomIn.draw(g);
@@ -105,6 +111,8 @@ public class EditorGUI {
         if (removeColumn.down(x1,y1)) active = true;
         if (newArray.down(x1,y1)) active = true;
         if (deleteArray.down(x1,y1)) active = true;
+        if (undo.down(x1,y1)) active = true;
+        if (redo.down(x1,y1)) active = true;
         if (exit.down(x1,y1)) active = true;
         //nav2
         if (zoomIn.down(x1,y1)) active = true;
@@ -151,7 +159,7 @@ public class EditorGUI {
         importTexture.move(x1,y1);
         settings.move(x1,y1);
 
-        //textureBox.move(x1,y1);
+        textureBox.move(x1,y1);
     }
     public void up(int x1, int y1){
         if (openArray.up(x1,y1)){ EditorWindow.browser.openMap(); }
@@ -162,6 +170,8 @@ public class EditorGUI {
         else if (removeColumn.up(x1,y1)){ EditorWindow.panel.editor.removeCol(); }
         else if (newArray.up(x1,y1)){ EditorWindow.browser.newMap(); }
         else if (deleteArray.up(x1,y1)){ EditorWindow.browser.deleteMap(); }
+        else if (undo.up(x1,y1)) { EditorWindow.panel.editor.undo(); }
+        else if (redo.up(x1,y1)) { EditorWindow.panel.editor.redo(); }
         else if (exit.up(x1,y1)){ EditorWindow.browser.exit(); }
         //nav2
         else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(true); }
@@ -180,7 +190,7 @@ public class EditorGUI {
         else if (importTexture.up(x1,y1)){  }
         else if (settings.up(x1,y1)){  }
 
-        //textureBox.up(x1,y1);
+        textureBox.up(x1,y1);
         active = false;
     }
     public void hover(int x1, int y1){
@@ -192,6 +202,8 @@ public class EditorGUI {
         removeColumn.hover(x1,y1);
         newArray.hover(x1,y1);
         deleteArray.hover(x1,y1);
+        undo.hover(x1,y1);
+        redo.hover(x1,y1);
         exit.hover(x1,y1);
         //nav2
         zoomIn.hover(x1,y1);
@@ -224,7 +236,9 @@ public class EditorGUI {
         removeColumn.update(168,4); removeColumn.setHint("Remove Column [6]");
         newArray.update(208,4); newArray.setHint("New Map [7]");
         deleteArray.update(236,4); deleteArray.setHint("Clear Map [8]");
-        exit.update(264,4); exit.setHint("Exit [Esc]");
+        undo.update(276,4) ; undo.setHint("Undo [Ctrl + z]");
+        redo.update(304,4) ; redo.setHint("Redo [Ctrl + y]");
+        exit.update(332,4); exit.setHint("Exit [Esc]");
         //nav2 - update according to right
         zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [e]");
         zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [q]");

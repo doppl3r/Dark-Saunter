@@ -2,6 +2,7 @@ package editor;
 
 import java.awt.*;
 import mapping.TileBuffer;
+import textures.SpriteSheet;
 
 public class Editor {
     private TileBuffer tileBuffer;
@@ -23,7 +24,7 @@ public class Editor {
     private boolean controlKey;
 
     public Editor(){
-        tileBuffer = new TileBuffer(EditorWindow.tt.defaultTexture);
+        tileBuffer = new TileBuffer();
         blockSize = 32;
         zoomAmount = 4;
         tileID = 1;
@@ -32,8 +33,8 @@ public class Editor {
         tileBuffer.update(mainX, mainY, blockSize, 0, 0);
         zoomFit(true);
     }
-    public void draw(Graphics2D g){
-        tileBuffer.draw(g);
+    public void draw(Graphics2D g, SpriteSheet texture){
+        tileBuffer.draw(g, texture);
     }
     public void update(double mod){
         tileBuffer.update(mainX-dragX, mainY-dragY, blockSize, tileID, mod);
@@ -104,6 +105,8 @@ public class Editor {
     public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
     public void clearMap(){ tileBuffer.clearMap(); }
     public void setTileID(int id){ tileID = id; }
+    public void undo(){ tileBuffer.undo(); }
+    public void redo(){ tileBuffer.redo(); }
     public void zoomIn(boolean center){
         double x = EditorWindow.getPanelWidth()/2;
         double y = EditorWindow.getPanelHeight()/2;

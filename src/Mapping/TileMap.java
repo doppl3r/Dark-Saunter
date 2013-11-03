@@ -24,8 +24,7 @@ public class TileMap {
         }
     }
     public void removeLastRow(){
-        int rows = getRows();
-        if (rows > 2){
+        if (getRows() > 2){
             savedCols = getCols();
             map.get(index).remove(getRows()-1);
         }

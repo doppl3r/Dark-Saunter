@@ -155,7 +155,9 @@ public class SpriteSheet {
 	public Rect getDestRect(){ return destRect; }
 	public Rect getSpriteRect(){ return spriteRect; }
 	public int getImageWidth(){ return imgWidth; }
-	public int getImageHeight(){ return imgHeight; }
+	public int getImageHeight(){ return imgWidth; }
+    public int getOriginalImageWidth(){ return image.getWidth(null); }
+    public int getOriginalImageHeight(){ return image.getHeight(null); }
 	public int getHFrames(){ return hFrames; }
 	public int getVFrames(){ return vFrames; }
 	public int getCurrentFrame(){ return (int)currentFrame; }

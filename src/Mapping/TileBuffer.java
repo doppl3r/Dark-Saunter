@@ -6,7 +6,6 @@ import java.awt.*;
 
 public class TileBuffer {
     private TileMap map;
-    private SpriteSheet texture;
     private Font font;
     private int tileID;
     private double mainX;
@@ -14,13 +13,12 @@ public class TileBuffer {
     private double blockSize;
     private boolean grid;
 
-    public TileBuffer(Image image){
+    public TileBuffer(){
         map = new TileMap(10,8);
-        texture = new SpriteSheet(image, 4, 4, 0.0);
         font = new Font("Arial", Font.PLAIN, 10);
         grid = true;
     }
-    public void draw(Graphics2D g){
+    public void draw(Graphics2D g, SpriteSheet texture){
         int windowX = EditorWindow.getPanelWidth();
         int windowY = EditorWindow.getPanelHeight();
         double tempX;
@@ -52,8 +50,12 @@ public class TileBuffer {
         this.tileID =blockID;
     }
     //mouse actions
-    public void down(int x, int y, int buttonID){
-        map.saveMap();
+    public void down(int x, int y, int buttonID){;
+        System.out.println(x-mainX);
+        if (x-mainX > -blockSize && x-mainX < getMapPixelWidth() &&
+            y-mainY > -blockSize && x-mainX < getMapPixelHeight()){
+            map.saveMap();
+        }
     }
     public void move(int x, int y, int buttonID){
 
@@ -77,6 +79,5 @@ public class TileBuffer {
     public TileMap getMap(){ return map; }
     public int getMapPixelWidth(){ return (int)blockSize*map.getCols(); }
     public int getMapPixelHeight(){ return (int)blockSize*map.getRows(); }
-    public SpriteSheet getTexture(){ return texture; }
     public int getBlockSize(){ return (int)blockSize; }
 }

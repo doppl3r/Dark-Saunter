@@ -1,4 +1,6 @@
 package editor;
+import textures.SpriteSheet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -20,6 +22,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
     private Font font;
     public Editor editor;
     public EditorGUI gui;
+    public SpriteSheet texture;
 	private Timer t;
 
 	public EditorPanel(){
@@ -28,7 +31,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         font = new Font ("Arial", Font.BOLD, 12);
         gui = new EditorGUI();
         editor = new Editor();
-
+        texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 4, 4, 0.0);
 
 		//set listeners and thread
 		addKeyListener(this);
@@ -60,7 +63,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         if (!paused){
             switch(panelState){
                 case(0): break;
-                case(1): editor.draw(g); break;
+                case(1): editor.draw(g,texture); break;
             }
         }
         gui.draw(g);
@@ -107,7 +110,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 else if (key == KeyEvent.VK_6) { editor.removeCol(); }
                 else if (key == KeyEvent.VK_7) { EditorWindow.browser.newMap(); }
                 else if (key == KeyEvent.VK_8) { EditorWindow.browser.deleteMap(); }
-                else if (key == KeyEvent.VK_F12) { EditorWindow.panel.editor.getTileBuffer().getMap().historyToString(); }
+                else if (key == KeyEvent.VK_F12) { EditorWindow.browser.display(); }
             break;
         }
 	}
