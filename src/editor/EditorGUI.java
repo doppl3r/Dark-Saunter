@@ -186,7 +186,7 @@ public class EditorGUI {
         else if (eraseTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(2); }
         else if (drawTool.up(x1,y1)){ EditorWindow.panel.editor.setCurrentTool(3); }
         //nav4
-        else if (importTexture.up(x1,y1)){  }
+        else if (importTexture.up(x1,y1)){ EditorWindow.browser.importTexture(); }
         else if (settings.up(x1,y1)){ EditorWindow.browser.changeTextureProperties(); }
 
         textureBox.up(x1,y1);

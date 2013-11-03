@@ -63,6 +63,7 @@ public class TextureBox {
     public void up(int x1, int y1){
         setTileID(x1,y1,true);
     }
+    public void setTileID(int tileID){ this.tileID=tileID; }
     public boolean setTileID(int x1, int y1, boolean force){
         boolean active = false;
         int x2 = textureBox.getDestRectLeft()+4;

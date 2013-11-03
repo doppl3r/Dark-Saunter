@@ -31,7 +31,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         font = new Font ("Arial", Font.BOLD, 12);
         gui = new EditorGUI();
         editor = new Editor();
-        texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 3, 4, 0.0);
+        texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 4, 4, 0.0);
 
 		//set listeners and thread
 		addKeyListener(this);

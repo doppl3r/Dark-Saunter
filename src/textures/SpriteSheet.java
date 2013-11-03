@@ -159,6 +159,7 @@ public class SpriteSheet {
         spriteRect.right=spriteWidth;
         spriteRect.bottom=spriteHeight;
     }
+    public void updateLayout(){ updateLayout(vFrames,hFrames); }
 	public void setImage(Image image){ this.image = image; }
 	public Image getImage(){ return image; }
 	public Rect getDestRect(){ return destRect; }
