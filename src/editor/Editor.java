@@ -62,8 +62,8 @@ public class Editor {
                 break;
             case(1): //fill tool
                 tileBuffer.down(x,y,buttonID);
-                if (buttonID == 1) floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
-                else if (buttonID != 0) floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,0);
+                if (buttonID == 1) floodFill(x,y,-1,tileID); //flood with current id
+                else if (buttonID != 0) floodFill(x,y,-1,0); //erase flood
                 break;
             case(2): //erase tool
                 tileBuffer.down(x,y,buttonID);
@@ -78,17 +78,17 @@ public class Editor {
     }
     public void move(int x, int y, int buttonID){
         tileBuffer.move(x,y,buttonID);
-        if (currentTool == 0){
+        if (currentTool == 0){ //drag the map if selected
             dragX = downX-x;
             dragY = downY-y;
         }
-        if (dragDraw){
+        if (dragDraw){ //draw with current id
             if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
                     y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
                 tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID);
             }
         }
-        else if (dragErase){
+        else if (dragErase){ //erase
             if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
                     y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
                 tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0);
@@ -96,6 +96,7 @@ public class Editor {
         }
     }
     public void up(int x, int y, int buttonID){
+        //reset all drag values
         tileBuffer.up(x,y,buttonID);
         dragDraw = dragErase = false;
         if (dragX != 0) mainX -= dragX;
@@ -185,21 +186,9 @@ public class Editor {
         currentTool = i;
         EditorWindow.setCursor(i);
     }
-    public boolean floodFill(int row, int col, int oldVal, int newVal){
-        if (row >= 0 && row <= tileBuffer.getMap().getRows()-1 &&
-            col >= 0 && col <= tileBuffer.getMap().getCols()-1){
-            if (oldVal == -1) oldVal = tileBuffer.getMap().getTile(row,col).getID();
-            if (tileBuffer.getMap().getTile(row,col).getID() != oldVal) return true; //breaker
-            if (oldVal == newVal) return true; //breaker
-            tileBuffer.setTileID(row,col,newVal);
-            if (col > 0) floodFill(row, col-1, oldVal, newVal);
-            if (row > 0) floodFill(row-1, col, oldVal, newVal);
-            if (col < tileBuffer.getMap().getCols()-1) floodFill(row, col+1, oldVal, newVal);
-            if (row < tileBuffer.getMap().getRows()-1) floodFill(row+1, col, oldVal, newVal);
-        }
-        return true;
-    }
+    public void floodFill(int x, int y, int oldVal, int newVal){ tileBuffer.floodFill(x,y,oldVal,newVal); }
     public void forceDrag(boolean force){
+        //this will force the drag-map feature so that the SPACE bar can drag the map when held
         if (force){
             if (savedTool == -1){
                 savedTool = currentTool;

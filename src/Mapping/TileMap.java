@@ -50,6 +50,20 @@ public class TileMap {
         deleteMap();
         map.set(index, newMap(10, 8));
     }
+    public boolean floodFill(int row, int col, int oldVal, int newVal){
+        if (row >= 0 && row <= getRows()-1 &&
+                col >= 0 && col <= getCols()-1){
+            if (oldVal == -1) oldVal = getTile(row,col).getID();
+            if (getTile(row,col).getID() != oldVal) return true; //breaker
+            if (oldVal == newVal) return true; //breaker
+            setTileID(row,col,newVal);
+            if (col > 0) floodFill(row, col-1, oldVal, newVal);
+            if (row > 0) floodFill(row-1, col, oldVal, newVal);
+            if (col < getCols()-1) floodFill(row, col+1, oldVal, newVal);
+            if (row < getRows()-1) floodFill(row+1, col, oldVal, newVal);
+        }
+        return true;
+    }
     public void clearMap(){
         for (int row = 0; row < getRows(); row++){
             for (int col = 0; col < getCols(); col++){

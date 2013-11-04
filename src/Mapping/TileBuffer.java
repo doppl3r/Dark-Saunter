@@ -37,6 +37,7 @@ public class TileBuffer {
                         g.drawRect((int)tempX,(int)tempY,(int)blockSize,(int)blockSize);
                     }
                 }
+                //else break;
             }
         }
         g.setFont(font);
@@ -51,6 +52,7 @@ public class TileBuffer {
     }
     //mouse actions
     public void down(int x, int y, int buttonID){;
+        //save the map before the next action! Very important!
         if (x-mainX > 0 && x-mainX < getMapPixelWidth() &&
             y-mainY > 0  && y-mainY < getMapPixelHeight()){
             map.saveMap();
@@ -64,6 +66,14 @@ public class TileBuffer {
     }
     public void hover(int x, int y){
 
+    }
+    public void floodFill(int x, int y, int oldVal, int newVal){
+        int row = (int)((int)(y-mainY)/blockSize);
+        int col = (int)((int)(x-mainX)/blockSize);
+        if (x-mainX > 0 && x-mainX < getMapPixelWidth() &&
+            y-mainY > 0  && y-mainY < getMapPixelHeight()){
+            map.floodFill(row,col,oldVal,newVal);
+        }
     }
     public void addRow(){ map.saveMap(); map.addRow(); }
     public void removeRow(){ map.saveMap(); map.removeLastRow(); }
