@@ -96,7 +96,7 @@ public class FileBrowser {
     }
     public void exit(){
         int actionDialog = JOptionPane.showConfirmDialog(null,"Would you like to save first?");
-        if (actionDialog == JOptionPane.NO_OPTION){ EditorWindow.exit(); }
+        if (actionDialog == JOptionPane.NO_OPTION){ System.exit(0); }
         else if (actionDialog == JOptionPane.YES_OPTION){ exitAfterSave = true; saveMap();  }
         else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
     }
