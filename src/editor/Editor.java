@@ -67,7 +67,8 @@ public class Editor {
                 break;
             case(2): //erase tool
                 tileBuffer.down(x,y,buttonID);
-                dragErase = true;
+                if (buttonID == 1){ dragErase = true; move(x,y,buttonID); }
+                else if (buttonID != 0){ dragDraw = true; move(x,y,buttonID); }
                 break;
             case(3): //draw tool
                 tileBuffer.down(x,y,buttonID);
