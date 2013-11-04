@@ -110,7 +110,8 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 else if (key == KeyEvent.VK_6) { editor.removeCol(); }
                 else if (key == KeyEvent.VK_7) { EditorWindow.browser.newMap(); }
                 else if (key == KeyEvent.VK_8) { EditorWindow.browser.deleteMap(); }
-                else if (key == KeyEvent.VK_F12) { EditorWindow.browser.changeTextureProperties(); }
+                else if (key == KeyEvent.VK_9) { EditorWindow.browser.changeArrayProperties(); }
+                else if (key == KeyEvent.VK_0) { EditorWindow.browser.changeTextureProperties(); }
             break;
         }
 	}

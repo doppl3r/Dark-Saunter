@@ -244,7 +244,7 @@ public class EditorGUI {
         removeColumn.update(168,4); removeColumn.setHint("Remove Column [6]");
         newArray.update(208,4); newArray.setHint("New Map [7]");
         deleteArray.update(236,4); deleteArray.setHint("Clear Map [8]");
-        arraySettings.update(264,4); arraySettings.setHint("2D Map Settings");
+        arraySettings.update(264,4); arraySettings.setHint("Map Settings [9]");
         undo.update(304,4) ; undo.setHint("Undo [Ctrl + z]");
         redo.update(332,4) ; redo.setHint("Redo [Ctrl + y]");
         exit.update(360,4); exit.setHint("Exit [Esc]");
@@ -262,8 +262,8 @@ public class EditorGUI {
         eraseTool.update(60,height-28); eraseTool.setHint("Erase Tool [v]");
         drawTool.update(88,height-28); drawTool.setHint("Draw Tool [b]");
         //nav4 - update according to right and bottom
-        importTexture.update(width - 168, height - 56); importTexture.setHint("Import Texture");
-        settings.update(width-168,height-28); settings.setHint("Texture Properties [F12]");
+        importTexture.update(width - 168, height - 28); importTexture.setHint("Import Texture");
+        settings.update(width-168,height-56); settings.setHint("Texture Properties [0]");
         textureBox.update(width-140,height-140);
     }
     public boolean isActive(){ return active; }

@@ -62,7 +62,8 @@ public class Editor {
                 break;
             case(1): //fill tool
                 tileBuffer.down(x,y,buttonID);
-                floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
+                if (buttonID == 1) floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,tileID);
+                else if (buttonID != 0) floodFill((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize,-1,0);
                 break;
             case(2): //erase tool
                 tileBuffer.down(x,y,buttonID);

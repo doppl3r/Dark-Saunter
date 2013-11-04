@@ -104,9 +104,9 @@ public class FileBrowser {
         JTextField field1 = new JTextField(EditorWindow.panel.texture.getHFrames()+"");
         JTextField field2 = new JTextField(EditorWindow.panel.texture.getVFrames()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
-        panel.add(new JLabel("Columns [Left to Right]: "));
+        panel.add(new JLabel("Columns (left to right): "));
         panel.add(field1);
-        panel.add(new JLabel("Rows [Top to Bottom]: "));
+        panel.add(new JLabel("Rows (top to bottom): "));
         panel.add(field2);
         int result = JOptionPane.showConfirmDialog(null, panel, "Adjust Texture Dimension",
             JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
@@ -121,9 +121,9 @@ public class FileBrowser {
         JTextField field1 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getCols()+"");
         JTextField field2 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getRows()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
-        panel.add(new JLabel("Columns [Left to Right]: "));
+        panel.add(new JLabel("Columns (left to right): "));
         panel.add(field1);
-        panel.add(new JLabel("Rows [Top to Bottom]: "));
+        panel.add(new JLabel("Rows (top to bottom): "));
         panel.add(field2);
         int result = JOptionPane.showConfirmDialog(null, panel, "Adjust 2D Map Dimension",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
