@@ -91,10 +91,13 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 if (key == KeyEvent.VK_ESCAPE) { EditorWindow.browser.exit(); }
                 else if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpPressed(); }
                 else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
-                else if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownPressed(); }
+                else if (key == KeyEvent.VK_DOWN) { editor.keyDownPressed(); }
                 else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
                 else if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(true); }
+                else if (key == KeyEvent.VK_SHIFT){ editor.setShiftKey(true); }
                 else if (key == KeyEvent.VK_SPACE) { editor.spaceBarPressed(); } //Drag Tool
+                else if (key == KeyEvent.VK_S) { editor.sKey(); }
+                else if (key == KeyEvent.VK_O) { editor.oKey(); }
                 else if (key == KeyEvent.VK_E) { editor.zoomIn(true); }
                 else if (key == KeyEvent.VK_Q) { editor.zoomOut(true); }
                 else if (key == KeyEvent.VK_Z) { editor.zKey(); }
@@ -124,7 +127,8 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightReleased(); }
                 if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownReleased(); }
                 if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftReleased(); }
-                else if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(false); }
+                if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(false); }
+                if (key == KeyEvent.VK_SHIFT){ editor.setShiftKey(false); }
                 if (key == KeyEvent.VK_SPACE) { editor.spaceBarReleased(); }
             break;
         }

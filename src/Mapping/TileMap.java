@@ -50,6 +50,10 @@ public class TileMap {
         deleteMap();
         map.set(index, newMap(10, 8));
     }
+    public void setNewMap(int cols, int rows){
+        deleteMap();
+        map.set(index, newMap(cols, rows));
+    }
     public boolean floodFill(int row, int col, int oldVal, int newVal){
         if (row >= 0 && row <= getRows()-1 &&
                 col >= 0 && col <= getCols()-1){
@@ -92,7 +96,7 @@ public class TileMap {
             map.get(index).get(row).get(col).setID(id);
         }
     }
-    public void mapToString(int i){
+    public void mapToConsole(int i){
         //draw to console
         System.out.println(i);
         for (int row = 0; row < getRows(); row++){
@@ -103,19 +107,15 @@ public class TileMap {
         }
         System.out.println("");
     }
-    public void mapToString(LinkedList<LinkedList<Tile>> newMap){
-        for (int row = 0; row < newMap.size(); row++){
-            for (int col = 0; col < newMap.get(0).size(); col++){
-                System.out.print(newMap.get(row).get(col).getIDtoString());
+    public String mapToString(){
+        StringBuilder mapString = new StringBuilder();
+        for (int row = 0; row < getRows(); row++){
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getIDtoString());
             }
-            System.out.println("");
+            mapString.append(System.getProperty("line.separator"));
         }
-        System.out.println("");
-    }
-    public void historyToString(){
-        for (int i = 0; i < map.size(); i++){
-            mapToString(i);
-        }
+        return mapString.toString();
     }
     public Tile getTile(int row, int col){
         return map.get(index).get(row).get(col);

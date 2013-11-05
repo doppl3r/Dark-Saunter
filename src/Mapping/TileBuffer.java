@@ -21,12 +21,12 @@ public class TileBuffer {
     public void draw(Graphics2D g, SpriteSheet texture){
         int windowX = EditorWindow.getPanelWidth();
         int windowY = EditorWindow.getPanelHeight();
-        double tempX;
-        double tempY;
+        int tempX;
+        int tempY;
         for (int row = 0; row < map.getRows(); row++){
             for (int col = 0; col < map.getCols(); col++){
-                tempX = mainX+(col*blockSize);
-                tempY = mainY+(row*blockSize);
+                tempX = (int)(mainX+(col*blockSize));
+                tempY = (int)(mainY+(row*blockSize));
                 texture.animate(map.getTile(row,col).getID()-1);
                 texture.update(tempX,tempY,(int)blockSize,(int)blockSize);
                 texture.draw(g,windowX,windowY);
@@ -34,10 +34,9 @@ public class TileBuffer {
                 if (grid){
                     if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
                         g.setColor(Color.LIGHT_GRAY);
-                        g.drawRect((int)tempX,(int)tempY,(int)blockSize,(int)blockSize);
+                        g.drawRect(tempX,tempY,(int)blockSize,(int)blockSize);
                     }
                 }
-                //else break;
             }
         }
         g.setFont(font);
@@ -79,6 +78,7 @@ public class TileBuffer {
     public void removeRow(){ map.saveMap(); map.removeLastRow(); }
     public void addCol(){ map.saveMap(); map.addCol(); }
     public void removeCol(){ map.saveMap(); map.removeLastCol(); }
+    public void setNewMap(int cols, int rows){ map.saveMap(); map.setNewMap(cols,rows); }
     public void setRows(int rows){ map.setRows(rows); }
     public void setCols(int cols){ map.setCols(cols); }
     public void setRowsAndCols(int rows, int cols){ map.saveMap(); setRows(rows); setCols(cols); }

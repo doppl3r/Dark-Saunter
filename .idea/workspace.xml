@@ -52,19 +52,19 @@
     <file path="/LevelGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757912378" ignored="false" />
     <file path="/MenuBar.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382757840655" ignored="false" />
     <file path="/MenuTab.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1382758017846" ignored="false" />
-    <file path="/Editor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383580832821" ignored="false" />
+    <file path="/Editor.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383690574398" ignored="false" />
     <file path="/EditorGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383510274168" ignored="false" />
     <file path="/EditorWindow.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383457706867" ignored="false" />
-    <file path="/EditorPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383512228439" ignored="false" />
-    <file path="/TileMap.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383553984495" ignored="false" />
+    <file path="/EditorPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383690433291" ignored="false" />
+    <file path="/TileMap.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383686222193" ignored="false" />
     <file path="/Tile.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383182381428" ignored="false" />
-    <file path="/TileBuffer.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383554821438" ignored="false" />
+    <file path="/TileBuffer.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383684854301" ignored="false" />
     <file path="/FileManager.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383165906871" ignored="false" />
     <file path="$USER_HOME$/Google Drive/Other/Backups/Programs/Flack/src/LevelMakerThread.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383167990192" ignored="false" />
     <file path="/FileHelper.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383170138732" ignored="false" />
     <file path="/TextureBox.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383453707492" ignored="false" />
     <file path="/TileMapBackup.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383359975451" ignored="false" />
-    <file path="/FileBrowser.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383580409186" ignored="false" />
+    <file path="/FileBrowser.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383689752293" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,8 +129,10 @@
       <file leaf-file-name="FileBrowser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="10" selection-start="4867" selection-end="4867" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="168" column="22" selection-start="7251" selection-end="7251" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#5943#5951#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -138,16 +140,34 @@
       <file leaf-file-name="EditorPanel.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="116" column="57" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.0">
+            <state line="130" column="71" selection-start="5632" selection-end="5632" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Editor.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Editor.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="64" column="44" selection-start="1895" selection-end="1895" vertical-scroll-proportion="0.3215859">
+            <state line="185" column="35" selection-start="7096" selection-end="7096" vertical-scroll-proportion="-7.72">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileBuffer.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="77" column="20" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.49224806">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TileMap.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="115" column="70" selection-start="4315" selection-end="4315" vertical-scroll-proportion="12.68">
               <folding />
             </state>
           </provider>
@@ -173,20 +193,20 @@
         <option value="$PROJECT_DIR$/src/editor/TextureBox.java" />
         <option value="$PROJECT_DIR$/src/textures/SpriteSheet.java" />
         <option value="$PROJECT_DIR$/src/editor/EditorGUI.java" />
-        <option value="$PROJECT_DIR$/src/editor/EditorPanel.java" />
-        <option value="$PROJECT_DIR$/src/mapping/TileMap.java" />
-        <option value="$PROJECT_DIR$/src/mapping/TileBuffer.java" />
         <option value="$PROJECT_DIR$/src/editor/EditorWindow.java" />
+        <option value="$PROJECT_DIR$/src/mapping/TileBuffer.java" />
+        <option value="$PROJECT_DIR$/src/mapping/TileMap.java" />
         <option value="$PROJECT_DIR$/src/editor/FileBrowser.java" />
+        <option value="$PROJECT_DIR$/src/editor/EditorPanel.java" />
         <option value="$PROJECT_DIR$/src/editor/Editor.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="327" />
-    <option name="y" value="119" />
-    <option name="width" value="1353" />
-    <option name="height" value="872" />
+    <option name="x" value="168" />
+    <option name="y" value="90" />
+    <option name="width" value="1169" />
+    <option name="height" value="656" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -214,6 +234,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -228,7 +250,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -238,7 +260,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -252,25 +274,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="textures" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Dark Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -288,7 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
+              <option name="myItemId" value="Dark Saunter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -300,60 +304,8 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="buttons" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Dark-Saunter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="content" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -595,7 +547,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="327" y="119" width="1353" height="872" extended-state="0" />
+    <frame x="168" y="90" width="1169" height="656" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -606,13 +558,13 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32405347" sideWeight="0.50800425" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31514478" sideWeight="0.49786553" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3139932" sideWeight="0.49786553" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18512781" sideWeight="0.6722689" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3277311" sideWeight="0.49199572" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1897019" sideWeight="0.6204819" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37951806" sideWeight="0.49199572" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28004536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -685,6 +637,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="64" column="44" selection-start="1924" selection-end="1924" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="13" selection-start="57" selection-end="57" vertical-scroll-proportion="0.05851979" />
@@ -693,16 +652,6 @@
     <entry file="file://$PROJECT_DIR$/src/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="13" selection-start="33" selection-end="33" vertical-scroll-proportion="0.05851979" />
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.7.0_40/src.zip!/java/awt/Graphics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1136" column="56" selection-start="54392" selection-end="54392" vertical-scroll-proportion="2.88117" />
-      </provider>
-    </entry>
-    <entry file="file://E:/Google Drive/Other/Backups/Programs/Flack/src/TextureFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/textures/Textures.java">
@@ -714,16 +663,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/textures/SpriteSheet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="154" column="37" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/TextureBox.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="59" selection-start="2195" selection-end="2195" vertical-scroll-proportion="0.31235954">
-          <folding />
-        </state>
+        <state line="154" column="37" selection-start="5404" selection-end="5404" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/buttons/Button.java">
@@ -731,23 +671,9 @@
         <state line="25" column="9" selection-start="642" selection-end="643" vertical-scroll-proportion="0.5970636" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="26" selection-start="3530" selection-end="3548" vertical-scroll-proportion="2.6623166">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="265" column="85" selection-start="11216" selection-end="11216" vertical-scroll-proportion="0.73572594">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="46" selection-start="2249" selection-end="2249" vertical-scroll-proportion="0.09787928">
           <folding />
         </state>
       </provider>
@@ -766,23 +692,51 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
+    <entry file="file://$PROJECT_DIR$/content/gui/fillTool.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="10" selection-start="4867" selection-end="4867" vertical-scroll-proportion="0.0">
+        <state line="2" column="13" selection-start="31" selection-end="31" vertical-scroll-proportion="0.091644205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="70" selection-start="4315" selection-end="4315" vertical-scroll-proportion="12.68">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="57" selection-start="4716" selection-end="4716" vertical-scroll-proportion="0.0">
+        <state line="130" column="71" selection-start="5632" selection-end="5632" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/Editor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="64" column="44" selection-start="1895" selection-end="1895" vertical-scroll-proportion="0.3215859">
+        <state line="185" column="35" selection-start="7096" selection-end="7096" vertical-scroll-proportion="-7.72">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="168" column="22" selection-start="7251" selection-end="7251" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#5943#5951#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="20" selection-start="2653" selection-end="2653" vertical-scroll-proportion="0.49224806">
           <folding />
         </state>
       </provider>

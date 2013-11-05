@@ -22,6 +22,7 @@ public class Editor {
     private boolean dragDraw;
     private boolean dragErase;
     private boolean controlKey;
+    private boolean shiftKey;
 
     public Editor(){
         tileBuffer = new TileBuffer();
@@ -113,6 +114,8 @@ public class Editor {
     public void removeRow(){ tileBuffer.removeRow(); }
     public void addCol(){ tileBuffer.addCol(); }
     public void removeCol(){ tileBuffer.removeCol(); }
+    public void setNewMap(int cols, int rows){ tileBuffer.setNewMap(cols,rows); }
+    public void setTileAt(int row, int col, int id){ tileBuffer.setTileID(row,col,id);}
     public void setRows(int rows){ tileBuffer.setRows(rows); }
     public void setCols(int cols){ tileBuffer.setCols(cols); }
     public void setRowsAndCols(int rows, int cols){ tileBuffer.setRowsAndCols(rows,cols); }
@@ -176,13 +179,15 @@ public class Editor {
         }
     }
     public void setControlKey(boolean controlKey){ this.controlKey=controlKey; }
+    public void setShiftKey(boolean shiftKey){ this.shiftKey=shiftKey; }
     public void zKey(){
-        if (controlKey) { tileBuffer.undo(); } //undo
-        else zoomFit(false);
-    }
-    public void yKey(){
-        if (controlKey) { tileBuffer.redo(); } //redo
-    }
+        if (controlKey) {
+            if (!shiftKey) tileBuffer.undo();
+            else tileBuffer.redo();
+        } else zoomFit(false); }
+    public void yKey(){ if (controlKey) { tileBuffer.redo(); }}
+    public void sKey(){ if (controlKey) { EditorWindow.browser.saveMap(); } else moveUp(); }
+    public void oKey(){ if (controlKey) { EditorWindow.browser.openMap(); }}
     public void setCurrentTool(int i){
         currentTool = i;
         EditorWindow.setCursor(i);

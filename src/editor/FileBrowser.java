@@ -5,9 +5,9 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
+import java.util.LinkedList;
+import java.util.Scanner;
 
 public class FileBrowser {
     private JFileChooser browser;
@@ -30,7 +30,8 @@ public class FileBrowser {
         switch (result) {
             case JFileChooser.APPROVE_OPTION:
                 mapName = browser.getSelectedFile().toString();
-            break;
+                convertFileToMap(browser.getSelectedFile());
+                break;
             case JFileChooser.CANCEL_OPTION:
 
             break;
@@ -48,6 +49,7 @@ public class FileBrowser {
         switch (actionDialog) {
             case JFileChooser.APPROVE_OPTION:
                 mapName = browser.getSelectedFile().toString();
+                convertMapToFile();
                 if (exitAfterSave) System.exit(0);
             break;
             case JFileChooser.CANCEL_OPTION:
@@ -131,5 +133,58 @@ public class FileBrowser {
             EditorWindow.panel.editor.setRowsAndCols(
                 (int)Double.parseDouble(field2.getText()),(int)Double.parseDouble(field1.getText()));
         } else { }
+    }
+    public void convertFileToMap(File file){
+        LinkedList<String> stack = new LinkedList<String>();
+        Scanner scan = null;
+        int rows = 0;
+        int cols = 0;
+        boolean countRows = true;
+        boolean errorMessage = false;
+        //read file content
+        try { scan = new Scanner(new FileReader(file)); }
+        catch(IOException e1){}
+        while (scan.hasNextLine()){
+            stack.add(scan.nextLine());
+            if (countRows &&
+                stack.get(stack.size()-1).length() >= 2){ //= a number
+                if (stack.get(stack.size()-1).substring(0,2).matches("-?\\d+")) rows++;
+                else errorMessage = true;
+            }
+            else countRows = false;
+        }
+        //initialize parameters
+        if (!errorMessage && rows > 0){ cols = stack.get(0).length()/2; //parse according to 0-99
+            //contruct new array;
+            EditorWindow.panel.editor.setNewMap(cols, rows);
+            int id = 0;
+            String stringNum;
+            for (int row = 0; row < rows; row++){
+                for (int col = 0; col < cols; col++){
+                    stringNum = stack.get(row).substring(col*2, (col*2)+2);
+                    if (stringNum.matches("-?\\d+")){
+                        id = Integer.parseInt(stringNum);
+                        EditorWindow.panel.editor.setTileAt(row,col,id);
+
+                    } else errorMessage = true;
+                }
+            }
+            EditorWindow.panel.editor.zoomFit(false);
+        }
+        if (errorMessage) JOptionPane.showMessageDialog(null, "Error: Corrupt or invalid file!");
+    }
+    public void convertMapToFile(){
+        String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToString();
+        BufferedWriter writer = null;
+        try {
+            if (mapName.indexOf(".txt")<0) mapName+=".txt";
+            writer = new BufferedWriter(new FileWriter(mapName));
+            writer.write(mapString);
+        }
+        catch ( IOException e) { }
+        finally {
+            try { if ( writer != null) writer.close( ); }
+            catch ( IOException e){}
+        }
     }
 }
