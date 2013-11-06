@@ -124,12 +124,12 @@ public class TileMap {
         StringBuilder mapString = new StringBuilder();
         String lb = System.getProperty("line.separator");
         mapString.append("//c++ version: (copy and paste into code)"+lb);
-        mapString.append("int map["+getCols()+"]["+getRows()+"]="+lb);
+        mapString.append("int map["+getRows()+"]["+getCols()+"]="+lb);
         mapString.append("{");
         for (int row = 0; row < getRows(); row++){
             mapString.append("{");
             for (int col = 0; col < getCols(); col++){
-                mapString.append(map.get(index).get(row).get(col).getIDtoString());
+                mapString.append(map.get(index).get(row).get(col).getID());
                 if (col != getCols()-1) mapString.append(",");
             }
             mapString.append("}");
@@ -147,7 +147,7 @@ public class TileMap {
         for (int row = 0; row < getRows(); row++){
             mapString.append("{");
             for (int col = 0; col < getCols(); col++){
-                mapString.append(map.get(index).get(row).get(col).getIDtoString());
+                mapString.append(map.get(index).get(row).get(col).getID());
                 if (col != getCols()-1) mapString.append(",");
             }
             mapString.append("}");

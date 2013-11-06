@@ -56,7 +56,7 @@
     <file path="/EditorGUI.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383693357032" ignored="false" />
     <file path="/EditorWindow.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383754624791" ignored="false" />
     <file path="/EditorPanel.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383750257639" ignored="false" />
-    <file path="/TileMap.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383773760124" ignored="false" />
+    <file path="/TileMap.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383776108798" ignored="false" />
     <file path="/Tile.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383182381428" ignored="false" />
     <file path="/TileBuffer.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383752685154" ignored="false" />
     <file path="/FileManager.java" changelist="184447ed-c406-4342-a209-56c57034a8fb" time="1383165906871" ignored="false" />
@@ -79,7 +79,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -116,6 +115,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <line_breakpoints default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint url="file://$PROJECT_DIR$/src/textures/SpriteSheet.java" line="1" class="SpriteSheet.java" package="">
         <option name="ENABLED" value="true" />
@@ -142,10 +142,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="FileBrowser.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="FileBrowser.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="57" column="67" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.53110045">
+            <state line="48" column="79" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#7362#7370#0" expanded="true" />
               </folding>
@@ -165,16 +165,16 @@
       <file leaf-file-name="TileBuffer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="67" selection-start="3600" selection-end="3600" vertical-scroll-proportion="-8.4">
+            <state line="92" column="67" selection-start="3600" selection-end="3600" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TileMap.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="TileMap.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="144" column="37" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0">
+            <state line="147" column="74" selection-start="5656" selection-end="5656" vertical-scroll-proportion="0.569378">
               <folding />
             </state>
           </provider>
@@ -212,15 +212,15 @@
         <option value="$PROJECT_DIR$/src/editor/EditorPanel.java" />
         <option value="$PROJECT_DIR$/src/mapping/TileBuffer.java" />
         <option value="$PROJECT_DIR$/src/editor/EditorWindow.java" />
-        <option value="$PROJECT_DIR$/src/mapping/TileMap.java" />
         <option value="$PROJECT_DIR$/src/editor/Editor.java" />
         <option value="$PROJECT_DIR$/src/editor/FileBrowser.java" />
+        <option value="$PROJECT_DIR$/src/mapping/TileMap.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="136" />
-    <option name="y" value="62" />
+    <option name="x" value="166" />
+    <option name="y" value="70" />
     <option name="width" value="1104" />
     <option name="height" value="566" />
   </component>
@@ -250,7 +250,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -372,6 +371,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -388,12 +388,12 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="restartRequiresConfirmation" value="true" />
-    <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
+    <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="dynamic.classpath" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -430,6 +430,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -455,19 +468,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -613,8 +613,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="136" y="62" width="1104" height="566" extended-state="0" />
-    <editor active="false" />
+    <frame x="166" y="70" width="1104" height="566" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -630,7 +630,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3541267" sideWeight="0.60784316" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39215687" sideWeight="0.49199572" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39215687" sideWeight="0.49199572" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28004536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -746,9 +746,7 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_25/src.zip!/java/lang/String.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="19" selection-start="3638" selection-end="3638" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
+        <state line="107" column="19" selection-start="3638" selection-end="3638" vertical-scroll-proportion="0.33333334" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/EditorPanel.java">
@@ -783,16 +781,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="144" column="37" selection-start="5540" selection-end="5540" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/mapping/TileBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="67" selection-start="3600" selection-end="3600" vertical-scroll-proportion="-8.4">
+        <state line="92" column="67" selection-start="3600" selection-end="3600" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -806,10 +797,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/editor/FileBrowser.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="67" selection-start="2155" selection-end="2155" vertical-scroll-proportion="0.53110045">
+        <state line="48" column="79" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#7362#7370#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/mapping/TileMap.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="147" column="74" selection-start="5656" selection-end="5656" vertical-scroll-proportion="0.569378">
+          <folding />
         </state>
       </provider>
     </entry>
