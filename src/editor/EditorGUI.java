@@ -21,6 +21,7 @@ public class EditorGUI {
     private Button zoomIn;
     private Button zoomOut;
     private Button zoomFit;
+    private Button grid;
     private Button navUp;
     private Button navRight;
     private Button navDown;
@@ -53,6 +54,7 @@ public class EditorGUI {
         zoomIn = new Button(EditorWindow.tt.zoomIn,0,0,1,2,false);
         zoomOut = new Button(EditorWindow.tt.zoomOut,0,0,1,2,false);
         zoomFit = new Button(EditorWindow.tt.zoomFit,0,0,1,2,false);
+        grid = new Button(EditorWindow.tt.grid,0,0,1,2,false);
         navUp = new Button(EditorWindow.tt.navUp,0,0,1,2,false);
         navRight = new Button(EditorWindow.tt.navRight,0,0,1,2,false);
         navDown = new Button(EditorWindow.tt.navDown,0,0,1,2,false);
@@ -86,6 +88,7 @@ public class EditorGUI {
         zoomIn.draw(g);
         zoomOut.draw(g);
         zoomFit.draw(g);
+        grid.draw(g);
         navUp.draw(g);
         navRight.draw(g);
         navDown.draw(g);
@@ -121,6 +124,7 @@ public class EditorGUI {
         if (zoomIn.down(x1,y1)) active = true;
         if (zoomOut.down(x1,y1)) active = true;
         if (zoomFit.down(x1,y1)) active = true;
+        if (grid.down(x1,y1)) active = true;
         if (navUp.down(x1,y1)) active = true;
         if (navRight.down(x1,y1)) active = true;
         if (navDown.down(x1,y1)) active = true;
@@ -152,6 +156,7 @@ public class EditorGUI {
         zoomIn.move(x1,y1);
         zoomOut.move(x1,y1);
         zoomFit.move(x1,y1);
+        grid.move(x1,y1);
         navUp.move(x1,y1);
         navRight.move(x1,y1);
         navDown.move(x1,y1);
@@ -184,6 +189,7 @@ public class EditorGUI {
         else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(true); }
         else if (zoomOut.up(x1,y1)){ EditorWindow.panel.editor.zoomOut(true); }
         else if (zoomFit.up(x1,y1)){ EditorWindow.panel.editor.zoomFit(false); }
+        else if (grid.up(x1,y1)){ EditorWindow.panel.editor.toggleGrid(); }
         else if (navUp.up(x1,y1)){ EditorWindow.panel.editor.moveDown(); }
         else if (navRight.up(x1,y1)){ EditorWindow.panel.editor.moveLeft(); }
         else if (navDown.up(x1,y1)){ EditorWindow.panel.editor.moveUp(); }
@@ -217,6 +223,7 @@ public class EditorGUI {
         zoomIn.hover(x1,y1);
         zoomOut.hover(x1,y1);
         zoomFit.hover(x1,y1);
+        grid.hover(x1,y1);
         navUp.hover(x1,y1);
         navRight.hover(x1,y1);
         navDown.hover(x1,y1);
@@ -252,6 +259,7 @@ public class EditorGUI {
         zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [e]");
         zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [q]");
         zoomFit.update(width-56,32); zoomFit.setHint("Zoom Fit [z]");
+        grid.update(width-28, 60); grid.setHint("Toggle Grid [g]");
         navUp.update(width-56,4); navUp.setHint("Move Up [Up Arrow]");
         navRight.update(width-28,32); navRight.setHint("Move Right [Right Arrow]");
         navDown.update(width-56,60); navDown.setHint("Move Down [Down Arrow]");

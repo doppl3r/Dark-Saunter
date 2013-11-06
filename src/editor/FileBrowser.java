@@ -15,6 +15,7 @@ public class FileBrowser {
     private String mapName;
     private String imageName;
     private boolean exitAfterSave;
+    private boolean useDefaultTexture;
 
     public FileBrowser(String directory){
         browser = new JFileChooser();
@@ -60,6 +61,23 @@ public class FileBrowser {
             break;
         }
     }
+    public void changeTexture(){
+        if (!imageName.equals("null")){
+            try {
+
+                BufferedImage img = ImageIO.read(browser.getSelectedFile());
+                EditorWindow.panel.texture.setImage(img);
+                EditorWindow.panel.texture.updateLayout();
+                imageName = browser.getSelectedFile().toString();
+            }
+            catch(IOException e1){}
+        }
+        else {
+            EditorWindow.panel.texture.setImage(EditorWindow.tt.defaultTexture);
+            EditorWindow.panel.texture.updateLayout();
+            imageName = browser.getSelectedFile().toString();
+        }
+    }
     public void importTexture(){
         browser.setSelectedFile(new File(imageName));
         browser.setDialogTitle("Import a texture image");
@@ -67,27 +85,22 @@ public class FileBrowser {
         browser.setFileFilter(new FileNameExtensionFilter("Image Files '.jpg', '.png', '.gif'","jpg","png","gif"));
         int result = browser.showOpenDialog(null);
         switch (result) {
-            case JFileChooser.APPROVE_OPTION:
-                try {
-                    BufferedImage img = ImageIO.read(browser.getSelectedFile());
-                    EditorWindow.panel.texture.setImage(img);
-                    EditorWindow.panel.texture.updateLayout();
-                    imageName = browser.getSelectedFile().toString();
-                }
-                catch(IOException e1){}
-                break;
-            case JFileChooser.CANCEL_OPTION:
-
-                break;
-            case JFileChooser.ERROR_OPTION:
-
-                break;
+            case JFileChooser.APPROVE_OPTION: changeTexture(); break;
+            case JFileChooser.CANCEL_OPTION: break;
+            case JFileChooser.ERROR_OPTION: break;
         }
     }
     public void newMap(){
         int actionDialog = JOptionPane.showConfirmDialog(null,"Create new map without saving?");
         if (actionDialog == JOptionPane.NO_OPTION){ }
-        else if (actionDialog == JOptionPane.YES_OPTION){ EditorWindow.panel.editor.resetMap(); }
+        else if (actionDialog == JOptionPane.YES_OPTION){
+            EditorWindow.panel.editor.resetMap();
+            EditorWindow.panel.texture.setImage(EditorWindow.tt.defaultTexture);
+            EditorWindow.panel.texture.updateLayout(4,4);
+            EditorWindow.panel.editor.setTileID(1);
+            EditorWindow.panel.gui.textureBox.setTileID(1);
+            imageName="null";
+        }
         else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
     }
     public void deleteMap(){
@@ -149,7 +162,7 @@ public class FileBrowser {
             if (countRows &&
                 stack.get(stack.size()-1).length() >= 2){ //= a number
                 if (stack.get(stack.size()-1).substring(0,2).matches("-?\\d+")) rows++;
-                else errorMessage = true;
+                //else errorMessage = true;
             }
             else countRows = false;
         }
@@ -172,9 +185,23 @@ public class FileBrowser {
             EditorWindow.panel.editor.zoomFit(false);
         }
         if (errorMessage) JOptionPane.showMessageDialog(null, "Error: Corrupt or invalid file!");
+        //set up texture properties
+        imageName = stack.get(rows).substring(14);
+        if (imageName.indexOf(".") < 0) imageName = "null";
+        browser.setSelectedFile(new File(imageName));
+        EditorWindow.panel.texture.updateLayout(
+            Integer.parseInt(stack.get(rows).substring(8,10)),
+            Integer.parseInt(stack.get(rows).substring(10,12)));
+        EditorWindow.panel.editor.setTileID(1);
+        EditorWindow.panel.gui.textureBox.setTileID(1);
+        changeTexture();
     }
     public void convertMapToFile(){
         String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToString();
+        String path = "null";
+        browser.setSelectedFile(new File(imageName));
+        if (imageName.indexOf(".") >= 0) path = browser.getSelectedFile().getAbsolutePath();
+        mapString+="texture["+EditorWindow.panel.texture.framesToString()+"]="+path;
         BufferedWriter writer = null;
         try {
             if (mapName.indexOf(".txt")<0) mapName+=".txt";

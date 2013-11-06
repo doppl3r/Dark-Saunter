@@ -178,6 +178,7 @@ public class Editor {
             mainY = (height/2)-(tileBuffer.getMapPixelHeight()/2);
         }
     }
+    public void toggleGrid(){ tileBuffer.toggleGrid(); }
     public void setControlKey(boolean controlKey){ this.controlKey=controlKey; }
     public void setShiftKey(boolean shiftKey){ this.shiftKey=shiftKey; }
     public void zKey(){

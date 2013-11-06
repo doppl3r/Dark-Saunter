@@ -130,6 +130,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(false); }
                 if (key == KeyEvent.VK_SHIFT){ editor.setShiftKey(false); }
                 if (key == KeyEvent.VK_SPACE) { editor.spaceBarReleased(); }
+                if (key == KeyEvent.VK_G) { editor.toggleGrid(); }
             break;
         }
     }

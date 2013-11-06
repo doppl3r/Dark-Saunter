@@ -20,6 +20,7 @@ public class Textures {
     public Image zoomIn;
     public Image zoomOut;
     public Image zoomFit;
+    public Image grid;
     public Image dragTool;
     public Image fillTool;
     public Image eraseTool;
@@ -57,6 +58,7 @@ public class Textures {
         zoomIn = new ImageIcon(this.getClass().getResource("/gui/zoomIn.png")).getImage();
         zoomOut = new ImageIcon(this.getClass().getResource("/gui/zoomOut.png")).getImage();
         zoomFit = new ImageIcon(this.getClass().getResource("/gui/zoomFit.png")).getImage();
+        grid = new ImageIcon(this.getClass().getResource("/gui/grid.png")).getImage();
         dragTool = new ImageIcon(this.getClass().getResource("/gui/dragTool.png")).getImage();
         fillTool = new ImageIcon(this.getClass().getResource("/gui/fillTool.png")).getImage();
         eraseTool = new ImageIcon(this.getClass().getResource("/gui/eraseTool.png")).getImage();

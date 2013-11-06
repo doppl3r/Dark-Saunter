@@ -23,6 +23,8 @@ public class TileBuffer {
         int windowY = EditorWindow.getPanelHeight();
         int tempX;
         int tempY;
+        g.setColor(new Color(49,51,53));
+        g.fillRect((int)mainX,(int)mainY,(int)(map.getCols()*blockSize),(int)(map.getRows()*blockSize));
         for (int row = 0; row < map.getRows(); row++){
             for (int col = 0; col < map.getCols(); col++){
                 tempX = (int)(mainX+(col*blockSize));
@@ -33,7 +35,7 @@ public class TileBuffer {
                 //grid
                 if (grid){
                     if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
-                        g.setColor(Color.LIGHT_GRAY);
+                        g.setColor(new Color(33,35,37));
                         g.drawRect(tempX,tempY,(int)blockSize,(int)blockSize);
                     }
                 }
@@ -74,6 +76,7 @@ public class TileBuffer {
             map.floodFill(row,col,oldVal,newVal);
         }
     }
+    public void toggleGrid(){ grid = !grid; }
     public void addRow(){ map.saveMap(); map.addRow(); }
     public void removeRow(){ map.saveMap(); map.removeLastRow(); }
     public void addCol(){ map.saveMap(); map.addCol(); }

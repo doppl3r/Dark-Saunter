@@ -92,11 +92,13 @@ public class SpriteSheet {
 		this.y=(int)y;
 	}
 	public void draw(Graphics2D g){ //draws your sprite at the exact frame and possition
-		g.drawImage(getImage(), 
+        if (currentFrame >= 0){
+		    g.drawImage(getImage(),
 				getDestRectLeft(), getDestRectTop(),
 				getDestRectRight(), getDestRectBottom(), 
 				getSpriteLeft(), getSpriteTop(), 
 				getSpriteRight(), getSpriteBottom(), null);
+        }
 	}
     public void draw(Graphics2D g, int maxX, int maxY){ //optimize performance
         if (getDestRectRight() >= 0   && getDestRectBottom() >= 0 &&
@@ -152,7 +154,9 @@ public class SpriteSheet {
 	}
     public void updateLayout(int vFrames, int hFrames){
         if (vFrames < 1) vFrames = 1;
+        else if (vFrames > 99) vFrames = 99;
         if (hFrames < 1) hFrames = 1;
+        else if (hFrames > 99) hFrames = 99;
         this.hFrames=hFrames;
         this.vFrames=vFrames;
         spriteWidth =imgWidth = image.getWidth(null)/this.hFrames;
@@ -161,8 +165,16 @@ public class SpriteSheet {
         spriteRect.right=spriteWidth;
         spriteRect.bottom=spriteHeight;
     }
+    public String framesToString(){
+        String v = vFrames < 10 ? "0"+vFrames : ""+vFrames;
+        String h = hFrames < 10 ? "0"+hFrames : ""+hFrames;
+        return v+h;
+    } //0 to 99 digits
     public void updateLayout(){ updateLayout(vFrames,hFrames); }
-	public void setImage(Image image){ this.image = image; }
+	public void setImage(Image image){
+       // this.image = null;
+        this.image = image;
+    }
 	public Image getImage(){ return image; }
 	public Rect getDestRect(){ return destRect; }
 	public Rect getSpriteRect(){ return spriteRect; }

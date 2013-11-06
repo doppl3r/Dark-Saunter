@@ -21,7 +21,8 @@ public class TextureBox {
         int height = 128;
         int rows = EditorWindow.panel.texture.getVFrames();
         int cols = EditorWindow.panel.texture.getHFrames();
-        textureBox.draw(g);
+        g.setColor(new Color(49,51,53));
+        g.fillRect(x1,y1,width,height);
         g.drawImage(EditorWindow.panel.texture.getImage(),
                 x1, y1, x2+width+4, y2+height+4,
                 0,
@@ -29,8 +30,10 @@ public class TextureBox {
                 EditorWindow.panel.texture.getOriginalImageWidth(),
                 EditorWindow.panel.texture.getOriginalImageHeight(),
                 null);
+        textureBox.draw(g);
         //draw grid
-        g.setColor(new Color(0,0,0,50));
+        //g.setColor(new Color(0,0,0,50));
+        g.setColor(new Color(33,35,37));
         for (int row = 0; row < rows; row++){
             for (int col = 0; col < cols; col++){
                 g.drawRect(x1+(col)*(width/cols), y1+(row)*(height/rows),
