@@ -16,18 +16,23 @@ public class FileBrowser {
     private String imageName;
     private boolean exitAfterSave;
     private boolean saved;
+    FileNameExtensionFilter imageFormats;
+    FileNameExtensionFilter fileFormats;
 
     public FileBrowser(String directory){
         browser = new JFileChooser();
         this.directory=directory;
         mapName="";
         imageName="null";
+        imageFormats =
+            new FileNameExtensionFilter("Image Files '.jpg', '.png', '.gif'","jpg","png","gif");
+        fileFormats = new FileNameExtensionFilter("Map Files '.txt'","txt");
     }
     public void openMap(){
         browser.setSelectedFile(new File(mapName));
         browser.setDialogTitle("Open a map file");
         browser.setCurrentDirectory(new File(directory));
-        browser.setFileFilter(new FileNameExtensionFilter("Map Files '.txt'","txt"));
+        browser.setFileFilter(fileFormats);
         int result = browser.showOpenDialog(null);
         switch (result) {
             case JFileChooser.APPROVE_OPTION:
@@ -46,7 +51,7 @@ public class FileBrowser {
         browser.setSelectedFile(new File(mapName));
         browser.setDialogTitle("Save your map file");
         browser.setCurrentDirectory(new File(directory));
-        browser.setFileFilter(new FileNameExtensionFilter("Map Files '.txt'","txt"));
+        browser.setFileFilter(fileFormats);
         int actionDialog = browser.showSaveDialog(null);
         switch (actionDialog) {
             case JFileChooser.APPROVE_OPTION:
@@ -96,7 +101,7 @@ public class FileBrowser {
         browser.setSelectedFile(new File(imageName));
         browser.setDialogTitle("Import a texture image");
         browser.setCurrentDirectory(new File(directory));
-        browser.setFileFilter(new FileNameExtensionFilter("Image Files '.jpg', '.png', '.gif'","jpg","png","gif"));
+        browser.setFileFilter(imageFormats);
         int result = browser.showOpenDialog(null);
         switch (result) {
             case JFileChooser.APPROVE_OPTION: changeTexture(false); break;
@@ -160,8 +165,11 @@ public class FileBrowser {
         int result = JOptionPane.showConfirmDialog(null, panel, "Adjust 2D Map Dimension",
                 JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
         if (result == JOptionPane.OK_OPTION) {
-            EditorWindow.panel.editor.setRowsAndCols(
-                (int)Double.parseDouble(field2.getText()),(int)Double.parseDouble(field1.getText()));
+            int rows = (int)Double.parseDouble(field2.getText());
+            int cols = (int)Double.parseDouble(field1.getText());
+            if (rows > 499) rows = 499;
+            if (cols > 499) cols = 499;
+            EditorWindow.panel.editor.setRowsAndCols(rows,cols);
         } else { }
     }
     public void convertFileToMap(File file){
@@ -191,11 +199,13 @@ public class FileBrowser {
             String stringNum;
             for (int row = 0; row < rows; row++){
                 for (int col = 0; col < cols; col++){
-                    stringNum = stack.get(row).substring(col*2, (col*2)+2);
-                    if (stringNum.matches("-?\\d+")){
-                        id = Integer.parseInt(stringNum);
-                        EditorWindow.panel.editor.setTileAt(row,col,id);
+                    if (stack.get(row).length() == cols*2){
+                        stringNum = stack.get(row).substring(col*2, (col*2)+2);
+                        if (stringNum.matches("-?\\d+")){
+                            id = Integer.parseInt(stringNum);
+                            EditorWindow.panel.editor.setTileAt(row,col,id);
 
+                        } else errorMessage = true;
                     } else errorMessage = true;
                 }
             }
