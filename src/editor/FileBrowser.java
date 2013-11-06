@@ -50,8 +50,19 @@ public class FileBrowser {
         int actionDialog = browser.showSaveDialog(null);
         switch (actionDialog) {
             case JFileChooser.APPROVE_OPTION:
-                mapName = browser.getSelectedFile().toString();
-                quickSave(true);
+                if (browser.getSelectedFile().exists()){
+                    int actionDialog2 = JOptionPane.showConfirmDialog(null,"Replace existing file?");
+                    if (actionDialog2 == JOptionPane.NO_OPTION){ saveMap(); }
+                    else if (actionDialog2 == JOptionPane.YES_OPTION){
+                        mapName = browser.getSelectedFile().toString();
+                        quickSave(true);
+                    }
+                    else if (actionDialog2 == JOptionPane.CANCEL_OPTION){ }
+                }
+                else{
+                    mapName = browser.getSelectedFile().toString();
+                    quickSave(true);
+                }
                 if (exitAfterSave) System.exit(0);
             break;
             case JFileChooser.CANCEL_OPTION:
