@@ -117,20 +117,30 @@ public class Editor {
         tileBuffer.hover(x, y);
     }
     public boolean isActive(){ return (dragDraw || dragErase); }
-    public void addRow(){ tileBuffer.addRow(); }
-    public void removeRow(){ tileBuffer.removeRow(); }
-    public void addCol(){ tileBuffer.addCol(); }
-    public void removeCol(){ tileBuffer.removeCol(); }
-    public void setNewMap(int cols, int rows){ tileBuffer.setNewMap(cols,rows); }
-    public void setTileAt(int row, int col, int id){ tileBuffer.setTileID(row,col,id);}
+    public void addRow(){ EditorWindow.browser.setSavedState(false); tileBuffer.addRow(); }
+    public void removeRow(){ EditorWindow.browser.setSavedState(false); tileBuffer.removeRow(); }
+    public void addCol(){ EditorWindow.browser.setSavedState(false); tileBuffer.addCol(); }
+    public void removeCol(){ EditorWindow.browser.setSavedState(false); tileBuffer.removeCol(); }
+    public void setNewMap(int cols, int rows){
+        EditorWindow.browser.setSavedState(false);
+        tileBuffer.setNewMap(cols,rows);
+    }
+    public void setTileAt(int row, int col, int id){
+        EditorWindow.browser.setSavedState(false);
+        tileBuffer.setTileID(row,col,id);
+    }
     public void setRows(int rows){ tileBuffer.setRows(rows); }
     public void setCols(int cols){ tileBuffer.setCols(cols); }
-    public void setRowsAndCols(int rows, int cols){ tileBuffer.setRowsAndCols(rows,cols); }
-    public void resetMap(){ tileBuffer.resetMap(); zoomFit(false); }
-    public void clearMap(){ tileBuffer.clearMap(); }
+    public void setRowsAndCols(int rows, int cols){ EditorWindow.browser.setSavedState(false);
+        tileBuffer.setRowsAndCols(rows,cols);
+    }
+    public void resetMap(){ EditorWindow.browser.setSavedState(false);
+        tileBuffer.resetMap(); zoomFit(false);
+    }
+    public void clearMap(){ EditorWindow.browser.setSavedState(false); tileBuffer.clearMap(); }
     public void setTileID(int id){ tileID = id; }
-    public void undo(){ tileBuffer.undo(); }
-    public void redo(){ tileBuffer.redo(); }
+    public void undo(){ EditorWindow.browser.setSavedState(false); tileBuffer.undo(); }
+    public void redo(){ EditorWindow.browser.setSavedState(false); tileBuffer.redo(); }
     public void zoomIn(boolean center){
         double x = EditorWindow.getPanelWidth()/2;
         double y = EditorWindow.getPanelHeight()/2;
@@ -190,10 +200,10 @@ public class Editor {
     public void setShiftKey(boolean shiftKey){ this.shiftKey=shiftKey; }
     public void zKey(){
         if (controlKey) {
-            if (!shiftKey) tileBuffer.undo();
-            else tileBuffer.redo();
+            if (!shiftKey) undo();
+            else redo();
         } else zoomFit(false); }
-    public void yKey(){ if (controlKey) { tileBuffer.redo(); }}
+    public void yKey(){ if (controlKey) { redo(); }}
     public void sKey(){ if (controlKey) { EditorWindow.browser.quickSave(false); } else moveUp(); }
     public void oKey(){ if (controlKey) { EditorWindow.browser.openMap(); }}
     public void setCurrentTool(int i){

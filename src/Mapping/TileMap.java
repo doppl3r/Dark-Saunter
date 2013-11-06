@@ -110,7 +110,7 @@ public class TileMap {
         }
         System.out.println("");
     }
-    public String mapToString(){
+    public String mapToRawString(){
         StringBuilder mapString = new StringBuilder();
         for (int row = 0; row < getRows(); row++){
             for (int col = 0; col < getCols(); col++){
@@ -118,6 +118,42 @@ public class TileMap {
             }
             mapString.append(System.getProperty("line.separator"));
         }
+        return mapString.toString();
+    }
+    public String mapToCPlusPlusString(){
+        StringBuilder mapString = new StringBuilder();
+        String lb = System.getProperty("line.separator");
+        mapString.append("//c++ version: (copy and paste into code)"+lb);
+        mapString.append("int map["+getCols()+"]["+getRows()+"]="+lb);
+        mapString.append("{");
+        for (int row = 0; row < getRows(); row++){
+            mapString.append("{");
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getIDtoString());
+                if (col != getCols()-1) mapString.append(",");
+            }
+            mapString.append("}");
+            if (row != getRows()-1) mapString.append(","+lb);
+        }
+        mapString.append("};");
+        return mapString.toString();
+    }
+    public String mapToJavaString(){
+        StringBuilder mapString = new StringBuilder();
+        String lb = System.getProperty("line.separator");
+        mapString.append("//java version: (copy and paste into code)"+lb);
+        mapString.append("int[][] map="+lb);
+        mapString.append("{");
+        for (int row = 0; row < getRows(); row++){
+            mapString.append("{");
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getIDtoString());
+                if (col != getCols()-1) mapString.append(",");
+            }
+            mapString.append("}");
+            if (row != getRows()-1) mapString.append(","+lb);
+        }
+        mapString.append("};");
         return mapString.toString();
     }
     public Tile getTile(int row, int col){

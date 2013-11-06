@@ -20,7 +20,8 @@ public class FileBrowser {
     public FileBrowser(String directory){
         browser = new JFileChooser();
         this.directory=directory;
-        mapName=imageName="";
+        mapName="";
+        imageName="null";
     }
     public void openMap(){
         browser.setSelectedFile(new File(mapName));
@@ -61,10 +62,11 @@ public class FileBrowser {
             break;
         }
     }
-    public void changeTexture(){
-        if (!imageName.equals("null")){
+    public void changeTexture(boolean force){
+        //System.out.println(imageName);
+        if (!imageName.equals("null") || force){
             try {
-
+                //System.out.println("hey");
                 BufferedImage img = ImageIO.read(browser.getSelectedFile());
                 EditorWindow.panel.texture.setImage(img);
                 EditorWindow.panel.texture.updateLayout();
@@ -76,6 +78,7 @@ public class FileBrowser {
             EditorWindow.panel.texture.setImage(EditorWindow.tt.defaultTexture);
             EditorWindow.panel.texture.updateLayout();
             imageName = browser.getSelectedFile().toString();
+            changeTexture(true); //recursive!
         }
     }
     public void importTexture(){
@@ -85,7 +88,7 @@ public class FileBrowser {
         browser.setFileFilter(new FileNameExtensionFilter("Image Files '.jpg', '.png', '.gif'","jpg","png","gif"));
         int result = browser.showOpenDialog(null);
         switch (result) {
-            case JFileChooser.APPROVE_OPTION: changeTexture(); break;
+            case JFileChooser.APPROVE_OPTION: changeTexture(false); break;
             case JFileChooser.CANCEL_OPTION: break;
             case JFileChooser.ERROR_OPTION: break;
         }
@@ -197,14 +200,18 @@ public class FileBrowser {
             Integer.parseInt(stack.get(rows).substring(10,12)));
         EditorWindow.panel.editor.setTileID(1);
         EditorWindow.panel.gui.textureBox.setTileID(1);
-        changeTexture();
+        changeTexture(false);
     }
     public void convertMapToFile(){
-        String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToString();
+        String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToRawString();
         String path = "null";
         browser.setSelectedFile(new File(imageName));
         if (imageName.indexOf(".") >= 0) path = browser.getSelectedFile().getAbsolutePath();
-        mapString+="texture["+EditorWindow.panel.texture.framesToString()+"]="+path;
+        mapString+="texture["+EditorWindow.panel.texture.framesToString()+"]="+path+  //path info
+        System.getProperty("line.separator")+System.getProperty("line.separator")+    //space
+        EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString()+    //c++ sample
+        System.getProperty("line.separator")+System.getProperty("line.separator")+    //space
+        EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString();         //java sample
         BufferedWriter writer = null;
         try {
             if (mapName.indexOf(".txt")<0) mapName+=".txt";
