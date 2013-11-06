@@ -55,30 +55,34 @@ public class Editor {
     public void spaceBarReleased(){ forceDrag(false); }
 
     //mouse actions
-    public void down(int x, int y, int buttonID){
+    public boolean down(int x, int y, int buttonID){
+        boolean inBounds = false;
         switch(currentTool){
             case(0): //drag tool
                 downX = x;
                 downY = y;
                 break;
             case(1): //fill tool
-                tileBuffer.down(x,y,buttonID);
+                if (tileBuffer.down(x,y,buttonID)) inBounds=true;
                 if (buttonID == 1) floodFill(x,y,-1,tileID); //flood with current id
                 else if (buttonID != 0) floodFill(x,y,-1,0); //erase flood
                 break;
             case(2): //erase tool
-                tileBuffer.down(x,y,buttonID);
+                if (tileBuffer.down(x,y,buttonID)) inBounds=true;
                 if (buttonID == 1){ dragErase = true; move(x,y,buttonID); }
                 else if (buttonID != 0){ dragDraw = true; move(x,y,buttonID); }
                 break;
             case(3): //draw tool
-                tileBuffer.down(x,y,buttonID);
+                if (tileBuffer.down(x,y,buttonID)) inBounds=true;
                 if (buttonID == 1){ dragDraw = true; move(x,y,buttonID); }
                 else if (buttonID != 0){ dragErase = true; move(x,y,buttonID); }
                 break;
         }
+        if (inBounds) EditorWindow.browser.setSavedState(false);
+        return inBounds;
     }
-    public void move(int x, int y, int buttonID){
+    public boolean move(int x, int y, int buttonID){
+        boolean inBounds = false;
         tileBuffer.move(x,y,buttonID);
         if (currentTool == 0){ //drag the map if selected
             dragX = downX-x;
@@ -87,15 +91,17 @@ public class Editor {
         if (dragDraw){ //draw with current id
             if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
                     y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
-                tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID);
+                if (tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, tileID)) inBounds = true;
             }
         }
         else if (dragErase){ //erase
             if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
                     y-mainY > 0  && y-mainY < tileBuffer.getMapPixelHeight()){
-                tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0);
+                if (tileBuffer.setTileID((int)(y-mainY)/blockSize,(int)(x-mainX)/blockSize, 0)) inBounds = true;
             }
         }
+        if (inBounds) EditorWindow.browser.setSavedState(false);
+        return inBounds;
     }
     public void up(int x, int y, int buttonID){
         //reset all drag values
@@ -110,6 +116,7 @@ public class Editor {
         mouseY = y;
         tileBuffer.hover(x, y);
     }
+    public boolean isActive(){ return (dragDraw || dragErase); }
     public void addRow(){ tileBuffer.addRow(); }
     public void removeRow(){ tileBuffer.removeRow(); }
     public void addCol(){ tileBuffer.addCol(); }
@@ -187,7 +194,7 @@ public class Editor {
             else tileBuffer.redo();
         } else zoomFit(false); }
     public void yKey(){ if (controlKey) { tileBuffer.redo(); }}
-    public void sKey(){ if (controlKey) { EditorWindow.browser.saveMap(); } else moveUp(); }
+    public void sKey(){ if (controlKey) { EditorWindow.browser.quickSave(false); } else moveUp(); }
     public void oKey(){ if (controlKey) { EditorWindow.browser.openMap(); }}
     public void setCurrentTool(int i){
         currentTool = i;

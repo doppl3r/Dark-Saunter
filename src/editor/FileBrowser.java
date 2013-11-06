@@ -15,7 +15,7 @@ public class FileBrowser {
     private String mapName;
     private String imageName;
     private boolean exitAfterSave;
-    private boolean useDefaultTexture;
+    private boolean saved;
 
     public FileBrowser(String directory){
         browser = new JFileChooser();
@@ -50,7 +50,7 @@ public class FileBrowser {
         switch (actionDialog) {
             case JFileChooser.APPROVE_OPTION:
                 mapName = browser.getSelectedFile().toString();
-                convertMapToFile();
+                quickSave(true);
                 if (exitAfterSave) System.exit(0);
             break;
             case JFileChooser.CANCEL_OPTION:
@@ -110,10 +110,13 @@ public class FileBrowser {
         else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
     }
     public void exit(){
-        int actionDialog = JOptionPane.showConfirmDialog(null,"Would you like to save first?");
-        if (actionDialog == JOptionPane.NO_OPTION){ System.exit(0); }
-        else if (actionDialog == JOptionPane.YES_OPTION){ exitAfterSave = true; saveMap();  }
-        else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
+        if (!saved){
+            int actionDialog = JOptionPane.showConfirmDialog(null,"Would you like to save first?");
+            if (actionDialog == JOptionPane.NO_OPTION){ System.exit(0); }
+            else if (actionDialog == JOptionPane.YES_OPTION){ exitAfterSave = true; quickSave(false);  }
+            else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
+        }
+        else System.exit(0);
     }
     public void changeTextureProperties() {
         JTextField field1 = new JTextField(EditorWindow.panel.texture.getHFrames()+"");
@@ -207,6 +210,7 @@ public class FileBrowser {
             if (mapName.indexOf(".txt")<0) mapName+=".txt";
             writer = new BufferedWriter(new FileWriter(mapName));
             writer.write(mapString);
+            saved = true;
         }
         catch ( IOException e) { }
         finally {
@@ -214,4 +218,13 @@ public class FileBrowser {
             catch ( IOException e){}
         }
     }
+    public void quickSave(boolean force){
+        if (mapName.length()>0 || force){
+            convertMapToFile();
+            if (exitAfterSave) System.exit(0);
+        }
+        else saveMap();
+    }
+    public boolean isSaved(){ return saved; }
+    public void setSavedState(boolean saved){ this.saved=saved; }
 }

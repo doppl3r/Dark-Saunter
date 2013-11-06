@@ -149,7 +149,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         int x = e.getX();
         int y = e.getY();
         int buttonID = e.getButton();
-        gui.move(x,y);
+        if (!editor.isActive()) gui.move(x,y);
         if (!gui.isActive()) editor.move(x,y,buttonID);
     }
     public void mouseReleased(MouseEvent e) { //up

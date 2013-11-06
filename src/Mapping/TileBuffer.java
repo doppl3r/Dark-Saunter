@@ -52,12 +52,15 @@ public class TileBuffer {
         this.tileID =blockID;
     }
     //mouse actions
-    public void down(int x, int y, int buttonID){;
+    public boolean down(int x, int y, int buttonID){;
+        boolean inBounds = false;
         //save the map before the next action! Very important!
         if (x-mainX > 0 && x-mainX < getMapPixelWidth() &&
             y-mainY > 0  && y-mainY < getMapPixelHeight()){
             map.saveMap();
+            inBounds = true;
         }
+        return inBounds;
     }
     public void move(int x, int y, int buttonID){
 
@@ -87,7 +90,7 @@ public class TileBuffer {
     public void setRowsAndCols(int rows, int cols){ map.saveMap(); setRows(rows); setCols(cols); }
     public void resetMap(){ map.saveMap(); map.resetMap(); }
     public void clearMap(){ map.saveMap(); map.clearMap(); }
-    public void setTileID(int row, int col, int tileID){ map.setTileID(row,col,tileID); }
+    public boolean setTileID(int row, int col, int tileID){ return map.setTileID(row,col,tileID); }
     public void undo(){ map.undo(); }
     public void redo(){ map.redo(); }
     //getters

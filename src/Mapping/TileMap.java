@@ -90,11 +90,14 @@ public class TileMap {
         }
         return newMap;
     }
-    public void setTileID(int row, int col, int id){
+    public boolean setTileID(int row, int col, int id){
+        boolean inBounds = false;
         if (row >= 0 && row < getRows() &&
             col >= 0 && col < getCols()){
             map.get(index).get(row).get(col).setID(id);
+            inBounds = true;
         }
+        return inBounds;
     }
     public void mapToConsole(int i){
         //draw to console

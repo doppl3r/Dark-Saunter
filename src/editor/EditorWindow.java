@@ -52,13 +52,16 @@ public class EditorWindow {
     public static void exit(){
         jf.addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-                if (JOptionPane.showConfirmDialog(jf,
-                        "Would you like to save first?", "",
-                        JOptionPane.YES_NO_OPTION,
-                        JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-                    browser.saveMap();
-                    System.exit(0);
+                if (!browser.isSaved()){
+                    if (JOptionPane.showConfirmDialog(jf,
+                            "Would you like to save first?", "",
+                            JOptionPane.YES_NO_OPTION,
+                            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+                        browser.quickSave(false);
+                        System.exit(0);
+                    }
                 }
+                else System.exit(0);
             }
         });
     }
