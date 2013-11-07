@@ -67,9 +67,9 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
             }
         }
         gui.draw(g);
-        //g.setColor(Color.WHITE);
-        //g.setFont(font);
-        //g.drawString("fps: "+fps,4,12);
+        g.setColor(Color.WHITE);
+        g.setFont(font);
+        g.drawString("fps: "+fps,4,EditorWindow.getPanelHeight()-32);
         updateFPS(); //updatesfps after drawn completely
 	}
 	public void update(double mod){
