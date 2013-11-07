@@ -23,10 +23,25 @@ public class TileBuffer {
         int windowY = EditorWindow.getPanelHeight();
         int tempX;
         int tempY;
+        //set parameters
+        int minCol = -(int)(mainX/blockSize);
+        int maxCol = (int)(minCol+((windowX+(blockSize*2))/blockSize));
+        if (minCol < 0) minCol = 0;
+        if (maxCol < 0) maxCol = 0;
+        if (maxCol > map.getCols()) maxCol = map.getCols();
+        if (minCol > maxCol) minCol = maxCol;
+
+        int minRow = -(int)(mainY/blockSize);
+        int maxRow = (int)(minRow+((windowY+(blockSize*2))/blockSize));
+        if (minRow < 0) minRow = 0;
+        if (maxRow < 0) maxRow = 0;
+        if (maxRow > map.getRows()) maxRow = map.getRows();
+        if (minRow > maxRow) minRow = maxRow;
+
         g.setColor(new Color(49,51,53));
         g.fillRect((int)mainX,(int)mainY,(int)(map.getCols()*blockSize),(int)(map.getRows()*blockSize));
-        for (int row = 0; row < map.getRows(); row++){
-            for (int col = 0; col < map.getCols(); col++){
+        for (int row = minRow; row < maxRow; row++){
+            for (int col = minCol; col < maxCol; col++){
                 tempX = (int)(mainX+(col*blockSize));
                 tempY = (int)(mainY+(row*blockSize));
                 texture.animate(map.getTile(row,col).getID()-1);
@@ -34,10 +49,8 @@ public class TileBuffer {
                 texture.draw(g,windowX,windowY);
                 //grid
                 if (grid){
-                    if (tempX >= -blockSize && tempX < windowX && tempY >= -blockSize && tempY < windowY){
-                        g.setColor(new Color(33,35,37));
-                        g.drawRect(tempX,tempY,(int)blockSize,(int)blockSize);
-                    }
+                    g.setColor(new Color(33,35,37));
+                    g.drawRect(tempX,tempY,(int)blockSize,(int)blockSize);
                 }
             }
         }

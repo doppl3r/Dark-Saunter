@@ -61,6 +61,7 @@ public class Editor {
             case(0): //drag tool
                 downX = x;
                 downY = y;
+                inBounds=true;
                 break;
             case(1): //fill tool
                 if (tileBuffer.down(x,y,buttonID)) inBounds=true;
@@ -87,6 +88,7 @@ public class Editor {
         if (currentTool == 0){ //drag the map if selected
             dragX = downX-x;
             dragY = downY-y;
+            inBounds=true;
         }
         if (dragDraw){ //draw with current id
             if (x-mainX > 0  && x-mainX < tileBuffer.getMapPixelWidth() &&
@@ -111,12 +113,13 @@ public class Editor {
         if (dragY != 0) mainY -= dragY;
         dragX = dragY = downX = downY = 0;
     }
+    public boolean isNotClicked(){ return dragX == 0 && dragY == 0; }
     public void hover(int x, int y){
         mouseX = x;
         mouseY = y;
         tileBuffer.hover(x, y);
     }
-    public boolean isActive(){ return (dragDraw || dragErase); }
+    public boolean isActive(){ return (dragDraw || dragErase || !isNotClicked()); }
     public void addRow(){ EditorWindow.browser.setSavedState(false); tileBuffer.addRow(); }
     public void removeRow(){ EditorWindow.browser.setSavedState(false); tileBuffer.removeRow(); }
     public void addCol(){ EditorWindow.browser.setSavedState(false); tileBuffer.addCol(); }
