@@ -28,6 +28,7 @@ public class Textures {
     public Image importTexture;
     public Image settings;
     public Image textureBox;
+    public Image textureBoxSmall;
     public Image navUp;
     public Image navRight;
     public Image navDown;
@@ -66,6 +67,7 @@ public class Textures {
         importTexture = new ImageIcon(this.getClass().getResource("/gui/importTexture.png")).getImage();
         settings = new ImageIcon(this.getClass().getResource("/gui/settings.png")).getImage();
         textureBox = new ImageIcon(this.getClass().getResource("/gui/textureBox.png")).getImage();
+        textureBoxSmall = new ImageIcon(this.getClass().getResource("/gui/textureBoxSmall.png")).getImage();
         navUp = new ImageIcon(this.getClass().getResource("/gui/navUp.png")).getImage();
         navRight = new ImageIcon(this.getClass().getResource("/gui/navRight.png")).getImage();
         navDown = new ImageIcon(this.getClass().getResource("/gui/navDown.png")).getImage();

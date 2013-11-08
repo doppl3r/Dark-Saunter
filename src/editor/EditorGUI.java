@@ -1,6 +1,7 @@
 package editor;
 import java.awt.*;
 import buttons.Button;
+import textures.SpriteSheet;
 
 public class EditorGUI {
     private boolean active; //allows prioritiy if a button is hit
@@ -71,7 +72,7 @@ public class EditorGUI {
         //position each button
         positionGUI();
     }
-    public void draw(Graphics2D g){
+    public void draw(Graphics2D g, SpriteSheet texture){
         openArray.draw(g);
         saveArray.draw(g);
         addRow.draw(g);
@@ -101,7 +102,7 @@ public class EditorGUI {
         //nav4
         importTexture.draw(g);
         settings.draw(g);
-        textureBox.draw(g);
+        textureBox.draw(g,texture);
     }
     public void update(){
         //update gui position according to window size

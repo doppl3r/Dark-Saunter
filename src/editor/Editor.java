@@ -207,7 +207,7 @@ public class Editor {
             else redo();
         } else zoomFit(false); }
     public void yKey(){ if (controlKey) { redo(); }}
-    public void sKey(){ if (controlKey) { EditorWindow.browser.quickSave(false); } else moveUp(); }
+    public void sKey(){ if (controlKey) { EditorWindow.browser.quickSave(false); } else EditorWindow.panel.changeCurrentID(1,0); }
     public void oKey(){ if (controlKey) { EditorWindow.browser.openMap(); }}
     public void setCurrentTool(int i){
         currentTool = i;
@@ -234,4 +234,5 @@ public class Editor {
     public void moveLeft(){ mainX-=blockSize; }
     //getters
     public TileBuffer getTileBuffer(){ return tileBuffer; }
+    public int getTileID(){ return tileID; }
 }

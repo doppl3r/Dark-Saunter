@@ -66,7 +66,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 case(1): editor.draw(g,texture); break;
             }
         }
-        gui.draw(g);
+        gui.draw(g,texture);
         g.setColor(Color.WHITE);
         g.setFont(font);
         g.drawString("fps: "+fps,4,EditorWindow.getPanelHeight()-32);
@@ -89,14 +89,17 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
             case(0): break;
             case(1): //editor keybindings
                 if (key == KeyEvent.VK_ESCAPE) { EditorWindow.browser.exit(); }
-                else if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpPressed(); }
-                else if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightPressed(); }
-                else if (key == KeyEvent.VK_DOWN) { editor.keyDownPressed(); }
-                else if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftPressed(); }
+                else if (key == KeyEvent.VK_W) { changeCurrentID(-1,0); }
+                else if (key == KeyEvent.VK_D) { changeCurrentID(0,1); }
+                else if (key == KeyEvent.VK_S) { editor.sKey(); }
+                else if (key == KeyEvent.VK_A) { changeCurrentID(0,-1);}
                 else if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(true); }
                 else if (key == KeyEvent.VK_SHIFT){ editor.setShiftKey(true); }
                 else if (key == KeyEvent.VK_SPACE) { editor.spaceBarPressed(); } //Drag Tool
-                else if (key == KeyEvent.VK_S) { editor.sKey(); }
+                else if (key == KeyEvent.VK_UP) { editor.keyUpPressed(); }
+                else if (key == KeyEvent.VK_RIGHT) { editor.keyRightPressed();}
+                else if (key == KeyEvent.VK_DOWN) { editor.keyDownPressed(); }
+                else if (key == KeyEvent.VK_LEFT) { editor.keyLeftPressed(); }
                 else if (key == KeyEvent.VK_O) { editor.oKey(); }
                 else if (key == KeyEvent.VK_E) { editor.zoomIn(true); }
                 else if (key == KeyEvent.VK_Q) { editor.zoomOut(true); }
@@ -123,10 +126,10 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         switch(panelState){
             case(0): if (key != 0) {}
             case(1): //editor keybindings
-                if (key == KeyEvent.VK_UP || key == KeyEvent.VK_W) { editor.keyUpReleased(); }
-                if (key == KeyEvent.VK_RIGHT || key == KeyEvent.VK_D) { editor.keyRightReleased(); }
-                if (key == KeyEvent.VK_DOWN || key == KeyEvent.VK_S) { editor.keyDownReleased(); }
-                if (key == KeyEvent.VK_LEFT || key == KeyEvent.VK_A) { editor.keyLeftReleased(); }
+                if (key == KeyEvent.VK_UP) { editor.keyUpReleased(); }
+                if (key == KeyEvent.VK_RIGHT) { editor.keyRightReleased(); }
+                if (key == KeyEvent.VK_DOWN) { editor.keyDownReleased(); }
+                if (key == KeyEvent.VK_LEFT) { editor.keyLeftReleased(); }
                 if (key == KeyEvent.VK_CONTROL) { editor.setControlKey(false); }
                 if (key == KeyEvent.VK_SHIFT){ editor.setShiftKey(false); }
                 if (key == KeyEvent.VK_SPACE) { editor.spaceBarReleased(); }
@@ -195,5 +198,23 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
             delta = (now - then)/1000;
             mod = delta*pixelsPerSecond;
         } else then = now;
+    }
+    public void setGlobalID(int id){
+        editor.setTileID(id);
+        gui.textureBox.setTileID(id);
+    }
+    public void changeCurrentID(int newRow, int newCol){
+        int rows = texture.getHFrames();
+        int cols = texture.getVFrames();
+        int tempID = editor.getTileID()-1;
+        int row = (tempID/cols)+newRow;
+        int col = (tempID%cols)+newCol;
+        //parameters
+        if (row < 0) row = rows-1;
+        if (col < 0) col = cols-1;
+        if (row > rows-1) row = 0;
+        if (col > cols-1) col = 0;
+        tempID = (col) + (row*cols) + 1;
+        setGlobalID(tempID);
     }
 }

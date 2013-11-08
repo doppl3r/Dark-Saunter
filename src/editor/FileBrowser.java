@@ -20,6 +20,7 @@ public class FileBrowser {
     FileNameExtensionFilter fileFormats;
 
     public FileBrowser(String directory){
+        saved = true;
         browser = new JFileChooser();
         this.directory=directory;
         mapName="";
@@ -150,8 +151,7 @@ public class FileBrowser {
         if (result == JOptionPane.OK_OPTION) {
             EditorWindow.panel.texture.updateLayout(
                 (int)Double.parseDouble(field2.getText()),(int)Double.parseDouble(field1.getText()));
-            EditorWindow.panel.editor.setTileID(1);
-            EditorWindow.panel.gui.textureBox.setTileID(1);
+            EditorWindow.panel.setGlobalID(1);
         } else { }
     }
     public void changeArrayProperties(){

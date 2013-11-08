@@ -152,6 +152,7 @@ public class SpriteSheet {
 		destRect.left = 0;
 		destRect.right = 0;
 	}
+    public void updateLayout(){ updateLayout(vFrames,hFrames); }
     public void updateLayout(int vFrames, int hFrames){
         if (vFrames < 1) vFrames = 1;
         else if (vFrames > 99) vFrames = 99;
@@ -170,7 +171,7 @@ public class SpriteSheet {
         String h = hFrames < 10 ? "0"+hFrames : ""+hFrames;
         return v+h;
     } //0 to 99 digits
-    public void updateLayout(){ updateLayout(vFrames,hFrames); }
+
 	public void setImage(Image image){
        // this.image = null;
         this.image = image;
@@ -185,6 +186,7 @@ public class SpriteSheet {
 	public int getHFrames(){ return hFrames; }
 	public int getVFrames(){ return vFrames; }
 	public int getCurrentFrame(){ return (int)currentFrame; }
+    public int getFrames(){ return frames; }
 	public int getSpriteWidth(){ return spriteWidth; }
 	public int getSpriteHeight(){ return spriteHeight; }
 	public int getSpriteTop(){ return spriteRect.top; }
