@@ -48,7 +48,7 @@ public class TileMap {
     }
     public void resetMap(){
         deleteMap();
-        map.set(index, newMap(10, 8));
+        map.set(index, newMap(4, 4));
     }
     public void setNewMap(int cols, int rows){
         deleteMap();
@@ -78,6 +78,24 @@ public class TileMap {
     public void deleteMap(){
         if (map.get(index) != null){
             while (map.get(index).size() > 0) map.get(index).remove(0);
+        }
+    }
+    public void defaultMap(){
+        int[][] map=
+            {{0,0,0,0,0,0,0,0,0,0},
+            {0,0,0,0,0,0,12,12,12,0},
+            {11,11,11,0,0,0,12,12,12,0},
+            {11,51,11,0,0,12,12,12,12,12},
+            {11,52,11,0,0,0,0,9,0,0},
+            {1,1,1,1,1,0,0,9,0,23},
+            {5,5,2,2,2,1,1,1,1,1},
+            {5,6,5,5,5,5,2,2,2,2}
+        };
+        setNewMap(map[0].length,map.length);
+        for (int row = 0; row < getRows(); row++){
+            for (int col = 0; col < getCols(); col++){
+                setTileID(row,col,map[row][col]);
+            }
         }
     }
     public LinkedList<LinkedList<Tile>> newMap(int cols, int rows){

@@ -31,7 +31,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         font = new Font ("Arial", Font.BOLD, 12);
         gui = new EditorGUI();
         editor = new Editor();
-        texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 4, 4, 0.0);
+        texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 8, 8, 0.0);
 
 		//set listeners and thread
 		addKeyListener(this);
@@ -108,15 +108,15 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 else if (key == KeyEvent.VK_F) { editor.setCurrentTool(1); }  //Fill  Tool
                 else if (key == KeyEvent.VK_V) { editor.setCurrentTool(2); }  //Erase Tool
                 else if (key == KeyEvent.VK_B) { editor.setCurrentTool(3); }  //Draw Tool
-                else if (key == KeyEvent.VK_1) { EditorWindow.browser.openMap(); }
-                else if (key == KeyEvent.VK_2) { EditorWindow.browser.saveMap(); }
-                else if (key == KeyEvent.VK_3) { editor.addRow(); }
-                else if (key == KeyEvent.VK_4) { editor.removeRow(); }
-                else if (key == KeyEvent.VK_5) { editor.addCol();}
-                else if (key == KeyEvent.VK_6) { editor.removeCol(); }
-                else if (key == KeyEvent.VK_7) { EditorWindow.browser.newMap(); }
-                else if (key == KeyEvent.VK_8) { EditorWindow.browser.deleteMap(); }
-                else if (key == KeyEvent.VK_9) { EditorWindow.browser.changeArrayProperties(); }
+                else if (key == KeyEvent.VK_1) { EditorWindow.browser.newMap(); }
+                else if (key == KeyEvent.VK_2) { EditorWindow.browser.deleteMap(); }
+                else if (key == KeyEvent.VK_3) { EditorWindow.browser.changeArrayProperties(false); }
+                else if (key == KeyEvent.VK_4) { editor.addCol();}
+                else if (key == KeyEvent.VK_5) { editor.removeCol(); }
+                else if (key == KeyEvent.VK_6) { editor.addRow(); }
+                else if (key == KeyEvent.VK_7) { editor.removeRow(); }
+                else if (key == KeyEvent.VK_8) { EditorWindow.browser.openMap(); }
+                else if (key == KeyEvent.VK_9) { EditorWindow.browser.saveMap(); }
                 else if (key == KeyEvent.VK_0) { EditorWindow.browser.changeTextureProperties(); }
             break;
         }

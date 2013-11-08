@@ -111,24 +111,14 @@ public class FileBrowser {
         }
     }
     public void newMap(){
-        int actionDialog = JOptionPane.showConfirmDialog(null,"Create new map without saving?");
-        if (actionDialog == JOptionPane.NO_OPTION){ }
-        else if (actionDialog == JOptionPane.YES_OPTION){
-            EditorWindow.panel.editor.resetMap();
-            EditorWindow.panel.texture.setImage(EditorWindow.tt.defaultTexture);
-            EditorWindow.panel.texture.updateLayout(4,4);
-            EditorWindow.panel.editor.setTileID(1);
-            EditorWindow.panel.gui.textureBox.setTileID(1);
-            imageName="null";
-        }
-        else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
+        EditorWindow.panel.editor.resetMap();
+        EditorWindow.panel.texture.setImage(EditorWindow.tt.defaultTexture);
+        EditorWindow.panel.texture.updateLayout(8,8);
+        EditorWindow.panel.editor.setTileID(1);
+        EditorWindow.panel.gui.textureBox.setTileID(1);
+        imageName="null";
     }
-    public void deleteMap(){
-        int actionDialog = JOptionPane.showConfirmDialog(null,"Clear map without saving?");
-        if (actionDialog == JOptionPane.NO_OPTION){ }
-        else if (actionDialog == JOptionPane.YES_OPTION){ EditorWindow.panel.editor.clearMap(); }
-        else if (actionDialog == JOptionPane.CANCEL_OPTION){ }
-    }
+    public void deleteMap(){ EditorWindow.panel.editor.clearMap(); }
     public void exit(){
         if (!saved){
             int actionDialog = JOptionPane.showConfirmDialog(null,"Would you like to save first?");
@@ -154,7 +144,7 @@ public class FileBrowser {
             EditorWindow.panel.setGlobalID(1);
         } else { }
     }
-    public void changeArrayProperties(){
+    public void changeArrayProperties(boolean clear){
         JTextField field1 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getCols()+"");
         JTextField field2 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getRows()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
@@ -169,7 +159,9 @@ public class FileBrowser {
             int cols = (int)Double.parseDouble(field1.getText());
             if (rows > 999) rows = 999;
             if (cols > 999) cols = 999;
-            EditorWindow.panel.editor.setRowsAndCols(rows,cols);
+            if (clear) EditorWindow.panel.editor.getTileBuffer().clearMap();
+            EditorWindow.panel.editor.setRowsAndCols(rows,cols,clear);
+
         } else { }
     }
     public void convertFileToMap(File file){

@@ -134,11 +134,14 @@ public class Editor {
     }
     public void setRows(int rows){ tileBuffer.setRows(rows); }
     public void setCols(int cols){ tileBuffer.setCols(cols); }
-    public void setRowsAndCols(int rows, int cols){ EditorWindow.browser.setSavedState(false);
-        tileBuffer.setRowsAndCols(rows,cols);
+    public void setRowsAndCols(int rows, int cols,boolean clear){
+        EditorWindow.browser.setSavedState(false);
+        tileBuffer.setRowsAndCols(rows,cols,clear);
     }
-    public void resetMap(){ EditorWindow.browser.setSavedState(false);
-        tileBuffer.resetMap(); zoomFit(false);
+    public void resetMap(){
+        EditorWindow.browser.setSavedState(false);
+        EditorWindow.browser.changeArrayProperties(true);
+        //tileBuffer.resetMap(); zoomFit(false);
     }
     public void clearMap(){ EditorWindow.browser.setSavedState(false); tileBuffer.clearMap(); }
     public void setTileID(int id){ tileID = id; }

@@ -15,6 +15,7 @@ public class TileBuffer {
 
     public TileBuffer(){
         map = new TileMap(10,8);
+        map.defaultMap();
         font = new Font("Arial", Font.PLAIN, 10);
         grid = true;
     }
@@ -100,7 +101,11 @@ public class TileBuffer {
     public void setNewMap(int cols, int rows){ map.saveMap(); map.setNewMap(cols,rows); }
     public void setRows(int rows){ map.setRows(rows); }
     public void setCols(int cols){ map.setCols(cols); }
-    public void setRowsAndCols(int rows, int cols){ map.saveMap(); setRows(rows); setCols(cols); }
+    public void setRowsAndCols(int rows, int cols, boolean clear){
+        if (!clear) map.saveMap();
+        setRows(rows);
+        setCols(cols);
+    }
     public void resetMap(){ map.saveMap(); map.resetMap(); }
     public void clearMap(){ map.saveMap(); map.clearMap(); }
     public boolean setTileID(int row, int col, int tileID){ return map.setTileID(row,col,tileID); }
