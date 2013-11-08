@@ -2,7 +2,11 @@ package mapping;
 import editor.EditorWindow;
 import textures.SpriteSheet;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class TileBuffer {
     private TileMap map;
@@ -116,4 +120,31 @@ public class TileBuffer {
     public int getMapPixelWidth(){ return (int)blockSize*map.getCols(); }
     public int getMapPixelHeight(){ return (int)blockSize*map.getRows(); }
     public int getBlockSize(){ return (int)blockSize; }
+    //render map
+    public void renderMap(SpriteSheet texture){
+        int tempX;
+        int tempY;
+        boolean oldGrid = grid;
+        BufferedImage img = new BufferedImage(texture.getSpriteWidth()*map.getCols(),
+            texture.getSpriteHeight()*map.getRows(), BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g = img.createGraphics();
+        grid = false;
+
+        for (int row = 0; row < map.getRows(); row++){
+            for (int col = 0; col < map.getCols(); col++){
+                tempX = (col*texture.getSpriteWidth());
+                tempY = (row*texture.getSpriteHeight());
+                texture.animate(map.getTile(row,col).getID()-1);
+                texture.update(tempX,tempY,texture.getSpriteWidth(),texture.getSpriteHeight());
+                texture.draw(g);
+            }
+        }
+        grid = oldGrid;
+        g.dispose();
+        try {
+            File outputfile = new File("map_image.png");
+            ImageIO.write(img, "png", outputfile);
+        } catch (IOException e) {}
+    }
 }

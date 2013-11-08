@@ -1,9 +1,13 @@
 package editor;
 import textures.SpriteSheet;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class EditorPanel extends JPanel implements KeyListener, MouseWheelListener,
         MouseListener, MouseMotionListener, Runnable {
@@ -118,6 +122,8 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 else if (key == KeyEvent.VK_8) { EditorWindow.browser.openMap(); }
                 else if (key == KeyEvent.VK_9) { EditorWindow.browser.saveMap(); }
                 else if (key == KeyEvent.VK_0) { EditorWindow.browser.changeTextureProperties(); }
+                else if (key == KeyEvent.VK_F11) editor.renderMap(texture);
+                else if (key == KeyEvent.VK_F12) captureScreen();
             break;
         }
 	}
@@ -216,5 +222,16 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         if (col > cols-1) col = 0;
         tempID = (col) + (row*cols) + 1;
         setGlobalID(tempID);
+    }
+    public void captureScreen(){
+        BufferedImage img = new BufferedImage(EditorWindow.getPanelWidth(),
+            EditorWindow.getPanelHeight(), BufferedImage.TYPE_INT_ARGB);
+        Graphics g = img.createGraphics();
+        paintComponent(g);
+        g.dispose();
+        try {
+            File outputfile = new File("screenshot.png");
+            ImageIO.write(img, "png", outputfile);
+        } catch (IOException e) {}
     }
 }

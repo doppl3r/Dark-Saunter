@@ -212,6 +212,7 @@ public class Editor {
     public void yKey(){ if (controlKey) { redo(); }}
     public void sKey(){ if (controlKey) { EditorWindow.browser.quickSave(false); } else EditorWindow.panel.changeCurrentID(1,0); }
     public void oKey(){ if (controlKey) { EditorWindow.browser.openMap(); }}
+    public void renderMap(SpriteSheet texture){ tileBuffer.renderMap(texture); }
     public void setCurrentTool(int i){
         currentTool = i;
         EditorWindow.setCursor(i);
