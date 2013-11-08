@@ -227,7 +227,9 @@ public class FileBrowser {
         String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToRawString();
         String path = "null";
         browser.setSelectedFile(new File(imageName));
-        if (imageName.indexOf(".") >= 0) path = browser.getSelectedFile().getAbsolutePath();
+        if (imageName.indexOf(".") >= 0){
+            path = browser.getSelectedFile().getPath();
+        }
         mapString+="texture["+EditorWindow.panel.texture.framesToString()+"]="+path+  //path info
         System.getProperty("line.separator")+System.getProperty("line.separator")+    //space
         EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString()+    //c++ sample
