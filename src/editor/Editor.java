@@ -185,7 +185,11 @@ public class Editor {
             blockSize -= zoomAmount;
             mainX += (x - mainX)/(((blockSize+zoomAmount))/zoomAmount);
             mainY += (y - mainY)/(((blockSize+zoomAmount))/zoomAmount);
-        } else zoomFit(false);
+        } else {
+            if (tileBuffer.getMapPixelWidth() < EditorWindow.getPanelWidth() &&
+                tileBuffer.getMapPixelHeight()< EditorWindow.getPanelHeight())
+                zoomFit(false);
+        }
     }
     public void zoomFit(boolean force){ //only work if controlKey is not being held
         int width;

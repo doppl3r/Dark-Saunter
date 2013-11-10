@@ -232,7 +232,6 @@ public class FileBrowser {
                         if (stringNum.matches("-?\\d+")){
                             id = Integer.parseInt(stringNum);
                             EditorWindow.panel.editor.setTileAt(row,col,id);
-
                         } else errorMessage = true;
                     } else errorMessage = true;
                 }
@@ -252,22 +251,24 @@ public class FileBrowser {
         changeTexture(false);
     }
     public void convertMapToFile(){
-        String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToRawString();
+        StringBuffer newMap = new StringBuffer();
+        newMap.append(EditorWindow.panel.editor.getTileBuffer().getMap().mapToRawString());
+        //String mapString = EditorWindow.panel.editor.getTileBuffer().getMap().mapToRawString();
         String path = "null";
         browser.setSelectedFile(new File(imageName));
         if (imageName.indexOf(".") >= 0){
             path = browser.getSelectedFile().getPath();
         }
-        mapString+="texture["+EditorWindow.panel.texture.framesToString()+"]="+path+  //path info
-        System.getProperty("line.separator")+System.getProperty("line.separator")+    //space
-        EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString()+    //c++ sample
-        System.getProperty("line.separator")+System.getProperty("line.separator")+    //space
-        EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString();         //java sample
+        newMap.append("texture["+EditorWindow.panel.texture.framesToString()+"]="+path);          //path info
+        newMap.append(System.getProperty("line.separator")+System.getProperty("line.separator")); //space
+        newMap.append(EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString()); //c++ sample
+        newMap.append(System.getProperty("line.separator")+System.getProperty("line.separator")); //space
+        newMap.append(EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString());      //java sample
         BufferedWriter writer = null;
         try {
             if (mapName.indexOf(".txt")<0) mapName+=".txt";
             writer = new BufferedWriter(new FileWriter(mapName));
-            writer.write(mapString);
+            writer.write(newMap.toString());
             saved = true;
         }
         catch ( IOException e) { }
