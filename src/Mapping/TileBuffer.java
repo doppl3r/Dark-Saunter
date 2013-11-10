@@ -15,6 +15,7 @@ public class TileBuffer {
     private double mainX;
     private double mainY;
     private double blockSize;
+    private double t;
     private boolean grid;
 
     public TileBuffer(){
@@ -75,7 +76,7 @@ public class TileBuffer {
         //save the map before the next action! Very important!
         if (x-mainX > 0 && x-mainX < getMapPixelWidth() &&
             y-mainY > 0  && y-mainY < getMapPixelHeight()){
-            map.saveMap();
+            t=map.saveMap();
             inBounds = true;
         }
         return inBounds;
@@ -98,20 +99,20 @@ public class TileBuffer {
         }
     }
     public void toggleGrid(){ grid = !grid; }
-    public void addRow(){ map.saveMap(); map.addRow(); }
-    public void removeRow(){ map.saveMap(); map.removeLastRow(); }
-    public void addCol(){ map.saveMap(); map.addCol(); }
-    public void removeCol(){ map.saveMap(); map.removeLastCol(); }
-    public void setNewMap(int cols, int rows){ map.saveMap(); map.setNewMap(cols,rows); }
+    public void addRow(){ t=map.saveMap(); map.addRow(); }
+    public void removeRow(){ t=map.saveMap(); map.removeLastRow(); }
+    public void addCol(){ t=map.saveMap(); map.addCol(); }
+    public void removeCol(){ t=map.saveMap(); map.removeLastCol(); }
+    public void setNewMap(int cols, int rows){ t=map.saveMap(); map.setNewMap(cols,rows); }
     public void setRows(int rows){ map.setRows(rows); }
     public void setCols(int cols){ map.setCols(cols); }
     public void setRowsAndCols(int rows, int cols, boolean clear){
-        if (!clear) map.saveMap();
+        if (!clear) t=map.saveMap();
         setRows(rows);
         setCols(cols);
     }
-    public void resetMap(){ map.saveMap(); map.resetMap(); }
-    public void clearMap(){ map.saveMap(); map.clearMap(); }
+    public void resetMap(){ t=map.saveMap(); map.resetMap(); }
+    public void clearMap(){ t=map.saveMap(); map.clearMap(); }
     public boolean setTileID(int row, int col, int tileID){ return map.setTileID(row,col,tileID); }
     public void undo(){ map.undo(); }
     public void redo(){ map.redo(); }
@@ -147,4 +148,6 @@ public class TileBuffer {
             ImageIO.write(img, "png", outputfile);
         } catch (IOException e) {}
     }
+    public double getTime(){ return t; }
+    public void setEnableHistory(boolean enableHistory){ map.setEnableHistory(enableHistory); }
 }

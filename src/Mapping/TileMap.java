@@ -6,8 +6,10 @@ public class TileMap {
     private LinkedList<LinkedList<LinkedList<Tile>>> map; //maps -> rows -> cols
     private int savedCols;
     private int index;
+    private boolean enableHistory;
 
     public TileMap(int cols, int rows){
+        enableHistory = true;
         savedCols = cols; //used to recover empty rows
         map = new LinkedList<LinkedList<LinkedList<Tile>>>();
         map.add(newMap(10, 8));
@@ -181,28 +183,33 @@ public class TileMap {
     public int getRows(){ return map.get(index).size(); }
     public int getCols(){ return getRows() > 0 ? map.get(index).get(0).size() : -1; }
     public LinkedList<LinkedList<Tile>> getTileMap(){ return map.get(index); }
-    public void saveMap(){
-        //create new temporary map!
-        LinkedList<LinkedList<Tile>> newMap = new LinkedList<LinkedList<Tile>>();
-        int rows = getRows();
-        int cols = getCols();
-        int id;
-        for (int row = 0; row < rows; row++){
-            newMap.add(new LinkedList<Tile>());
-            for (int col = 0; col < cols; col++){
-                id = map.get(index).get(row).get(col).getID();
-                newMap.get(row).add(new Tile(id));
+    public double saveMap(){
+        double startTime = System.currentTimeMillis();
+        if (enableHistory){
+            //create new temporary map!
+            LinkedList<LinkedList<Tile>> newMap = new LinkedList<LinkedList<Tile>>();
+            int rows = getRows();
+            int cols = getCols();
+            int id;
+            for (int row = 0; row < rows; row++){
+                newMap.add(new LinkedList<Tile>());
+                for (int col = 0; col < cols; col++){
+                    id = map.get(index).get(row).get(col).getID();
+                    newMap.get(row).add(new Tile(id));
+                }
             }
+            //slice [BROKEN]
+            while (map.size()-1 > index) map.removeLast();
+            index = map.size();
+            map.add(newMap);
         }
-        //slice [BROKEN]
-        while (map.size()-1 > index) map.removeLast();
-        index = map.size();
-        map.add(newMap);
+        return (System.currentTimeMillis()-startTime)/1000; //returns save time
     }
     public void undo(){
-        if (index > 0) index--;
+        if (index > 0 && enableHistory) index--;
     }
     public void redo(){
-        if (index < map.size()-1) index++;
+        if (index < map.size()-1 && enableHistory) index++;
     }
+    public void setEnableHistory(boolean enableHistory){ this.enableHistory=enableHistory; }
 }

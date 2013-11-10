@@ -112,6 +112,8 @@ public class Editor {
         if (dragX != 0) mainX -= dragX;
         if (dragY != 0) mainY -= dragY;
         dragX = dragY = downX = downY = 0;
+        //check for performance
+        EditorWindow.browser.memoryWarning(tileBuffer.getTime());
     }
     public boolean isNotClicked(){ return dragX == 0 && dragY == 0; }
     public void hover(int x, int y){
@@ -218,6 +220,7 @@ public class Editor {
         EditorWindow.setCursor(i);
     }
     public void floodFill(int x, int y, int oldVal, int newVal){ tileBuffer.floodFill(x,y,oldVal,newVal); }
+    public void setEnableHistory(boolean enableHistory){ tileBuffer.setEnableHistory(enableHistory); }
     public void forceDrag(boolean force){
         //this will force the drag-map feature so that the SPACE bar can drag the map when held
         if (force){
@@ -238,5 +241,6 @@ public class Editor {
     public void moveLeft(){ mainX-=blockSize; }
     //getters
     public TileBuffer getTileBuffer(){ return tileBuffer; }
+    public double getTime(){ return tileBuffer.getTime(); }
     public int getTileID(){ return tileID; }
 }

@@ -14,6 +14,7 @@ public class FileBrowser {
     private String directory;
     private String mapName;
     private String imageName;
+    private boolean disableWarningMessage;
     private boolean exitAfterSave;
     private boolean saved;
     FileNameExtensionFilter imageFormats;
@@ -145,6 +146,7 @@ public class FileBrowser {
         } else { }
     }
     public void changeArrayProperties(boolean clear){
+        boolean go = true;
         JTextField field1 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getCols()+"");
         JTextField field2 = new JTextField(EditorWindow.panel.editor.getTileBuffer().getMap().getRows()+"");
         JPanel panel = new JPanel(new GridLayout(0, 1));
@@ -157,12 +159,46 @@ public class FileBrowser {
         if (result == JOptionPane.OK_OPTION) {
             int rows = (int)Double.parseDouble(field2.getText());
             int cols = (int)Double.parseDouble(field1.getText());
-            if (rows > 999) rows = 999;
-            if (cols > 999) cols = 999;
-            if (clear) EditorWindow.panel.editor.getTileBuffer().clearMap();
-            EditorWindow.panel.editor.setRowsAndCols(rows,cols,clear);
-
+            if (rows > 9999) rows = 9999;
+            if (cols > 9999) cols = 9999;
+            if (rows*cols >= 998001){ //999*999 = pretty slow performance
+                int i = JOptionPane.showConfirmDialog(null,
+                    "This data may take longer than usual to construct!\n" +
+                    "Are you sure you want to continue this process?\n",
+                    "",
+                    JOptionPane.YES_NO_OPTION,
+                    JOptionPane.WARNING_MESSAGE);
+                if (i == JOptionPane.NO_OPTION) go = false;
+            }
+            if (go){
+                double t = System.currentTimeMillis();
+                if (clear) EditorWindow.panel.editor.getTileBuffer().clearMap();
+                EditorWindow.panel.editor.setRowsAndCols(rows,cols,clear);
+                memoryWarning((System.currentTimeMillis()-t)/1000);
+            }
         } else { }
+    }
+    public void memoryWarning(double time){
+        if (time > 0.25){
+            if (!disableWarningMessage){
+                int i = JOptionPane.showConfirmDialog(null,
+                        "Your map data is too large to properly backup!\n"+
+                        "Would you like to turn off the backup system\n"+
+                        "to increase your performance?\n\n"+
+                        "Features such as 'undo' and 'redo' will no\n" +
+                        "longer be available for this session!\n\n"+
+                        "Lag: "+time+" seconds\n",
+                        "",
+                        JOptionPane.YES_NO_OPTION,
+                        JOptionPane.WARNING_MESSAGE);
+                if (i == JOptionPane.YES_OPTION){
+                    disableWarningMessage = true;
+                    EditorWindow.panel.editor.setEnableHistory(false);
+                }
+                else if (i == JOptionPane.NO_OPTION) disableWarningMessage = true;
+                else memoryWarning(time);
+            }
+        }
     }
     public void convertFileToMap(File file){
         LinkedList<String> stack = new LinkedList<String>();
