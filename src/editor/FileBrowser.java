@@ -159,8 +159,8 @@ public class FileBrowser {
         if (result == JOptionPane.OK_OPTION) {
             int rows = (int)Double.parseDouble(field2.getText());
             int cols = (int)Double.parseDouble(field1.getText());
-            if (rows > 9999) rows = 9999;
-            if (cols > 9999) cols = 9999;
+            if (rows > 999) rows = 999;
+            if (cols > 999) cols = 999;
             if (rows*cols >= 998001){ //999*999 = pretty slow performance
                 int i = JOptionPane.showConfirmDialog(null,
                     "This data may take longer than usual to construct!\n" +
