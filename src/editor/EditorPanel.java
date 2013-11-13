@@ -11,6 +11,7 @@ import java.io.IOException;
 
 public class EditorPanel extends JPanel implements KeyListener, MouseWheelListener,
         MouseListener, MouseMotionListener, Runnable {
+    private BufferedImage background;
 	private static final long serialVersionUID = 1L;
     private boolean paused; //pause option
     private int panelState; //displays menus individually
@@ -36,6 +37,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         gui = new EditorGUI();
         editor = new Editor();
         texture = new SpriteSheet(EditorWindow.tt.defaultTexture, 8, 8, 0.0);
+        renderBackground();
 
 		//set listeners and thread
 		addKeyListener(this);
@@ -63,6 +65,10 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
         Graphics2D g = (Graphics2D)g1;
         super.paintComponent(g);
 		setBackground(new Color(43,43,43));
+        //draw background
+        g.drawImage(background,0,0,
+            EditorWindow.getPanelWidth(),
+            EditorWindow.getPanelHeight(),null);
         //draw components
         if (!paused){
             switch(panelState){
@@ -233,5 +239,35 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
             File outputfile = new File("screenshot.png");
             ImageIO.write(img, "png", outputfile);
         } catch (IOException e) {}
+    }
+    public void renderBackground(){
+        int color = 43;
+        int width  = EditorWindow.getPanelWidth();
+        int height = EditorWindow.getPanelHeight();
+
+        background = new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
+        Graphics g = background.createGraphics();
+        //draw stuff normally
+        g.setColor(new Color(color,color,color));
+        g.fillRect(0,0,width,height);
+        for (int i = 0; i < 20000; i++){
+            int size = 50;
+            int rand = (int)(Math.random()*2);
+            int randX = (int)(Math.random()*(width+size)) -size;
+            int randY = (int)(Math.random()*(height+size))-size;
+            int maxDelta = size;
+            double delta = 0;
+            //draw lines
+            for (int j = 0; j < maxDelta; j++){
+                if (j < maxDelta/2) delta+=0.35;
+                else delta-=0.35;
+                //draw lines
+                g.setColor(new Color(color+(int)(delta),color+(int)(delta),color+(int)(delta)));
+                if (rand == 0) g.fillRect(randX+j,randY,1,1);
+                else g.fillRect(randX,randY+j,1,1);
+            }
+        }
+        //dispose heap
+        g.dispose();
     }
 }

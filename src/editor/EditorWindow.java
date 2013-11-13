@@ -45,8 +45,8 @@ public class EditorWindow {
 	}
     public static int getWindowWidth(){ return jf.getWidth(); }
     public static int getWindowHeight(){ return jf.getHeight(); }
-    public static int getPanelWidth(){ return panel != null ? panel.getWidth() : 0; }
-    public static int getPanelHeight(){ return panel != null ? panel.getHeight() : 0; }
+    public static int getPanelWidth(){ return panel != null ? panel.getWidth() : originalWidth; }
+    public static int getPanelHeight(){ return panel != null ? panel.getHeight() : originalHeight; }
     public static int getOriginalWidth(){ return originalWidth; }
     public static int getOriginalHeight(){ return originalHeight; }
     public static void exit(){

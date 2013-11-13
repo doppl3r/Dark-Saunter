@@ -20,7 +20,7 @@ public class TileBuffer {
 
     public TileBuffer(){
         map = new TileMap(10,8);
-        map.defaultMap();
+        //map.defaultMap();
         font = new Font("Arial", Font.PLAIN, 10);
         grid = true;
     }
