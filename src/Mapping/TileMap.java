@@ -143,7 +143,7 @@ public class TileMap {
     public String mapToCPlusPlusString(){
         StringBuilder mapString = new StringBuilder();
         String lb = System.getProperty("line.separator");
-        mapString.append("//c++ version: (copy and paste into code)"+lb);
+        mapString.append("//c++ version"+lb);
         mapString.append("int map["+getRows()+"]["+getCols()+"]="+lb);
         mapString.append("{");
         for (int row = 0; row < getRows(); row++){
@@ -161,7 +161,7 @@ public class TileMap {
     public String mapToJavaString(){
         StringBuilder mapString = new StringBuilder();
         String lb = System.getProperty("line.separator");
-        mapString.append("//java version: (copy and paste into code)"+lb);
+        mapString.append("//java version"+lb);
         mapString.append("int[][] map="+lb);
         mapString.append("{");
         for (int row = 0; row < getRows(); row++){

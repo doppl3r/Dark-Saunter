@@ -3,22 +3,25 @@ package editor;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.text.JTextComponent;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.awt.event.*;
 import java.io.*;
 import java.util.LinkedList;
 import java.util.Scanner;
 
 public class FileBrowser {
     private JFileChooser browser;
+    private JTextComponent fTextComponent;
     private String directory;
     private String mapName;
     private String imageName;
     private boolean disableWarningMessage;
     private boolean exitAfterSave;
     private boolean saved;
-    FileNameExtensionFilter imageFormats;
-    FileNameExtensionFilter fileFormats;
+    private FileNameExtensionFilter imageFormats;
+    private FileNameExtensionFilter fileFormats;
 
     public FileBrowser(String directory){
         saved = true;
@@ -259,11 +262,7 @@ public class FileBrowser {
         if (imageName.indexOf(".") >= 0){
             path = browser.getSelectedFile().getPath();
         }
-        newMap.append("texture["+EditorWindow.panel.texture.framesToString()+"]="+path);          //path info
-        newMap.append(System.getProperty("line.separator")+System.getProperty("line.separator")); //space
-        newMap.append(EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString()); //c++ sample
-        newMap.append(System.getProperty("line.separator")+System.getProperty("line.separator")); //space
-        newMap.append(EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString());      //java sample
+        newMap.append("texture["+EditorWindow.panel.texture.framesToString()+"]="+path);
         BufferedWriter writer = null;
         try {
             if (mapName.indexOf(".txt")<0) mapName+=".txt";
@@ -286,4 +285,37 @@ public class FileBrowser {
     }
     public boolean isSaved(){ return saved; }
     public void setSavedState(boolean saved){ this.saved=saved; }
+    public void launchCopyPaste(){
+        //formats
+        final String[] formats = new String[]{"Java","C++"};
+        final String[] compiler = new String[]{
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString(),
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString(),
+
+        };
+        final JComboBox box = new JComboBox(formats);
+        //text area
+        final JTextArea textArea = new JTextArea(EditorWindow.panel.editor.
+            getTileBuffer().getMap().mapToJavaString());
+        textArea.setColumns(32);
+        textArea.setRows(8);
+        textArea.setLineWrap( false );
+        textArea.setSize(textArea.getPreferredSize().width, 1);
+        final JScrollPane scroll = new JScrollPane (textArea,
+            JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+            JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        final JPanel panel = new JPanel();
+        panel.add(box);
+        panel.add(scroll);
+
+        box.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                textArea.setText(compiler[box.getSelectedIndex()]);
+                textArea.setCaretPosition(0);
+            }
+        });
+        JOptionPane.showConfirmDialog(null,panel, "Copy Map Code!",
+            JOptionPane.CLOSED_OPTION, JOptionPane.PLAIN_MESSAGE);
+    }
 }

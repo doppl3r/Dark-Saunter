@@ -16,6 +16,7 @@ public class Textures {
     public Image removeColumn;
     public Image newArray;
     public Image deleteArray;
+    public Image copy;
     public Image exit;
     public Image zoomIn;
     public Image zoomOut;
@@ -55,6 +56,7 @@ public class Textures {
         removeColumn = new ImageIcon(this.getClass().getResource("/gui/removeColumn.png")).getImage();
         newArray = new ImageIcon(this.getClass().getResource("/gui/newArray.png")).getImage();
         deleteArray = new ImageIcon(this.getClass().getResource("/gui/deleteArray.png")).getImage();
+        copy = new ImageIcon(this.getClass().getResource("/gui/copy.png")).getImage();
         exit = new ImageIcon(this.getClass().getResource("/gui/exit.png")).getImage();
         zoomIn = new ImageIcon(this.getClass().getResource("/gui/zoomIn.png")).getImage();
         zoomOut = new ImageIcon(this.getClass().getResource("/gui/zoomOut.png")).getImage();

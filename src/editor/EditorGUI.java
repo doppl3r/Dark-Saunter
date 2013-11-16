@@ -17,6 +17,7 @@ public class EditorGUI {
     private Button redo;
     private Button openArray;
     private Button saveArray;
+    private Button copy;
     private Button exit;
     //nav2
     private Button zoomIn;
@@ -50,6 +51,7 @@ public class EditorGUI {
         redo = new Button(EditorWindow.tt.navRight,0,0,1,2,false);
         openArray = new Button(EditorWindow.tt.openArray,0,0,1,2,false);
         saveArray = new Button(EditorWindow.tt.saveArray,0,0,1,2,false);
+        copy = new Button(EditorWindow.tt.copy, 0,0,1,2,false);
         exit = new Button(EditorWindow.tt.exit,0,0,1,2,false);
         //nav2
         zoomIn = new Button(EditorWindow.tt.zoomIn,0,0,1,2,false);
@@ -84,6 +86,7 @@ public class EditorGUI {
         redo.draw(g);
         openArray.draw(g);
         saveArray.draw(g);
+        copy.draw(g);
         exit.draw(g);
         //nav2
         zoomIn.draw(g);
@@ -120,6 +123,7 @@ public class EditorGUI {
         if (redo.down(x1,y1)) active = true;
         if (openArray.down(x1,y1)) active = true;
         if (saveArray.down(x1,y1)) active = true;
+        if (copy.down(x1,y1)) active = true;
         if (exit.down(x1,y1)) active = true;
         //nav2
         if (zoomIn.down(x1,y1)) active = true;
@@ -152,6 +156,7 @@ public class EditorGUI {
         arraySettings.move(x1,y1);
         undo.move(x1,y1);
         redo.move(x1,y1);
+        copy.move(x1,y1);
         exit.move(x1,y1);
         //nav2
         zoomIn.move(x1,y1);
@@ -185,6 +190,7 @@ public class EditorGUI {
         else if (redo.up(x1,y1)) { EditorWindow.panel.editor.redo(); }
         else if (openArray.up(x1,y1)){ EditorWindow.browser.openMap(); }
         else if (saveArray.up(x1,y1)){ EditorWindow.browser.saveMap(); }
+        else if (copy.up(x1,y1)){ EditorWindow.browser.launchCopyPaste(); }
         else if (exit.up(x1,y1)){ EditorWindow.browser.exit(); }
         //nav2
         else if (zoomIn.up(x1,y1)){ EditorWindow.panel.editor.zoomIn(true); }
@@ -219,6 +225,7 @@ public class EditorGUI {
         redo.hover(x1,y1);
         openArray.hover(x1,y1);
         saveArray.hover(x1,y1);
+        copy.hover(x1,y1);
         exit.hover(x1,y1);
         //nav2
         zoomIn.hover(x1,y1);
@@ -255,7 +262,8 @@ public class EditorGUI {
         redo.update(264,4) ; redo.setHint("Redo [Ctrl + y]");
         openArray.update(304,4); openArray.setHint("Open Map [Ctrl + o]");
         saveArray.update(332,4); saveArray.setHint("Save Map [Ctrl + s]");
-        exit.update(360,4); exit.setHint("Exit [Esc]");
+        copy.update(360,4); copy.setHint("Copy Map to Code [0]");
+        exit.update(388,4); exit.setHint("Exit [Esc]");
         //nav2 - update according to right
         zoomIn.update(width-84,4); zoomIn.setHint("Zoom In [e]");
         zoomOut.update(width-28,4); zoomOut.setHint("Zoom Out [q]");
@@ -272,7 +280,7 @@ public class EditorGUI {
         drawTool.update(88,height-28); drawTool.setHint("Draw Tool [b]");
         //nav4 - update according to right and bottom
         importTexture.update(width - 168, height - 28); importTexture.setHint("Import Texture");
-        settings.update(width-168,height-56); settings.setHint("Texture Properties [0]");
+        settings.update(width-168,height-56); settings.setHint("Texture Properties");
         textureBox.update(width-140,height-140);
     }
     public boolean isActive(){ return active; }
