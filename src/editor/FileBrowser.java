@@ -3,8 +3,9 @@ package editor;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.text.JTextComponent;
 import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.image.BufferedImage;
 import java.awt.event.*;
 import java.io.*;
@@ -13,7 +14,6 @@ import java.util.Scanner;
 
 public class FileBrowser {
     private JFileChooser browser;
-    private JTextComponent fTextComponent;
     private String directory;
     private String mapName;
     private String imageName;
@@ -35,7 +35,7 @@ public class FileBrowser {
     }
     public void openMap(){
         browser.setSelectedFile(new File(mapName));
-        browser.setDialogTitle("Open a map file");
+        browser.setDialogTitle("Open Map File");
         browser.setCurrentDirectory(new File(directory));
         browser.setFileFilter(fileFormats);
         int result = browser.showOpenDialog(null);
@@ -54,7 +54,7 @@ public class FileBrowser {
     }
     public void saveMap(){
         browser.setSelectedFile(new File(mapName));
-        browser.setDialogTitle("Save your map file");
+        browser.setDialogTitle("Save Map File");
         browser.setCurrentDirectory(new File(directory));
         browser.setFileFilter(fileFormats);
         int actionDialog = browser.showSaveDialog(null);
@@ -104,7 +104,7 @@ public class FileBrowser {
     }
     public void importTexture(){
         browser.setSelectedFile(new File(imageName));
-        browser.setDialogTitle("Import a texture image");
+        browser.setDialogTitle("Import a Texture Image");
         browser.setCurrentDirectory(new File(directory));
         browser.setFileFilter(imageFormats);
         int result = browser.showOpenDialog(null);
@@ -304,17 +304,37 @@ public class FileBrowser {
         final JScrollPane scroll = new JScrollPane (textArea,
             JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
             JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        //copy button settings
+        final Clipboard clipboard =
+            Toolkit.getDefaultToolkit().getSystemClipboard();
+        final JButton copy = new JButton("Copy");
 
         final JPanel panel = new JPanel();
         panel.add(box);
         panel.add(scroll);
-
+        panel.add(copy);
+        //combo listener
         box.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 textArea.setText(compiler[box.getSelectedIndex()]);
                 textArea.setCaretPosition(0);
             }
         });
+        //copy listener
+        copy.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                StringSelection data = new StringSelection(textArea.getText());
+                clipboard.setContents(data, data);
+                textArea.requestFocusInWindow();
+                textArea.selectAll();
+                JOptionPane.showConfirmDialog(null,
+                    "Map successfully copied to clipboard!",
+                    "",
+                    JOptionPane.CLOSED_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+        //ok listener
         JOptionPane.showConfirmDialog(null,panel, "Copy Map Code!",
             JOptionPane.CLOSED_OPTION, JOptionPane.PLAIN_MESSAGE);
     }
