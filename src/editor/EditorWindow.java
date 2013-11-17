@@ -72,7 +72,9 @@ public class EditorWindow {
             public void componentHidden(ComponentEvent e) { }
             public void componentMoved(ComponentEvent e) { }
             public void componentShown(ComponentEvent e) { }
-            public void componentResized(ComponentEvent e) { panel.gui.positionGUI(); }
+            public void componentResized(ComponentEvent e) {
+                panel.gui.positionGUI();
+            }
         });
     }
 

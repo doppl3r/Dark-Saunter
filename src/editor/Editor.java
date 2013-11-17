@@ -247,4 +247,5 @@ public class Editor {
     public TileBuffer getTileBuffer(){ return tileBuffer; }
     public double getTime(){ return tileBuffer.getTime(); }
     public int getTileID(){ return tileID; }
+    public boolean gridIsOn(){ return tileBuffer.gridIsOn(); }
 }

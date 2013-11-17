@@ -1,4 +1,5 @@
 package editor;
+import textures.Resizer;
 import textures.SpriteSheet;
 
 import javax.imageio.ImageIO;
@@ -12,6 +13,7 @@ import java.io.IOException;
 public class EditorPanel extends JPanel implements KeyListener, MouseWheelListener,
         MouseListener, MouseMotionListener, Runnable {
     private BufferedImage background;
+    private BufferedImage finalBackground;
 	private static final long serialVersionUID = 1L;
     private boolean paused; //pause option
     private int panelState; //displays menus individually
@@ -267,6 +269,7 @@ public class EditorPanel extends JPanel implements KeyListener, MouseWheelListen
                 else g.fillRect(randX,randY+j,1,1);
             }
         }
+        finalBackground = background;
         //dispose heap
         g.dispose();
     }

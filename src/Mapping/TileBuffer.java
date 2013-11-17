@@ -150,4 +150,5 @@ public class TileBuffer {
     }
     public double getTime(){ return t; }
     public void setEnableHistory(boolean enableHistory){ map.setEnableHistory(enableHistory); }
+    public boolean gridIsOn(){ return grid; }
 }
