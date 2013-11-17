@@ -1,7 +1,8 @@
 package editor;
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.event.HyperlinkEvent;
+import javax.swing.event.HyperlinkListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -336,6 +337,31 @@ public class FileBrowser {
         });
         //ok listener
         JOptionPane.showConfirmDialog(null,panel, "Copy Map Code!",
+            JOptionPane.CLOSED_OPTION, JOptionPane.PLAIN_MESSAGE);
+    }
+    public void help(){
+        JPanel panel = new JPanel();
+        JButton button1 = new JButton("Developer Page (doppl3r)");
+        JButton button2 = new JButton("Download Latest Version");
+        panel.add(button1);
+        panel.add(button2);
+        //website
+        button1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try { java.awt.Desktop.getDesktop().browse(java.net.URI.create("https://github.com/doppl3r"));
+                } catch (IOException e1) { e1.printStackTrace(); }
+            }
+        });
+        //download again
+        button2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                try { java.awt.Desktop.getDesktop().
+                    browse(java.net.URI.create("https://github.com/doppl3r/" +
+                    "Dark-Saunter/raw/master/out/artifacts/Editor/Editor.jar"));
+                } catch (IOException e1) { e1.printStackTrace(); }
+            }
+        });
+        JOptionPane.showConfirmDialog(null,panel, "Learn More!",
             JOptionPane.CLOSED_OPTION, JOptionPane.PLAIN_MESSAGE);
     }
 }

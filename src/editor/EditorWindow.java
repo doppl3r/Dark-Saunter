@@ -2,6 +2,8 @@ package editor;
 import textures.Textures;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 
 public class EditorWindow {
 	static JFrame jf;
@@ -37,11 +39,13 @@ public class EditorWindow {
         jf.getContentPane().add(panel);
         jf.setResizable(true);
         jf.pack();
+        jf.setMinimumSize(new Dimension(jf.getWidth(),jf.getHeight()));
         jf.setLocationRelativeTo(null);
         jf.requestFocusInWindow();
         jf.setVisible(true);
         setCursor(3);
         exit();
+
 	}
     public static int getWindowWidth(){ return jf.getWidth(); }
     public static int getWindowHeight(){ return jf.getHeight(); }
@@ -63,6 +67,12 @@ public class EditorWindow {
                 }
                 else System.exit(0);
             }
+        });
+        jf.addComponentListener(new ComponentListener() {
+            public void componentHidden(ComponentEvent e) { }
+            public void componentMoved(ComponentEvent e) { }
+            public void componentShown(ComponentEvent e) { }
+            public void componentResized(ComponentEvent e) { panel.gui.positionGUI(); }
         });
     }
 
