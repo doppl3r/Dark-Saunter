@@ -62,6 +62,8 @@ public class TextureBox {
             g.fillRect(
                 hoverX-textureBoxSmall.getImageWidth()+4,
                 hoverY-textureBoxSmall.getImageHeight()+4,64,64);
+            textureBoxSmall.update(hoverX-textureBoxSmall.getImageWidth(),
+                hoverY-textureBoxSmall.getImageHeight());
             textureBoxSmall.draw(g);
             texture.animate(tileID-1);
             texture.update(hoverX-textureBoxSmall.getImageWidth()+4,
@@ -71,12 +73,12 @@ public class TextureBox {
             g.drawRect(
                 hoverX-textureBoxSmall.getImageWidth()+4,
                 hoverY-textureBoxSmall.getImageHeight()+4,64,64);
+
         }
     }
     public void update(int x, int y){
         textureBox.update(x,y);
-        textureBoxSmall.update(hoverX-textureBoxSmall.getImageWidth(),
-            hoverY-textureBoxSmall.getImageHeight());
+
     }
     public boolean down(int x1, int y1){
         boolean hover = setTileID(x1,y1,true);
