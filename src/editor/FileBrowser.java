@@ -1,8 +1,6 @@
 package editor;
 import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.event.HyperlinkEvent;
-import javax.swing.event.HyperlinkListener;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -288,11 +286,11 @@ public class FileBrowser {
     public void setSavedState(boolean saved){ this.saved=saved; }
     public void launchCopyPaste(){
         //formats
-        final String[] formats = new String[]{"Java","C++"};
+        final String[] formats = new String[]{"Java","C++","ActionScript"};
         final String[] compiler = new String[]{
             EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString(),
             EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString(),
-
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToActionScript()
         };
         final JComboBox box = new JComboBox(formats);
         //text area

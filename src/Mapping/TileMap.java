@@ -176,6 +176,24 @@ public class TileMap {
         mapString.append("};");
         return mapString.toString();
     }
+    public String mapToActionScript(){
+        StringBuilder mapString = new StringBuilder();
+        String lb = System.getProperty("line.separator");
+        mapString.append("//actionscript3 version"+lb);
+        mapString.append("var map:Array = new Array("+lb);
+        //mapString.append("{");
+        for (int row = 0; row < getRows(); row++){
+            mapString.append("new Array(");
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getID());
+                if (col != getCols()-1) mapString.append(",");
+            }
+            mapString.append(")");
+            if (row != getRows()-1) mapString.append(","+lb);
+        }
+        mapString.append(");");
+        return mapString.toString();
+    }
     public Tile getTile(int row, int col){
         return map.get(index).get(row).get(col);
     }
