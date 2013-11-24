@@ -1,4 +1,6 @@
 package editor;
+import mapping.Tile;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -204,6 +206,7 @@ public class FileBrowser {
     }
     public void convertFileToMap(File file){
         LinkedList<String> stack = new LinkedList<String>();
+        int idLength = Tile.getIdLength();
         Scanner scan = null;
         int rows = 0;
         int cols = 0;
@@ -215,22 +218,22 @@ public class FileBrowser {
         while (scan.hasNextLine()){
             stack.add(scan.nextLine());
             if (countRows &&
-                stack.get(stack.size()-1).length() >= 2){ //= a number
-                if (stack.get(stack.size()-1).substring(0,2).matches("-?\\d+")) rows++;
+                stack.get(stack.size()-1).length() >= idLength){ //= a number
+                if (stack.get(stack.size()-1).substring(0,idLength).matches("-?\\d+")) rows++;
                 //else errorMessage = true;
             }
             else countRows = false;
         }
         //initialize parameters
-        if (!errorMessage && rows > 0){ cols = stack.get(0).length()/2; //parse according to 0-99
+        if (!errorMessage && rows > 0){ cols = stack.get(0).length()/idLength; //parse according to 0-99
             //contruct new array;
             EditorWindow.panel.editor.setNewMap(cols, rows);
             int id = 0;
             String stringNum;
             for (int row = 0; row < rows; row++){
                 for (int col = 0; col < cols; col++){
-                    if (stack.get(row).length() == cols*2){
-                        stringNum = stack.get(row).substring(col*2, (col*2)+2);
+                    if (stack.get(row).length() == cols*idLength){
+                        stringNum = stack.get(row).substring(col*idLength, (col*idLength)+idLength);
                         if (stringNum.matches("-?\\d+")){
                             id = Integer.parseInt(stringNum);
                             EditorWindow.panel.editor.setTileAt(row,col,id);
