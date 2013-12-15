@@ -140,10 +140,10 @@ public class TileMap {
         }
         return mapString.toString();
     }
-    public String mapToCPlusPlusString(){
+    public String mapToCPlusPlus2dString(){
         StringBuilder mapString = new StringBuilder();
         String lb = System.getProperty("line.separator");
-        mapString.append("//c++ version"+lb);
+        mapString.append("//c++ 2D version"+lb);
         mapString.append("int map["+getRows()+"]["+getCols()+"]="+lb);
         mapString.append("{");
         for (int row = 0; row < getRows(); row++){
@@ -158,10 +158,28 @@ public class TileMap {
         mapString.append("};");
         return mapString.toString();
     }
-    public String mapToJavaString(){
+    public String mapToCPlusPlus1dString(){
         StringBuilder mapString = new StringBuilder();
         String lb = System.getProperty("line.separator");
-        mapString.append("//java version"+lb);
+        mapString.append("//c++ 1D version"+lb);
+        mapString.append("int map["+(getCols()*getRows())+"]="+lb);
+        mapString.append("{");
+        for (int row = 0; row < getRows(); row++){
+            //mapString.append("{");
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getID());
+                if (col != getCols()-1) mapString.append(",");
+            }
+            //mapString.append("}");
+            if (row != getRows()-1) mapString.append(","+lb);
+        }
+        mapString.append(lb+"};");
+        return mapString.toString();
+    }
+    public String mapToJava2dString(){
+        StringBuilder mapString = new StringBuilder();
+        String lb = System.getProperty("line.separator");
+        mapString.append("//java 1D version"+lb);
         mapString.append("int[][] map="+lb);
         mapString.append("{");
         for (int row = 0; row < getRows(); row++){
@@ -174,6 +192,24 @@ public class TileMap {
             if (row != getRows()-1) mapString.append(","+lb);
         }
         mapString.append("};");
+        return mapString.toString();
+    }
+    public String mapToJava1dString(){
+        StringBuilder mapString = new StringBuilder();
+        String lb = System.getProperty("line.separator");
+        mapString.append("//java 1D version"+lb);
+        mapString.append("int map["+"]="+lb);
+        mapString.append("{");
+        for (int row = 0; row < getRows(); row++){
+            //mapString.append("{");
+            for (int col = 0; col < getCols(); col++){
+                mapString.append(map.get(index).get(row).get(col).getID());
+                if (col != getCols()-1) mapString.append(",");
+            }
+            //mapString.append("}");
+            if (row != getRows()-1) mapString.append(","+lb);
+        }
+        mapString.append(lb+"};");
         return mapString.toString();
     }
     public String mapToActionScript(){

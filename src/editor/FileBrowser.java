@@ -289,16 +289,18 @@ public class FileBrowser {
     public void setSavedState(boolean saved){ this.saved=saved; }
     public void launchCopyPaste(){
         //formats
-        final String[] formats = new String[]{"Java","C++","ActionScript"};
+        final String[] formats = new String[]{"Java 2D","Java 1D","C++ 2D","C++ 1D","ActionScript 2D"};
         final String[] compiler = new String[]{
-            EditorWindow.panel.editor.getTileBuffer().getMap().mapToJavaString(),
-            EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlusString(),
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToJava2dString(),
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToJava1dString(),
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlus2dString(),
+            EditorWindow.panel.editor.getTileBuffer().getMap().mapToCPlusPlus1dString(),
             EditorWindow.panel.editor.getTileBuffer().getMap().mapToActionScript()
         };
         final JComboBox box = new JComboBox(formats);
         //text area
         final JTextArea textArea = new JTextArea(EditorWindow.panel.editor.
-            getTileBuffer().getMap().mapToJavaString());
+            getTileBuffer().getMap().mapToJava2dString());
         textArea.setColumns(32);
         textArea.setRows(8);
         textArea.setLineWrap( false );
